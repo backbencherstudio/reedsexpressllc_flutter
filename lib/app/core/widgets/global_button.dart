@@ -32,7 +32,7 @@ Widget globalButton(
         decoration: BoxDecoration(
             color: color ?? AppColors.primary,
             gradient: gradient,
-            borderRadius: borderRadius ?? BorderRadius.circular(50.r),
+            borderRadius: borderRadius ?? BorderRadius.circular(12.r),
             border: Border.all(color: borderColor ?? Colors.transparent),
             boxShadow: boxShadow),
         child: Row(

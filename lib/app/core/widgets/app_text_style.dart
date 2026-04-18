@@ -31,11 +31,11 @@ class AppTextStyle extends StatelessWidget {
       text.tr,
       textAlign: textAlign ?? TextAlign.start,
       maxLines: maxLines,
-      style: GoogleFonts.outfit(
+      style: GoogleFonts.poppins(
         textStyle: TextStyle(
           color: color ?? Colors.black,
           fontSize: fontSize ?? 14.sp,
-          fontWeight: fontWeight,
+          fontWeight: fontWeight ?? FontWeight.w400,
           height: height,
           decoration: decoration,
           decorationColor: decorationColor,
@@ -71,11 +71,11 @@ class AppTextStyleOverFlow extends StatelessWidget {
       textAlign: textAlign ?? TextAlign.start,
       overflow: TextOverflow.ellipsis,
       maxLines: maxLines ?? 1,
-      style: GoogleFonts.outfit(
+      style: GoogleFonts.poppins(
         textStyle: TextStyle(
           color: color ?? Colors.black,
           fontSize: fontSize ?? 14.sp,
-          fontWeight: fontWeight,
+          fontWeight: fontWeight ?? FontWeight.w400,
           height: height,
         ),
       ),

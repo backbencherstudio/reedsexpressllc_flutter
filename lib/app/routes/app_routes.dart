@@ -16,6 +16,7 @@ abstract class Routes {
   static const MESSAGE = _Paths.MESSAGE;
   static const CHAT = _Paths.MESSAGE + _Paths.CHAT;
   static const DOCUMENTS = _Paths.DOCUMENTS;
+  static const ONBOARD = _Paths.ONBOARD;
 }
 
 abstract class _Paths {
@@ -33,4 +34,5 @@ abstract class _Paths {
   static const MESSAGE = '/message';
   static const CHAT = '/chat';
   static const DOCUMENTS = '/documents';
+  static const ONBOARD = '/onboard';
 }

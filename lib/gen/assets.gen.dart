@@ -27,12 +27,16 @@ class $AssetsIconsGen {
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  /// File path: assets/images/map_image.png
+  AssetGenImage get mapImage =>
+      const AssetGenImage('assets/images/map_image.png');
+
   /// File path: assets/images/placeholder_image.jpg
   AssetGenImage get placeholderImage =>
       const AssetGenImage('assets/images/placeholder_image.jpg');
 
   /// List of all assets
-  List<AssetGenImage> get values => [placeholderImage];
+  List<AssetGenImage> get values => [mapImage, placeholderImage];
 }
 
 class $AssetsLogosGen {

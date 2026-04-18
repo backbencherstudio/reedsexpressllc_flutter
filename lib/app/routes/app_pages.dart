@@ -18,6 +18,8 @@ import '../modules/message/bindings/message_binding.dart';
 import '../modules/message/chat/bindings/chat_binding.dart';
 import '../modules/message/chat/views/chat_view.dart';
 import '../modules/message/views/message_view.dart';
+import '../modules/onboard/bindings/onboard_binding.dart';
+import '../modules/onboard/views/onboard_view.dart';
 import '../modules/profile/bindings/profile_binding.dart';
 import '../modules/profile/views/profile_view.dart';
 import '../modules/register/bindings/register_binding.dart';
@@ -101,6 +103,11 @@ class AppPages {
       name: _Paths.DOCUMENTS,
       page: () => const DocumentsView(),
       binding: DocumentsBinding(),
+    ),
+    GetPage(
+      name: _Paths.ONBOARD,
+      page: () => const OnboardView(),
+      binding: OnboardBinding(),
     ),
   ];
 }

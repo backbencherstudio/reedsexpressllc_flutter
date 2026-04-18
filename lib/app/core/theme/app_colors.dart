@@ -10,4 +10,5 @@ class AppColors {
   static const Color background2 = Color(0xFFF7F8FC);
   static const Color error = Color(0xFFDF1C41);
   static const Color amber = Color(0xFFFFBF00);
+  static const Color hintText = Color(0xFF818898);
 }

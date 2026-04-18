@@ -33,14 +33,14 @@ class DialogUtils {
           onDismiss();
         }
       },
-      titleTextStyle: GoogleFonts.robotoFlex(
+      titleTextStyle: GoogleFonts.poppins(
         textStyle: TextStyle(
           color: Colors.black,
           fontSize: 15.sp,
           fontWeight: FontWeight.w500,
         ),
       ),
-      descTextStyle: GoogleFonts.robotoFlex(
+      descTextStyle: GoogleFonts.poppins(
           fontSize: 10.sp
 
       ),

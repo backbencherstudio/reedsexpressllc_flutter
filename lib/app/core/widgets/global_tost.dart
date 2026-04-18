@@ -19,19 +19,16 @@ void globalToast({
     messageText: Row(
       children: [
         if (icon != null)
-          Icon(
-            icon,
-            color: textColor ?? Colors.white,
-            size: 20.sp,
-          ),
+          Icon(icon, color: textColor ?? Colors.white, size: 20.sp),
         if (icon != null) SizedBox(width: 8.w),
         Expanded(
-            child: AppTextStyle(
-          text: message,
-          color: textColor ?? Colors.white,
-          fontSize: fontSize ?? 12.sp,
-          fontWeight: FontWeight.w500,
-        )),
+          child: AppTextStyle(
+            text: message,
+            color: textColor ?? Colors.white,
+            fontSize: fontSize ?? 12.sp,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
       ],
     ),
     backgroundColor: backgroundColor ?? Colors.black87,

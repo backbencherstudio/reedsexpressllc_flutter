@@ -351,7 +351,7 @@ Future customAlertDialog({
                           height: Get.height,
                           width: Get.width,
                           decoration: BoxDecoration(
-                            // color: ColorName.primary.withValues(alpha: 0.2),
+                            // color: AppColors.primary.withValues(alpha: 0.2),
                             borderRadius: BorderRadius.circular(20.r),
                           ),
                           child: Column(

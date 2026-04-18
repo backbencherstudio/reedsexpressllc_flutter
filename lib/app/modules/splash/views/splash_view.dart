@@ -1,22 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 
 import 'package:get/get.dart';
-
+import 'package:reedsexpressllc_flutter/app/core/theme/app_colors.dart';
+import '../../../core/config/app_config.dart';
 import '../controllers/splash_controller.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SplashView extends GetView<SplashController> {
   const SplashView({super.key});
   @override
   Widget build(BuildContext context) {
+    Get.put(SplashController());
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('SplashView'),
-        centerTitle: true,
-      ),
-      body: const Center(
-        child: Text(
-          'SplashView is working',
-          style: TextStyle(fontSize: 20),
+      backgroundColor: AppColors.primary,
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 20.w),
+        child: Center(
+          child: Image.asset(AppConfig.splashLogo, fit: BoxFit.cover)
+              .animate() // Chain the animation
+              .fadeIn(duration: Duration(seconds: 1))
+              .slide(
+                begin: Offset(-0.2, 0),
+                end: Offset(0, 0),
+                duration: Duration(seconds: 2),
+              ),
         ),
       ),
     );
