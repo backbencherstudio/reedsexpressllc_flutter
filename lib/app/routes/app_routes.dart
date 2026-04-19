@@ -17,6 +17,10 @@ abstract class Routes {
   static const CHAT = _Paths.MESSAGE + _Paths.CHAT;
   static const DOCUMENTS = _Paths.DOCUMENTS;
   static const ONBOARD = _Paths.ONBOARD;
+  static const UPLOAD_DOCUMENTS = _Paths.UPLOAD_DOCUMENTS;
+  static const ACTIVE_LOAD_LIST = _Paths.ACTIVE_LOAD_LIST;
+  static const LOAD_DETAILS = _Paths.LOAD_DETAILS;
+  static const EARNINGS = _Paths.EARNINGS;
 }
 
 abstract class _Paths {
@@ -35,4 +39,8 @@ abstract class _Paths {
   static const CHAT = '/chat';
   static const DOCUMENTS = '/documents';
   static const ONBOARD = '/onboard';
+  static const UPLOAD_DOCUMENTS = '/upload-documents';
+  static const ACTIVE_LOAD_LIST = '/active-load-list';
+  static const LOAD_DETAILS = '/load-details';
+  static const EARNINGS = '/earnings';
 }

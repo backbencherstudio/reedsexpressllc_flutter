@@ -1,9 +1,6 @@
-class ProductType {
-  static const trending = 'trending';
-  static const featured = 'featured';
-  static const newArrival = 'new_arrival';
-  static const flashSale = 'flash_sale';
-}
+
+
+enum LoadStatus { pickup, inTransit, delivered }
 
 class SortProduct {
   static const newest = 'newest';

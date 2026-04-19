@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:reedsexpressllc_flutter/app/routes/app_pages.dart';
 
 import '../../../core/utils/logger.dart' show Log;
 
@@ -16,6 +17,8 @@ class LoginController extends GetxController {
     try {
       isLoading.value = true;
       await Future.delayed(Duration(seconds: 2));
+
+      Get.offAllNamed(Routes.MAIN_PAGE);
     } catch (e) {
       Log.e(e);
     } finally {

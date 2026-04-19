@@ -14,18 +14,149 @@ import 'package:flutter/widgets.dart';
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
+  /// File path: assets/icons/Location_pin_icon.svg
+  String get locationPinIcon => 'assets/icons/Location_pin_icon.svg';
+
   /// File path: assets/icons/back_arrow_icon.svg
   String get backArrowIcon => 'assets/icons/back_arrow_icon.svg';
+
+  /// File path: assets/icons/block_fill_icon.svg
+  String get blockFillIcon => 'assets/icons/block_fill_icon.svg';
+
+  /// File path: assets/icons/block_icon.svg
+  String get blockIcon => 'assets/icons/block_icon.svg';
+
+  /// File path: assets/icons/block_package_icon.svg
+  String get blockPackageIcon => 'assets/icons/block_package_icon.svg';
+
+  /// File path: assets/icons/camera_icon.svg
+  String get cameraIcon => 'assets/icons/camera_icon.svg';
+
+  /// File path: assets/icons/company_icon.svg
+  String get companyIcon => 'assets/icons/company_icon.svg';
+
+  /// File path: assets/icons/cross_circle_icon.svg
+  String get crossCircleIcon => 'assets/icons/cross_circle_icon.svg';
 
   /// File path: assets/icons/cross_icon.svg
   String get crossIcon => 'assets/icons/cross_icon.svg';
 
+  /// File path: assets/icons/doc_fill_icon.svg
+  String get docFillIcon => 'assets/icons/doc_fill_icon.svg';
+
+  /// File path: assets/icons/doc_icon.svg
+  String get docIcon => 'assets/icons/doc_icon.svg';
+
+  /// File path: assets/icons/done_double_sticker.svg
+  String get doneDoubleSticker => 'assets/icons/done_double_sticker.svg';
+
+  /// File path: assets/icons/done_sticker.svg
+  String get doneSticker => 'assets/icons/done_sticker.svg';
+
+  /// File path: assets/icons/earning_bag_fill_icon.svg
+  String get earningBagFillIcon => 'assets/icons/earning_bag_fill_icon.svg';
+
+  /// File path: assets/icons/edit_icon.svg
+  String get editIcon => 'assets/icons/edit_icon.svg';
+
+  /// File path: assets/icons/email_icon.svg
+  String get emailIcon => 'assets/icons/email_icon.svg';
+
+  /// File path: assets/icons/email_sticker.svg
+  String get emailSticker => 'assets/icons/email_sticker.svg';
+
+  /// File path: assets/icons/filter_icon.svg
+  String get filterIcon => 'assets/icons/filter_icon.svg';
+
+  /// File path: assets/icons/home_fill_icon.svg
+  String get homeFillIcon => 'assets/icons/home_fill_icon.svg';
+
+  /// File path: assets/icons/home_icon.svg
+  String get homeIcon => 'assets/icons/home_icon.svg';
+
+  /// File path: assets/icons/location_icon.svg
+  String get locationIcon => 'assets/icons/location_icon.svg';
+
+  /// File path: assets/icons/logout_icon.svg
+  String get logoutIcon => 'assets/icons/logout_icon.svg';
+
+  /// File path: assets/icons/message_fill_icon.svg
+  String get messageFillIcon => 'assets/icons/message_fill_icon.svg';
+
+  /// File path: assets/icons/message_icon.svg
+  String get messageIcon => 'assets/icons/message_icon.svg';
+
+  /// File path: assets/icons/miles_icon.svg
+  String get milesIcon => 'assets/icons/miles_icon.svg';
+
+  /// File path: assets/icons/notification_icon.svg
+  String get notificationIcon => 'assets/icons/notification_icon.svg';
+
+  /// File path: assets/icons/persons_icon.svg
+  String get personsIcon => 'assets/icons/persons_icon.svg';
+
+  /// File path: assets/icons/phone_icon.svg
+  String get phoneIcon => 'assets/icons/phone_icon.svg';
+
+  /// File path: assets/icons/profile_fill_icon.svg
+  String get profileFillIcon => 'assets/icons/profile_fill_icon.svg';
+
+  /// File path: assets/icons/profile_icon.svg
+  String get profileIcon => 'assets/icons/profile_icon.svg';
+
+  /// File path: assets/icons/search_icon.svg
+  String get searchIcon => 'assets/icons/search_icon.svg';
+
+  /// File path: assets/icons/stopwatch_icon.svg
+  String get stopwatchIcon => 'assets/icons/stopwatch_icon.svg';
+
+  /// File path: assets/icons/upload_icon.svg
+  String get uploadIcon => 'assets/icons/upload_icon.svg';
+
   /// List of all assets
-  List<String> get values => [backArrowIcon, crossIcon];
+  List<String> get values => [
+    locationPinIcon,
+    backArrowIcon,
+    blockFillIcon,
+    blockIcon,
+    blockPackageIcon,
+    cameraIcon,
+    companyIcon,
+    crossCircleIcon,
+    crossIcon,
+    docFillIcon,
+    docIcon,
+    doneDoubleSticker,
+    doneSticker,
+    earningBagFillIcon,
+    editIcon,
+    emailIcon,
+    emailSticker,
+    filterIcon,
+    homeFillIcon,
+    homeIcon,
+    locationIcon,
+    logoutIcon,
+    messageFillIcon,
+    messageIcon,
+    milesIcon,
+    notificationIcon,
+    personsIcon,
+    phoneIcon,
+    profileFillIcon,
+    profileIcon,
+    searchIcon,
+    stopwatchIcon,
+    uploadIcon,
+  ];
 }
 
 class $AssetsImagesGen {
   const $AssetsImagesGen();
+
+  /// File path: assets/images/empty_box.png
+  AssetGenImage get emptyBox =>
+      const AssetGenImage('assets/images/empty_box.png');
 
   /// File path: assets/images/map_image.png
   AssetGenImage get mapImage =>
@@ -36,7 +167,7 @@ class $AssetsImagesGen {
       const AssetGenImage('assets/images/placeholder_image.jpg');
 
   /// List of all assets
-  List<AssetGenImage> get values => [mapImage, placeholderImage];
+  List<AssetGenImage> get values => [emptyBox, mapImage, placeholderImage];
 }
 
 class $AssetsLogosGen {

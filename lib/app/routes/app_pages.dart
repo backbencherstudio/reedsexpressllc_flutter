@@ -1,15 +1,21 @@
 import 'package:get/get.dart';
 
+import '../modules/active_load_list/bindings/active_load_list_binding.dart';
+import '../modules/active_load_list/views/active_load_list_view.dart';
 import '../modules/change_password/bindings/change_password_binding.dart';
 import '../modules/change_password/views/change_password_view.dart';
 import '../modules/documents/bindings/documents_binding.dart';
 import '../modules/documents/views/documents_view.dart';
+import '../modules/earnings/bindings/earnings_binding.dart';
+import '../modules/earnings/views/earnings_view.dart';
 import '../modules/forgot_password/bindings/forgot_password_binding.dart';
 import '../modules/forgot_password/views/forgot_password_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/load/bindings/load_binding.dart';
 import '../modules/load/views/load_view.dart';
+import '../modules/load_details/bindings/load_details_binding.dart';
+import '../modules/load_details/views/load_details_view.dart';
 import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
 import '../modules/main_page/bindings/main_page_binding.dart';
@@ -26,6 +32,8 @@ import '../modules/register/bindings/register_binding.dart';
 import '../modules/register/views/register_view.dart';
 import '../modules/splash/bindings/splash_binding.dart';
 import '../modules/splash/views/splash_view.dart';
+import '../modules/upload_documents/bindings/upload_documents_binding.dart';
+import '../modules/upload_documents/views/upload_documents_view.dart';
 import '../modules/verify_otp/bindings/verify_otp_binding.dart';
 import '../modules/verify_otp/views/verify_otp_view.dart';
 
@@ -34,7 +42,7 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.SPLASH;
+  static const INITIAL = Routes.MAIN_PAGE;
 
   static final routes = [
     GetPage(
@@ -108,6 +116,26 @@ class AppPages {
       name: _Paths.ONBOARD,
       page: () => const OnboardView(),
       binding: OnboardBinding(),
+    ),
+    GetPage(
+      name: _Paths.UPLOAD_DOCUMENTS,
+      page: () => const UploadDocumentsView(),
+      binding: UploadDocumentsBinding(),
+    ),
+    GetPage(
+      name: _Paths.ACTIVE_LOAD_LIST,
+      page: () => const ActiveLoadListView(),
+      binding: ActiveLoadListBinding(),
+    ),
+    GetPage(
+      name: _Paths.LOAD_DETAILS,
+      page: () => const LoadDetailsView(),
+      binding: LoadDetailsBinding(),
+    ),
+    GetPage(
+      name: _Paths.EARNINGS,
+      page: () => const EarningsView(),
+      binding: EarningsBinding(),
     ),
   ];
 }

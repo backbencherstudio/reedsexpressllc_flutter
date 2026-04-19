@@ -15,6 +15,7 @@ class AppTextStyle extends StatelessWidget {
     this.decoration,
     super.key,
     this.decorationColor,
+    this.overflow,
   });
   final String text;
   final int? maxLines;
@@ -25,12 +26,14 @@ class AppTextStyle extends StatelessWidget {
   final TextAlign? textAlign;
   final TextDecoration? decoration;
   final Color? decorationColor;
+  final TextOverflow? overflow;
   @override
   Widget build(BuildContext context) {
     return Text(
       text.tr,
       textAlign: textAlign ?? TextAlign.start,
       maxLines: maxLines,
+      overflow: overflow,
       style: GoogleFonts.poppins(
         textStyle: TextStyle(
           color: color ?? Colors.black,

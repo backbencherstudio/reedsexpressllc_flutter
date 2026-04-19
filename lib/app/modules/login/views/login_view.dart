@@ -45,7 +45,7 @@ class LoginView extends GetView<LoginController> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        15.height,
+                        25.height,
                         InputFieldWithLabel(
                           label: "E-mail",
                           controller: controller.emailController,

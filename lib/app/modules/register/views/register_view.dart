@@ -46,7 +46,7 @@ class RegisterView extends GetView<RegisterController> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        15.height,
+                        25.height,
                         InputFieldWithLabel(
                           controller: controller.fullNameController,
                           label: "Full Name",
@@ -103,6 +103,48 @@ class RegisterView extends GetView<RegisterController> {
                             return null;
                           },
                         ),
+                        15.height,
+                        InputFieldWithLabel(
+                          controller: controller.carrierNameController,
+                          label: "Carrier Name",
+                          hintText: "Enter Carrier Name ",
+                          keyboardType: TextInputType.text,
+
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'This field is required';
+                            }
+                            return null;
+                          },
+                        ),
+                        15.height,
+                        InputFieldWithLabel(
+                          controller: controller.dOTNumberController,
+                          label: "DOT Number",
+                          hintText: "Enter DOT number",
+                          keyboardType: TextInputType.text,
+
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'This field is required';
+                            }
+                            return null;
+                          },
+                        ),
+                        15.height,
+                        InputFieldWithLabel(
+                          controller: controller.mCNumberController,
+                          label: "MC Number",
+                          hintText: "Enter MC number",
+                          keyboardType: TextInputType.text,
+
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'This field is required';
+                            }
+                            return null;
+                          },
+                        ),
                         40.height,
                         Align(
                           alignment: Alignment.center,
@@ -113,7 +155,7 @@ class RegisterView extends GetView<RegisterController> {
                                     text: "Register",
                                     onTap: () {
                                       if (formKey.currentState!.validate()) {
-                                        controller.register();
+                                        Get.toNamed(Routes.UPLOAD_DOCUMENTS);
                                       } else {
                                         globalToast(
                                           message:

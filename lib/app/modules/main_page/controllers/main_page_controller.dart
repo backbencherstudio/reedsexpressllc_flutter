@@ -1,23 +1,22 @@
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:reedsexpressllc_flutter/app/modules/documents/views/documents_view.dart';
+import 'package:reedsexpressllc_flutter/app/modules/load/views/load_view.dart';
+import 'package:reedsexpressllc_flutter/app/modules/message/chat/views/chat_view.dart';
+import 'package:reedsexpressllc_flutter/app/modules/profile/views/profile_view.dart';
+
+import '../../home/views/home_view.dart';
 
 class MainPageController extends GetxController {
-  //TODO: Implement MainPageController
+  final selectedIndex = 0.obs;
 
-  final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
-  }
+  final List<Widget> pages = const [
+    HomeView(),
+    LoadView(), // replace with your actual screen
+    ChatView(), // replace with your actual screen
+    DocumentsView(), // replace with your actual screen
+    ProfileView(), // replace with your actual screen
+  ];
 
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {
-    super.onClose();
-  }
-
-  void increment() => count.value++;
+  void changePage(int index) => selectedIndex.value = index;
 }

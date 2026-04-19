@@ -21,21 +21,6 @@ Widget appbarTitle({
   );
 }
 
-Widget authAppbarTitle({
-  required String text,
-  double? fontSize,
-  FontWeight? fontWeight,
-  Color? color,
-}) {
-  return AppTextStyle(
-    text: text,
-    fontSize: fontSize ?? 22.sp,
-    fontWeight: fontWeight ?? FontWeight.w600,
-    textAlign: TextAlign.start,
-    color: color,
-  );
-}
-
 
 
 Widget authAppBar({

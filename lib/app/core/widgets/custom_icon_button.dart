@@ -6,16 +6,17 @@ import '../../../gen/assets.gen.dart';
 import 'custom_svg_image.dart';
 
 class CustomIconButton extends StatelessWidget {
-  const CustomIconButton(
-      {super.key,
-      this.onPressed,
-      this.backgroundColor,
-      this.icon,
-      this.size,
-      this.padding,
-      this.iconColor,
-      this.boxShadow,
-      this.border});
+  const CustomIconButton({
+    super.key,
+    this.onPressed,
+    this.backgroundColor,
+    this.icon,
+    this.size,
+    this.padding,
+    this.iconColor,
+    this.boxShadow,
+    this.border,
+  });
 
   final VoidCallback? onPressed;
   final Color? backgroundColor;
@@ -32,24 +33,29 @@ class CustomIconButton extends StatelessWidget {
       width: size ?? 35.w,
       height: size ?? 35.h,
       decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          color: backgroundColor ?? Colors.white,
-          border: border,
-          boxShadow: boxShadow ??
-              [
-                BoxShadow(
-                    color: Colors.black12,
-                    blurRadius: 1.r,
-                    offset: const Offset(1, 1))
-              ]),
+        shape: BoxShape.circle,
+        color: backgroundColor ?? Colors.white,
+        border: border,
+        boxShadow:
+            boxShadow ??
+            [
+              BoxShadow(
+                color: Colors.black12,
+                blurRadius: 1.r,
+                offset: const Offset(1, 1),
+              ),
+            ],
+      ),
       child: CupertinoButton(
         padding: padding ?? EdgeInsets.zero,
         onPressed: onPressed ?? () => Navigator.of(context).pop(),
-        child: icon ??
+        child:
+            icon ??
             customSvgImage(
-                imagePath: Assets.icons.backArrowIcon,
-                height: 15.h,
-                width: 15.w),
+              imagePath: Assets.icons.backArrowIcon,
+              height: 12.h,
+              width: 12.w,
+            ),
       ),
     );
   }
