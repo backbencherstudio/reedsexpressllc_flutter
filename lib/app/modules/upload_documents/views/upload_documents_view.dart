@@ -5,14 +5,11 @@ import 'package:get/get.dart';
 import 'package:reedsexpressllc_flutter/app/modules/register/controllers/register_controller.dart';
 import 'package:reedsexpressllc_flutter/app/routes/app_pages.dart';
 
-import '../../../core/extensions/sizedbox_extension.dart';
 import '../../../core/theme/app_colors.dart';
-import '../../../core/widgets/app_input_text_form_field.dart';
 import '../../../core/widgets/auth_header.dart';
 import '../../../core/widgets/document_upload_field.dart';
 import '../../../core/widgets/global_button.dart';
 import '../../../core/widgets/global_loading.dart';
-import '../../../core/widgets/global_tost.dart';
 import '../controllers/upload_documents_controller.dart';
 
 // upload_documents_view.dart
@@ -27,6 +24,7 @@ class UploadDocumentsView extends GetView<UploadDocumentsController> {
         child: Column(
           children: [
             authHeader(
+              isBackButton: Get.previousRoute == Routes.REGISTER ? false : true,
               title: "Upload Documents!",
               subTitle:
                   "Upload your required documents to get approved and start receiving loads.",

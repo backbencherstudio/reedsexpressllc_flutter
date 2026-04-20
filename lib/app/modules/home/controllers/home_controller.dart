@@ -4,8 +4,10 @@ import '../../../core/constants/enums.dart';
 import '../../../data/models/load_model.dart';
 
 class HomeController extends GetxController {
-  final isLoading = false.obs;
 
+  final isDocumentSubmit = true.obs;
+
+  final isLoading = false.obs;
   final String userName = 'Marcus J.';
   final int totalLoads = 3;
   final int delivered = 2;

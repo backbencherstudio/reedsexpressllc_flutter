@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
+import 'package:reedsexpressllc_flutter/app/core/extensions/sizedbox_extension.dart';
 import 'package:reedsexpressllc_flutter/app/core/layouts/load_item_layout.dart';
 import 'package:reedsexpressllc_flutter/app/core/widgets/custom_svg_image.dart';
+import 'package:reedsexpressllc_flutter/app/core/widgets/global_button.dart';
 import 'package:reedsexpressllc_flutter/app/routes/app_pages.dart';
 
 import '../../../../gen/assets.gen.dart';
@@ -42,7 +44,7 @@ class HomeView extends GetView<HomeController> {
                     topRight: Radius.circular(20.r),
                   ),
                   child: Obx(
-                        () => ListView(
+                    () => ListView(
                       padding: EdgeInsets.fromLTRB(16.w, 20.h, 16.w, 32.h),
                       children: [
                         // ── Active Load section ──────────────
@@ -100,87 +102,181 @@ class _HomeHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.fromLTRB(16.w, 16.h, 16.w, 20.h),
-      child: Column(
-        children: [
-          // Welcome row
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    return Stack(
+      children: [
+        Padding(
+          padding: EdgeInsets.fromLTRB(16.w, 16.h, 16.w, 20.h),
+          child: Column(
             children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+              // Welcome row
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  AppTextStyle(
-                    text: 'Welcome Back!',
-                    fontSize: 13.sp,
-                    fontWeight: FontWeight.w400,
-                    color: Colors.white.withAlpha(200),
-                  ),
-                  AppTextStyle(
-                    text: controller.userName,
-                    fontSize: 22.sp,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.white,
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      AppTextStyle(
+                        text: 'Welcome Back!',
+                        fontSize: 13.sp,
+                        fontWeight: FontWeight.w400,
+                        color: Colors.white.withAlpha(200),
+                      ),
+                      InkWell(
+                        onTap: () {
+                          if (controller.isDocumentSubmit.value == true) {
+                            controller.isDocumentSubmit.value = false;
+                          } else {
+                            controller.isDocumentSubmit.value = true;
+                          }
+                        },
+                        child: AppTextStyle(
+                          text: controller.userName,
+                          fontSize: 22.sp,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
-              // Notification bell
-              Stack(
-                children: [
-                  Container(
-                    width: 44.w,
-                    height: 44.w,
-                    decoration: BoxDecoration(
-                      color: Colors.white.withAlpha(38),
-                      shape: BoxShape.circle,
-                    ),
-                    child: Center(
-                      child: customSvgImage(
-                        imagePath: Assets.icons.notificationIcon,
-                        width: 22.w,
-                        height: 22.w,
-                        color: Colors.white,
+              18.height,
+
+              // Stats row / unsubmit doc card
+              Obx(() {
+                if (controller.isDocumentSubmit.value == true) {
+                  return Row(
+                    children: [
+                      _StatCard(
+                        value: controller.totalLoads.toString().padLeft(2, '0'),
+                        label: 'Total Loads',
                       ),
-                    ),
-                  ),
-                  Positioned(
-                    top: 4.h,
-                    right: 4.w,
-                    child: Container(
-                      width: 10.w,
-                      height: 10.w,
-                      decoration: const BoxDecoration(
-                        color: Color(0xFFE8A020),
-                        shape: BoxShape.circle,
+                      8.horizontalSpace,
+                      _StatCard(
+                        value: controller.delivered.toString().padLeft(2, '0'),
+                        label: 'Delivered',
                       ),
-                    ),
-                  ),
-                ],
-              ),
+                      8.horizontalSpace,
+                      _StatCard(
+                        value: controller.miles.toString(),
+                        label: 'Miles',
+                      ),
+                    ],
+                  );
+                } else {
+                  return _UnsubmitDocStatCard();
+                }
+              }),
             ],
           ),
+        ),
+        Positioned(
+          top: 25.h,
+          left: -60,
+          child: Container(
+            height: 90.h,
+            width: 90.w,
+            decoration: BoxDecoration(
+              color: Colors.white.withAlpha(20),
+              shape: BoxShape.circle,
+            ),
+          ),
+        ),
+        Positioned(
+          top: -15.h,
+          right: -50,
+          child: Container(
+            height: 130.h,
+            width: 130.w,
+            decoration: BoxDecoration(
+              color: Colors.white.withAlpha(20),
+              shape: BoxShape.circle,
+            ),
+          ),
+        ),
 
-          18.verticalSpace,
+        Positioned(
+          top: 20.h,
+          right: 15.w,
+          child: Container(
+            width: 44.w,
+            height: 44.w,
+            decoration: BoxDecoration(
+              color: Colors.white.withAlpha(40),
+              shape: BoxShape.circle,
+            ),
+            child: Stack(
+              children: [
+                Center(
+                  child: customSvgImage(
+                    imagePath: Assets.icons.notificationIcon,
+                    width: 22.w,
+                    height: 22.w,
+                    color: Colors.white,
+                  ),
+                ),
 
-          // Stats row
-          Row(
-            children: [
-              _StatCard(
-                value: controller.totalLoads.toString().padLeft(2, '0'),
-                label: 'Total Loads',
-              ),
-              8.horizontalSpace,
-              _StatCard(
-                value: controller.delivered.toString().padLeft(2, '0'),
-                label: 'Delivered',
-              ),
-              8.horizontalSpace,
-              _StatCard(
-                value: controller.miles.toString(),
-                label: 'Miles',
-              ),
-            ],
+                Positioned(
+                  top: 9.h,
+                  right: 10.w,
+                  child: Container(
+                    width: 10.w,
+                    height: 10.w,
+                    decoration: const BoxDecoration(
+                      color: Color(0xFFF9C80E),
+                      shape: BoxShape.circle,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class _UnsubmitDocStatCard extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      // height: 140.h,
+      width: Get.width,
+      padding: EdgeInsets.all(15.r),
+      decoration: BoxDecoration(
+        color: Colors.white.withAlpha(45),
+        borderRadius: BorderRadius.circular(12.r),
+        border: Border.all(color: Colors.white.withAlpha(50), width: 2),
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          AppTextStyle(
+            text: "Complete Your Verification",
+            fontSize: 16.sp,
+            fontWeight: FontWeight.w500,
+            color: Colors.white,
+          ),
+          4.verticalSpace,
+          AppTextStyle(
+            text:
+                "To get approved and start working, please add your required documents.",
+            textAlign: TextAlign.center,
+            fontSize: 12.sp,
+            fontWeight: FontWeight.w400,
+            color: Colors.white.withAlpha(200),
+          ),
+          10.height,
+          globalButton(
+            onTap: () {
+              Get.toNamed(Routes.UPLOAD_DOCUMENTS);
+            },
+            text: "Add Documents",
+            height: 40.h,
+            color: Colors.white,
+            textColor: Colors.black,
           ),
         ],
       ),
@@ -200,8 +296,9 @@ class _StatCard extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.symmetric(vertical: 12.h),
         decoration: BoxDecoration(
-          color: Colors.white.withAlpha(38),
+          color: Colors.white.withAlpha(45),
           borderRadius: BorderRadius.circular(12.r),
+          border: Border.all(color: Colors.white.withAlpha(50), width: 2),
         ),
         child: Column(
           children: [
@@ -232,11 +329,7 @@ class _SectionHeader extends StatelessWidget {
   final String? actionLabel;
   final VoidCallback? onTap;
 
-  const _SectionHeader({
-    required this.title,
-    this.actionLabel,
-    this.onTap,
-  });
+  const _SectionHeader({required this.title, this.actionLabel, this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -284,7 +377,9 @@ class _QuickActionsGrid extends GetView<HomeController> {
               child: QuickActionItem(
                 iconPath: actions[0].$1,
                 label: actions[0].$2,
-                onTap: () {},
+                onTap: () {
+                  Get.toNamed(Routes.EARNINGS);
+                },
               ),
             ),
             12.horizontalSpace,
