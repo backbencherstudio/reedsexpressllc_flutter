@@ -7,13 +7,28 @@ class DocumentsController extends GetxController {
   final selectedLoad = RxnString();
   final isLoading = false.obs;
 
-  // Upload fields
+  // ── Load Docs tab upload fields ────────────────────────
   final podPath = RxnString();
   final bolPath = RxnString();
   final rateConfirmationPath = RxnString();
   final scaleTicketPath = RxnString();
   final lumperFeePath = RxnString();
   final inspectionReportPath = RxnString();
+
+  // ── My Docs tab — personal carrier docs ───────────────
+  // Read-only info (from registration)
+  final carrierName = 'Marcus Transport LLC'.obs;
+  final dotNumber = 'DOT-3849201'.obs;
+  final mcNumber = 'MC-920183'.obs;
+
+  // Personal docs — these can be null (not required at reg)
+  final driverCardPath = RxnString();
+  final medicalLicensePath = RxnString();
+  final medicalCardPath = RxnString();
+  final vehicleRegistrationPath = RxnString();
+  final permitPath = RxnString();
+  final trafficTicketPath = RxnString();
+  final receiptPath = RxnString();
 
   final loadOptions = <String>[
     'Load #RX-2847 — Memphis to Atlanta',
@@ -22,7 +37,6 @@ class DocumentsController extends GetxController {
   ];
 
   void selectTab(int index) => selectedTabIndex.value = index;
-
   void selectLoad(String? value) => selectedLoad.value = value;
 
   Future<void> pickFile(RxnString targetObs) async {
@@ -41,7 +55,22 @@ class DocumentsController extends GetxController {
 
   void removeFile(RxnString targetObs) => targetObs.value = null;
 
-  Future<void> submit() async {
+  // Count uploaded personal docs
+  int get uploadedPersonalDocsCount {
+    return [
+      driverCardPath,
+      medicalLicensePath,
+      medicalCardPath,
+      vehicleRegistrationPath,
+      permitPath,
+      trafficTicketPath,
+      receiptPath,
+    ].where((obs) => obs.value != null).length;
+  }
+
+  int get totalPersonalDocs => 7;
+
+  Future<void> submitLoadDocs() async {
     try {
       isLoading.value = true;
       await Future.delayed(const Duration(seconds: 2));
@@ -53,7 +82,7 @@ class DocumentsController extends GetxController {
     }
   }
 
-  void cancel() {
+  void cancelLoadDocs() {
     selectedLoad.value = null;
     podPath.value = null;
     bolPath.value = null;

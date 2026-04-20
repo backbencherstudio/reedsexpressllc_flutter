@@ -48,6 +48,7 @@ class LoginView extends GetView<LoginController> {
                         25.height,
                         InputFieldWithLabel(
                           label: "E-mail",
+                          hintText: "Enter your email",
                           controller: controller.emailController,
                           keyboardType: TextInputType.emailAddress,
                           validator: (value) {

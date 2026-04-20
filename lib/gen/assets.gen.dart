@@ -17,6 +17,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/Location_pin_icon.svg
   String get locationPinIcon => 'assets/icons/Location_pin_icon.svg';
 
+  /// File path: assets/icons/attach_file_icon.svg
+  String get attachFileIcon => 'assets/icons/attach_file_icon.svg';
+
   /// File path: assets/icons/back_arrow_icon.svg
   String get backArrowIcon => 'assets/icons/back_arrow_icon.svg';
 
@@ -29,6 +32,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/block_package_icon.svg
   String get blockPackageIcon => 'assets/icons/block_package_icon.svg';
 
+  /// File path: assets/icons/calendar_icon.svg
+  String get calendarIcon => 'assets/icons/calendar_icon.svg';
+
   /// File path: assets/icons/camera_icon.svg
   String get cameraIcon => 'assets/icons/camera_icon.svg';
 
@@ -40,6 +46,9 @@ class $AssetsIconsGen {
 
   /// File path: assets/icons/cross_icon.svg
   String get crossIcon => 'assets/icons/cross_icon.svg';
+
+  /// File path: assets/icons/customer_support_icon.svg
+  String get customerSupportIcon => 'assets/icons/customer_support_icon.svg';
 
   /// File path: assets/icons/doc_fill_icon.svg
   String get docFillIcon => 'assets/icons/doc_fill_icon.svg';
@@ -65,8 +74,17 @@ class $AssetsIconsGen {
   /// File path: assets/icons/email_sticker.svg
   String get emailSticker => 'assets/icons/email_sticker.svg';
 
+  /// File path: assets/icons/eye_open_icon.svg
+  String get eyeOpenIcon => 'assets/icons/eye_open_icon.svg';
+
   /// File path: assets/icons/filter_icon.svg
   String get filterIcon => 'assets/icons/filter_icon.svg';
+
+  /// File path: assets/icons/forword_arrow_icon.svg
+  String get forwordArrowIcon => 'assets/icons/forword_arrow_icon.svg';
+
+  /// File path: assets/icons/galary_icon.svg
+  String get galaryIcon => 'assets/icons/galary_icon.svg';
 
   /// File path: assets/icons/home_fill_icon.svg
   String get homeFillIcon => 'assets/icons/home_fill_icon.svg';
@@ -79,6 +97,9 @@ class $AssetsIconsGen {
 
   /// File path: assets/icons/logout_icon.svg
   String get logoutIcon => 'assets/icons/logout_icon.svg';
+
+  /// File path: assets/icons/logout_with_bg_icon.svg
+  String get logoutWithBgIcon => 'assets/icons/logout_with_bg_icon.svg';
 
   /// File path: assets/icons/message_fill_icon.svg
   String get messageFillIcon => 'assets/icons/message_fill_icon.svg';
@@ -107,23 +128,38 @@ class $AssetsIconsGen {
   /// File path: assets/icons/search_icon.svg
   String get searchIcon => 'assets/icons/search_icon.svg';
 
+  /// File path: assets/icons/share_icon.svg
+  String get shareIcon => 'assets/icons/share_icon.svg';
+
   /// File path: assets/icons/stopwatch_icon.svg
   String get stopwatchIcon => 'assets/icons/stopwatch_icon.svg';
+
+  /// File path: assets/icons/student_card_icon.svg
+  String get studentCardIcon => 'assets/icons/student_card_icon.svg';
+
+  /// File path: assets/icons/truck_icon.svg
+  String get truckIcon => 'assets/icons/truck_icon.svg';
 
   /// File path: assets/icons/upload_icon.svg
   String get uploadIcon => 'assets/icons/upload_icon.svg';
 
+  /// File path: assets/icons/verify_badge_icon.svg
+  String get verifyBadgeIcon => 'assets/icons/verify_badge_icon.svg';
+
   /// List of all assets
   List<String> get values => [
     locationPinIcon,
+    attachFileIcon,
     backArrowIcon,
     blockFillIcon,
     blockIcon,
     blockPackageIcon,
+    calendarIcon,
     cameraIcon,
     companyIcon,
     crossCircleIcon,
     crossIcon,
+    customerSupportIcon,
     docFillIcon,
     docIcon,
     doneDoubleSticker,
@@ -132,11 +168,15 @@ class $AssetsIconsGen {
     editIcon,
     emailIcon,
     emailSticker,
+    eyeOpenIcon,
     filterIcon,
+    forwordArrowIcon,
+    galaryIcon,
     homeFillIcon,
     homeIcon,
     locationIcon,
     logoutIcon,
+    logoutWithBgIcon,
     messageFillIcon,
     messageIcon,
     milesIcon,
@@ -146,8 +186,12 @@ class $AssetsIconsGen {
     profileFillIcon,
     profileIcon,
     searchIcon,
+    shareIcon,
     stopwatchIcon,
+    studentCardIcon,
+    truckIcon,
     uploadIcon,
+    verifyBadgeIcon,
   ];
 }
 

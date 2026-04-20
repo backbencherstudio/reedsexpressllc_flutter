@@ -4,8 +4,9 @@ import 'package:get/get.dart';
 import 'package:reedsexpressllc_flutter/app/core/theme/app_colors.dart';
 import 'package:reedsexpressllc_flutter/app/core/widgets/app_text_style.dart';
 import 'package:reedsexpressllc_flutter/app/core/widgets/document_upload_field.dart';
-
+import 'package:reedsexpressllc_flutter/app/routes/app_pages.dart';
 import '../../../core/widgets/appbar_title.dart';
+import '../../../core/widgets/custom_icon_button.dart';
 import '../controllers/documents_controller.dart';
 
 class DocumentsView extends GetView<DocumentsController> {
@@ -13,7 +14,7 @@ class DocumentsView extends GetView<DocumentsController> {
 
   @override
   Widget build(BuildContext context) {
-    if(!Get.isRegistered<DocumentsController>()){
+    if (!Get.isRegistered<DocumentsController>()) {
       Get.put(DocumentsController());
     }
     return Scaffold(
@@ -21,18 +22,19 @@ class DocumentsView extends GetView<DocumentsController> {
       appBar: AppBar(
         backgroundColor: AppColors.background,
         surfaceTintColor: AppColors.background,
-
         elevation: 0,
         centerTitle: true,
-        automaticallyImplyLeading: false,
         title: appbarTitle(text: 'Documents'),
+        leading: Get.currentRoute == Routes.MAIN_PAGE
+            ? null
+            : Padding(
+                padding: EdgeInsets.only(left: 12.w),
+                child: const CustomIconButton(),
+              ),
       ),
       body: Column(
         children: [
-          // ── Tab switcher ───────────────────────────────────
           _tabSwitcher(),
-
-          // ── Tab content ────────────────────────────────────
           Expanded(
             child: Obx(
               () => controller.selectedTabIndex.value == 0
@@ -51,8 +53,8 @@ class DocumentsView extends GetView<DocumentsController> {
     return Container(
       color: Colors.white,
       padding: EdgeInsets.fromLTRB(16.w, 12.h, 16.w, 16.h),
-      child: Obx(() {
-        return Container(
+      child: Obx(
+        () => Container(
           height: 46.h,
           decoration: BoxDecoration(
             color: AppColors.primary.withAlpha(40),
@@ -64,8 +66,8 @@ class DocumentsView extends GetView<DocumentsController> {
               _tabItem(label: 'My Docs', index: 1),
             ],
           ),
-        );
-      }),
+        ),
+      ),
     );
   }
 
@@ -105,11 +107,8 @@ class DocumentsView extends GetView<DocumentsController> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Select Load dropdown
                 _selectLoadField(),
                 16.verticalSpace,
-
-                // Upload fields
                 DocumentUploadField(
                   label: 'POD - Proof of Delivery',
                   filePathObs: controller.podPath,
@@ -162,9 +161,7 @@ class DocumentsView extends GetView<DocumentsController> {
             ),
           ),
         ),
-
-        // ── Bottom action buttons ──────────────────────────
-        _bottomActions(),
+        _loadDocsBottomActions(),
       ],
     );
   }
@@ -228,7 +225,6 @@ class DocumentsView extends GetView<DocumentsController> {
                           child: AppTextStyle(
                             text: load,
                             fontSize: 13.sp,
-                            fontWeight: FontWeight.w400,
                             color: Colors.black,
                           ),
                         ),
@@ -244,17 +240,16 @@ class DocumentsView extends GetView<DocumentsController> {
     );
   }
 
-  Widget _bottomActions() {
+  Widget _loadDocsBottomActions() {
     return Container(
       color: Colors.white,
       padding: EdgeInsets.fromLTRB(16.w, 12.h, 16.w, 24.h),
       child: Obx(
         () => Row(
           children: [
-            // Cancel
             Expanded(
               child: GestureDetector(
-                onTap: controller.cancel,
+                onTap: controller.cancelLoadDocs,
                 child: Container(
                   padding: EdgeInsets.symmetric(vertical: 14.h),
                   decoration: BoxDecoration(
@@ -273,11 +268,11 @@ class DocumentsView extends GetView<DocumentsController> {
               ),
             ),
             12.horizontalSpace,
-
-            // Submit
             Expanded(
               child: GestureDetector(
-                onTap: controller.isLoading.value ? null : controller.submit,
+                onTap: controller.isLoading.value
+                    ? null
+                    : controller.submitLoadDocs,
                 child: Container(
                   padding: EdgeInsets.symmetric(vertical: 14.h),
                   decoration: BoxDecoration(
@@ -314,12 +309,217 @@ class DocumentsView extends GetView<DocumentsController> {
   // ── My Docs Tab ─────────────────────────────────────────────────────────────
 
   Widget _myDocsTab() {
-    return Center(
-      child: AppTextStyle(
-        text: 'No documents yet.',
-        fontSize: 14.sp,
-        color: AppColors.hintText,
+    return SingleChildScrollView(
+      padding: EdgeInsets.fromLTRB(16.w, 20.h, 16.w, 32.h),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          // ── Carrier Info Card ────────────────────────────
+          _carrierInfoCard(),
+          20.verticalSpace,
+
+          // ── Upload progress ──────────────────────────────
+          _uploadProgressRow(),
+          16.verticalSpace,
+
+          // ── Personal documents ───────────────────────────
+          DocumentUploadField(
+            label: 'Driver Card',
+            filePathObs: controller.driverCardPath,
+            onTap: () => controller.pickFile(controller.driverCardPath),
+            onRemove: () => controller.removeFile(controller.driverCardPath),
+            isRequired: false,
+          ),
+          14.verticalSpace,
+          DocumentUploadField(
+            label: 'Medical License',
+            filePathObs: controller.medicalLicensePath,
+            onTap: () => controller.pickFile(controller.medicalLicensePath),
+            onRemove: () =>
+                controller.removeFile(controller.medicalLicensePath),
+            isRequired: false,
+          ),
+          14.verticalSpace,
+          DocumentUploadField(
+            label: 'Medical Card',
+            filePathObs: controller.medicalCardPath,
+            onTap: () => controller.pickFile(controller.medicalCardPath),
+            onRemove: () => controller.removeFile(controller.medicalCardPath),
+            isRequired: false,
+          ),
+          14.verticalSpace,
+          DocumentUploadField(
+            label: 'Vehicle Registration',
+            filePathObs: controller.vehicleRegistrationPath,
+            onTap: () =>
+                controller.pickFile(controller.vehicleRegistrationPath),
+            onRemove: () =>
+                controller.removeFile(controller.vehicleRegistrationPath),
+            isRequired: false,
+          ),
+          14.verticalSpace,
+          DocumentUploadField(
+            label: 'Permit',
+            filePathObs: controller.permitPath,
+            onTap: () => controller.pickFile(controller.permitPath),
+            onRemove: () => controller.removeFile(controller.permitPath),
+            isRequired: false,
+          ),
+          14.verticalSpace,
+          DocumentUploadField(
+            label: 'Traffic Ticket',
+            filePathObs: controller.trafficTicketPath,
+            onTap: () => controller.pickFile(controller.trafficTicketPath),
+            onRemove: () => controller.removeFile(controller.trafficTicketPath),
+            isRequired: false,
+          ),
+          14.verticalSpace,
+          DocumentUploadField(
+            label: 'Receipt',
+            filePathObs: controller.receiptPath,
+            onTap: () => controller.pickFile(controller.receiptPath),
+            onRemove: () => controller.removeFile(controller.receiptPath),
+            isRequired: false,
+          ),
+        ],
       ),
     );
+  }
+
+  Widget _carrierInfoCard() {
+    return Container(
+      width: double.infinity,
+      padding: EdgeInsets.all(16.w),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(12.r),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withAlpha(12),
+            blurRadius: 10,
+            offset: const Offset(0, 2),
+          ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          AppTextStyle(
+            text: 'Carrier Information',
+            fontSize: 14.sp,
+            fontWeight: FontWeight.w600,
+            color: Colors.black,
+          ),
+          12.verticalSpace,
+          _infoField(
+            label: 'Carrier Name',
+            value: controller.carrierName.value,
+          ),
+          12.verticalSpace,
+          Row(
+            children: [
+              Expanded(
+                child: _infoField(
+                  label: 'DOT Number',
+                  value: controller.dotNumber.value,
+                ),
+              ),
+              12.horizontalSpace,
+              Expanded(
+                child: _infoField(
+                  label: 'MC Number',
+                  value: controller.mcNumber.value,
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _infoField({required String label, required String value}) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        AppTextStyle(
+          text: label,
+          fontSize: 12.sp,
+          fontWeight: FontWeight.w500,
+          color: AppColors.hintText,
+        ),
+        4.verticalSpace,
+        Container(
+          width: double.infinity,
+          padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 11.h),
+          decoration: BoxDecoration(
+            color: const Color(0xFFF5F6FA),
+            borderRadius: BorderRadius.circular(8.r),
+            border: Border.all(color: AppColors.hintText, width: 0.5),
+          ),
+          child: AppTextStyle(
+            text: value,
+            fontSize: 13.sp,
+            fontWeight: FontWeight.w400,
+            color: const Color(0xFF444444),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _uploadProgressRow() {
+    return Obx(() {
+      final uploaded = controller.uploadedPersonalDocsCount;
+      final total = controller.totalPersonalDocs;
+      final progress = uploaded / total;
+
+      return Container(
+        padding: EdgeInsets.all(14.w),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(12.r),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withAlpha(10),
+              blurRadius: 8,
+              offset: const Offset(0, 2),
+            ),
+          ],
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                AppTextStyle(
+                  text: 'Documents Uploaded',
+                  fontSize: 13.sp,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.black,
+                ),
+                AppTextStyle(
+                  text: '$uploaded / $total',
+                  fontSize: 13.sp,
+                  fontWeight: FontWeight.w600,
+                  color: AppColors.primary,
+                ),
+              ],
+            ),
+            8.verticalSpace,
+            ClipRRect(
+              borderRadius: BorderRadius.circular(10.r),
+              child: LinearProgressIndicator(
+                value: progress,
+                minHeight: 6.h,
+                backgroundColor: AppColors.primary.withAlpha(30),
+                valueColor: AlwaysStoppedAnimation<Color>(AppColors.primary),
+              ),
+            ),
+          ],
+        ),
+      );
+    });
   }
 }

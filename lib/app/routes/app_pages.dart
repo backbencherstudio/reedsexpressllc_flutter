@@ -12,6 +12,8 @@ import '../modules/forgot_password/bindings/forgot_password_binding.dart';
 import '../modules/forgot_password/views/forgot_password_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
+import '../modules/license_and_certifications/bindings/license_and_certifications_binding.dart';
+import '../modules/license_and_certifications/views/license_and_certifications_view.dart';
 import '../modules/load/bindings/load_binding.dart';
 import '../modules/load/views/load_view.dart';
 import '../modules/load_details/bindings/load_details_binding.dart';
@@ -24,16 +26,24 @@ import '../modules/message/bindings/message_binding.dart';
 import '../modules/message/chat/bindings/chat_binding.dart';
 import '../modules/message/chat/views/chat_view.dart';
 import '../modules/message/views/message_view.dart';
+import '../modules/notifications/bindings/notifications_binding.dart';
+import '../modules/notifications/views/notifications_view.dart';
 import '../modules/onboard/bindings/onboard_binding.dart';
 import '../modules/onboard/views/onboard_view.dart';
+import '../modules/personal_info/bindings/personal_info_binding.dart';
+import '../modules/personal_info/views/personal_info_view.dart';
 import '../modules/profile/bindings/profile_binding.dart';
 import '../modules/profile/views/profile_view.dart';
 import '../modules/register/bindings/register_binding.dart';
 import '../modules/register/views/register_view.dart';
+import '../modules/settings_notification/bindings/settings_notification_binding.dart';
+import '../modules/settings_notification/views/settings_notification_view.dart';
 import '../modules/splash/bindings/splash_binding.dart';
 import '../modules/splash/views/splash_view.dart';
 import '../modules/upload_documents/bindings/upload_documents_binding.dart';
 import '../modules/upload_documents/views/upload_documents_view.dart';
+import '../modules/vehicle/bindings/vehicle_binding.dart';
+import '../modules/vehicle/views/vehicle_view.dart';
 import '../modules/verify_otp/bindings/verify_otp_binding.dart';
 import '../modules/verify_otp/views/verify_otp_view.dart';
 
@@ -136,6 +146,31 @@ class AppPages {
       name: _Paths.EARNINGS,
       page: () => const EarningsView(),
       binding: EarningsBinding(),
+    ),
+    GetPage(
+      name: _Paths.PERSONAL_INFO,
+      page: () => const PersonalInfoView(),
+      binding: PersonalInfoBinding(),
+    ),
+    GetPage(
+      name: _Paths.LICENSE_AND_CERTIFICATIONS,
+      page: () => const LicenseAndCertificationsView(),
+      binding: LicenseAndCertificationsBinding(),
+    ),
+    GetPage(
+      name: _Paths.NOTIFICATIONS,
+      page: () => const NotificationsView(),
+      binding: NotificationsBinding(),
+    ),
+    GetPage(
+      name: _Paths.VEHICLE,
+      page: () => const VehicleView(),
+      binding: VehicleBinding(),
+    ),
+    GetPage(
+      name: _Paths.SETTINGS_NOTIFICATION,
+      page: () => const SettingsNotificationView(),
+      binding: SettingsNotificationBinding(),
     ),
   ];
 }

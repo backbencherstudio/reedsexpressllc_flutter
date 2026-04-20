@@ -6,6 +6,7 @@ import 'package:reedsexpressllc_flutter/app/core/extensions/sizedbox_extension.d
 import 'package:reedsexpressllc_flutter/app/core/layouts/load_item_layout.dart';
 import 'package:reedsexpressllc_flutter/app/core/widgets/custom_svg_image.dart';
 import 'package:reedsexpressllc_flutter/app/core/widgets/global_button.dart';
+import 'package:reedsexpressllc_flutter/app/modules/main_page/controllers/main_page_controller.dart';
 import 'package:reedsexpressllc_flutter/app/routes/app_pages.dart';
 
 import '../../../../gen/assets.gen.dart';
@@ -198,37 +199,42 @@ class _HomeHeader extends StatelessWidget {
         Positioned(
           top: 20.h,
           right: 15.w,
-          child: Container(
-            width: 44.w,
-            height: 44.w,
-            decoration: BoxDecoration(
-              color: Colors.white.withAlpha(40),
-              shape: BoxShape.circle,
-            ),
-            child: Stack(
-              children: [
-                Center(
-                  child: customSvgImage(
-                    imagePath: Assets.icons.notificationIcon,
-                    width: 22.w,
-                    height: 22.w,
-                    color: Colors.white,
-                  ),
-                ),
-
-                Positioned(
-                  top: 9.h,
-                  right: 10.w,
-                  child: Container(
-                    width: 10.w,
-                    height: 10.w,
-                    decoration: const BoxDecoration(
-                      color: Color(0xFFF9C80E),
-                      shape: BoxShape.circle,
+          child: GestureDetector(
+            onTap: (){
+              Get.toNamed(Routes.NOTIFICATIONS);
+            },
+            child: Container(
+              width: 44.w,
+              height: 44.w,
+              decoration: BoxDecoration(
+                color: Colors.white.withAlpha(40),
+                shape: BoxShape.circle,
+              ),
+              child: Stack(
+                children: [
+                  Center(
+                    child: customSvgImage(
+                      imagePath: Assets.icons.notificationIcon,
+                      width: 22.w,
+                      height: 22.w,
+                      color: Colors.white,
                     ),
                   ),
-                ),
-              ],
+
+                  Positioned(
+                    top: 9.h,
+                    right: 10.w,
+                    child: Container(
+                      width: 10.w,
+                      height: 10.w,
+                      decoration: const BoxDecoration(
+                        color: Color(0xFFF9C80E),
+                        shape: BoxShape.circle,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
@@ -387,7 +393,9 @@ class _QuickActionsGrid extends GetView<HomeController> {
               child: QuickActionItem(
                 iconPath: actions[1].$1,
                 label: actions[1].$2,
-                onTap: () {},
+                onTap: () {
+                  Get.toNamed(Routes.DOCUMENTS);
+                },
               ),
             ),
           ],
@@ -398,7 +406,9 @@ class _QuickActionsGrid extends GetView<HomeController> {
         QuickActionItem(
           iconPath: actions[2].$1,
           label: actions[2].$2,
-          onTap: () {},
+          onTap: () {
+            Get.toNamed(Routes.LOAD);
+          },
         ),
       ],
     );

@@ -58,6 +58,8 @@ dependencies:
   dotted_border: ^3.1.0
   google_nav_bar: ^5.0.7
   syncfusion_flutter_datepicker: ^33.1.49
+  open_filex: ^4.7.0
+  pinput: ^6.0.2
 
 dev_dependencies:
   flutter_test:

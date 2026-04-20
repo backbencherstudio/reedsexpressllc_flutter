@@ -19,6 +19,8 @@ class InputFieldWithLabel extends StatelessWidget {
   final bool? obscureText;
   final Widget? suffixIcon;
   final String? suffixText;
+  final bool readOnly;
+  final VoidCallback? onTap;
 
   const InputFieldWithLabel({
     super.key,
@@ -34,6 +36,8 @@ class InputFieldWithLabel extends StatelessWidget {
     this.errorText,
     this.obscureText,
     this.suffixIcon,
+    this.readOnly = false,
+    this.onTap,
   });
 
   @override
@@ -61,6 +65,8 @@ class InputFieldWithLabel extends StatelessWidget {
           ],
         ),
         TextFormField(
+          readOnly: readOnly,
+          onTap: onTap,
           controller: controller,
           cursorColor: AppColors.primary,
           autovalidateMode: AutovalidateMode.onUserInteraction,

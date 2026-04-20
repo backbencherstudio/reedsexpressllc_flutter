@@ -21,6 +21,11 @@ abstract class Routes {
   static const ACTIVE_LOAD_LIST = _Paths.ACTIVE_LOAD_LIST;
   static const LOAD_DETAILS = _Paths.LOAD_DETAILS;
   static const EARNINGS = _Paths.EARNINGS;
+  static const PERSONAL_INFO = _Paths.PERSONAL_INFO;
+  static const LICENSE_AND_CERTIFICATIONS = _Paths.LICENSE_AND_CERTIFICATIONS;
+  static const NOTIFICATIONS = _Paths.NOTIFICATIONS;
+  static const VEHICLE = _Paths.VEHICLE;
+  static const SETTINGS_NOTIFICATION = _Paths.SETTINGS_NOTIFICATION;
 }
 
 abstract class _Paths {
@@ -43,4 +48,9 @@ abstract class _Paths {
   static const ACTIVE_LOAD_LIST = '/active-load-list';
   static const LOAD_DETAILS = '/load-details';
   static const EARNINGS = '/earnings';
+  static const PERSONAL_INFO = '/personal-info';
+  static const LICENSE_AND_CERTIFICATIONS = '/license-and-certifications';
+  static const NOTIFICATIONS = '/notifications';
+  static const VEHICLE = '/vehicle';
+  static const SETTINGS_NOTIFICATION = '/settings-notification';
 }

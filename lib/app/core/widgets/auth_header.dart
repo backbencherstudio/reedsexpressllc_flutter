@@ -14,7 +14,7 @@ Widget authHeader({
   bool isBackButton = false,
 }) {
   return SizedBox(
-    height: 100.h,
+    height:height?? 100.h,
     width: width ?? Get.width,
     child: Padding(
       padding: EdgeInsets.symmetric(horizontal: 15.w),

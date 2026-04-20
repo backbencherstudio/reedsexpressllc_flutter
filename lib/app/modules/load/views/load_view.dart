@@ -10,6 +10,7 @@ import 'package:reedsexpressllc_flutter/app/core/widgets/custom_svg_image.dart';
 
 import '../../../../gen/assets.gen.dart';
 import '../../../core/widgets/appbar_title.dart';
+import '../../../core/widgets/custom_icon_button.dart';
 import '../../../core/widgets/global_loading.dart';
 import '../../../core/widgets/show_empty_result.dart';
 import '../../../routes/app_pages.dart';
@@ -30,6 +31,12 @@ class LoadView extends GetView<LoadController> {
         elevation: 0,
         centerTitle: true,
         title: appbarTitle(text: 'Loads'),
+        leading: Get.currentRoute == Routes.MAIN_PAGE
+            ? null
+            : Padding(
+          padding: EdgeInsets.only(left: 12.w),
+          child: const CustomIconButton(),
+        ),
       ),
       body: Column(
         children: [

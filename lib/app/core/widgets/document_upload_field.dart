@@ -1,8 +1,11 @@
+// lib/app/core/widgets/document_upload_field.dart
+
 import 'dart:io';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:open_filex/open_filex.dart';
 import 'package:path/path.dart' as p;
 import 'package:reedsexpressllc_flutter/app/core/theme/app_colors.dart';
 import 'package:reedsexpressllc_flutter/app/core/widgets/app_text_style.dart';
@@ -15,6 +18,7 @@ class DocumentUploadField extends StatelessWidget {
   final VoidCallback onTap;
   final VoidCallback onRemove;
   final bool isRequired;
+  final bool readOnly;
   final Color? fieldColor;
 
   const DocumentUploadField({
@@ -23,14 +27,18 @@ class DocumentUploadField extends StatelessWidget {
     required this.filePathObs,
     required this.onTap,
     required this.onRemove,
-    this.isRequired = true, this.fieldColor,
+    this.isRequired = true,
+    this.readOnly = false,
+    this.fieldColor,
   });
 
   String _formatFileSize(String filePath) {
     try {
       final bytes = File(filePath).lengthSync();
       if (bytes < 1024) return '$bytes B';
-      if (bytes < 1024 * 1024) return '${(bytes / 1024).toStringAsFixed(2)} KB';
+      if (bytes < 1024 * 1024) {
+        return '${(bytes / 1024).toStringAsFixed(2)} KB';
+      }
       return '${(bytes / (1024 * 1024)).toStringAsFixed(2)} MB';
     } catch (_) {
       return '';
@@ -42,12 +50,16 @@ class DocumentUploadField extends StatelessWidget {
     return ext == '.jpg' || ext == '.jpeg' || ext == '.png';
   }
 
+  Future<void> _openFile(String filePath) async {
+    await OpenFilex.open(filePath);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        // Label
+        // ── Label ──────────────────────────────────────────
         Row(
           children: [
             AppTextStyle(
@@ -67,19 +79,31 @@ class DocumentUploadField extends StatelessWidget {
         ),
         4.verticalSpace,
 
-        // Upload box
+        // ── Upload box ─────────────────────────────────────
         Obx(() {
           final filePath = filePathObs.value;
           final isUploaded = filePath != null;
 
           return GestureDetector(
-            onTap: isUploaded ? null : onTap,
+            onTap: () {
+              if (isUploaded) {
+                // Open file for viewing
+                _openFile(filePath);
+              } else if (!readOnly) {
+                // Pick a new file
+                onTap();
+              }
+            },
             child: DottedBorder(
               options: RoundedRectDottedBorderOptions(
                 radius: Radius.circular(10.r),
                 dashPattern: const [6, 4],
                 strokeWidth: 1,
-                color: isUploaded ? AppColors.primary : AppColors.hintText,
+                color: isUploaded
+                    ? AppColors.primary
+                    : readOnly
+                    ? AppColors.hintText.withAlpha(80)
+                    : AppColors.hintText,
                 padding: EdgeInsets.zero,
               ),
               child: Container(
@@ -91,17 +115,17 @@ class DocumentUploadField extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: isUploaded
                       ? AppColors.primary.withAlpha(10)
-                      : fieldColor?? Colors.white,
+                      : fieldColor ?? Colors.white,
                   borderRadius: BorderRadius.circular(10.r),
                 ),
                 child: isUploaded
-                    ? _UploadedState(
+                    ? _uploadedState(
                   filePath: filePath,
                   fileSize: _formatFileSize(filePath),
                   isImage: _isImage(filePath),
-                  onRemove: onRemove,
+                  onRemove: readOnly ? null : onRemove,
                 )
-                    : const _EmptyState(),
+                    : _emptyState(readOnly: readOnly),
               ),
             ),
           );
@@ -109,51 +133,32 @@ class DocumentUploadField extends StatelessWidget {
       ],
     );
   }
-}
 
-// ── Empty state ───────────────────────────────────────────────────────────────
-
-class _EmptyState extends StatelessWidget {
-  const _EmptyState();
-
-  @override
-  Widget build(BuildContext context) {
+  Widget _emptyState({required bool readOnly}) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         customSvgImage(
           imagePath: Assets.icons.uploadIcon,
-          color: AppColors.hintText,
+          color: readOnly ? AppColors.hintText.withAlpha(80) : AppColors.hintText,
         ),
         6.horizontalSpace,
         AppTextStyle(
-          text: 'Upload file (Image or PDF)',
+          text: readOnly ? 'Not uploaded' : 'Upload file (Image or PDF)',
           fontSize: 14.sp,
           fontWeight: FontWeight.w400,
-          color: AppColors.hintText,
+          color: readOnly ? AppColors.hintText.withAlpha(80) : AppColors.hintText,
         ),
       ],
     );
   }
-}
 
-// ── Uploaded state ────────────────────────────────────────────────────────────
-
-class _UploadedState extends StatelessWidget {
-  final String filePath;
-  final String fileSize;
-  final bool isImage;
-  final VoidCallback onRemove;
-
-  const _UploadedState({
-    required this.filePath,
-    required this.fileSize,
-    required this.isImage,
-    required this.onRemove,
-  });
-
-  @override
-  Widget build(BuildContext context) {
+  Widget _uploadedState({
+    required String filePath,
+    required String fileSize,
+    required bool isImage,
+    required VoidCallback? onRemove,
+  }) {
     final fileName = p.basename(filePath);
 
     return Row(
@@ -174,7 +179,6 @@ class _UploadedState extends StatelessWidget {
             imagePath: Assets.icons.docIcon,
             color: AppColors.primary,
           ),
-
         10.horizontalSpace,
 
         // File name + size
@@ -201,14 +205,33 @@ class _UploadedState extends StatelessWidget {
           ),
         ),
 
-        // Remove button
-        GestureDetector(
-          onTap: onRemove,
-          child: customSvgImage(
-            imagePath: Assets.icons.crossCircleIcon,
-            color: AppColors.hintText,
+        // View hint or remove button
+        if (onRemove != null)
+          GestureDetector(
+            onTap: onRemove,
+            child: customSvgImage(
+              imagePath: Assets.icons.crossCircleIcon,
+              color: AppColors.hintText,
+            ),
+          )
+        else
+          Row(
+            children: [
+              customSvgImage(
+                imagePath: Assets.icons.eyeOpenIcon,
+                width: 16.w,
+                height: 16.w,
+                color: AppColors.primary,
+              ),
+              4.horizontalSpace,
+              AppTextStyle(
+                text: 'View',
+                fontSize: 11.sp,
+                fontWeight: FontWeight.w500,
+                color: AppColors.primary,
+              ),
+            ],
           ),
-        ),
       ],
     );
   }
