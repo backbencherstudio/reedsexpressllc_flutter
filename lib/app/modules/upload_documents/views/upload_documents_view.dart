@@ -6,10 +6,10 @@ import 'package:reedsexpressllc_flutter/app/modules/register/controllers/registe
 import 'package:reedsexpressllc_flutter/app/routes/app_pages.dart';
 
 import '../../../core/theme/app_colors.dart';
-import '../../../core/widgets/auth_header.dart';
-import '../../../core/widgets/document_upload_field.dart';
-import '../../../core/widgets/global_button.dart';
-import '../../../core/widgets/global_loading.dart';
+import '../../../widgets/auth_header.dart';
+import '../../../widgets/document_upload_field.dart';
+import '../../../widgets/global_button.dart';
+import '../../../widgets/global_loading.dart';
 import '../controllers/upload_documents_controller.dart';
 
 // upload_documents_view.dart

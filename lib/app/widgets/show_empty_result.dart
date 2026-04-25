@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:reedsexpressllc_flutter/app/core/theme/app_colors.dart';
 
 import '../../../gen/assets.gen.dart';
-import '../extensions/sizedbox_extension.dart';
+import '../core/extensions/sizedbox_extension.dart';
 import 'app_text_style.dart';
 import 'global_button.dart';
 

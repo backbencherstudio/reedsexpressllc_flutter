@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:reedsexpressllc_flutter/app/core/extensions/sizedbox_extension.dart';
-import 'package:reedsexpressllc_flutter/app/core/widgets/custom_dialog.dart';
-import 'package:reedsexpressllc_flutter/app/core/widgets/global_button.dart';
+import 'package:reedsexpressllc_flutter/app/widgets/custom_dialog.dart';
+import 'package:reedsexpressllc_flutter/app/widgets/global_button.dart';
 import 'package:reedsexpressllc_flutter/app/modules/documents/controllers/documents_controller.dart';
 import 'package:reedsexpressllc_flutter/app/modules/main_page/controllers/main_page_controller.dart';
 
 import '../../../../gen/assets.gen.dart';
 import '../../../routes/app_pages.dart';
 import '../../../core/theme/app_colors.dart';
-import '../../../core/widgets/app_text_style.dart';
-import '../../../core/widgets/custom_svg_image.dart';
+import '../../../widgets/app_text_style.dart';
+import '../../../widgets/custom_svg_image.dart';
 import '../controllers/profile_controller.dart';
 
 class ProfileView extends GetView<ProfileController> {

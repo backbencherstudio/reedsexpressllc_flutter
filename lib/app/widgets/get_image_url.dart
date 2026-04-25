@@ -1,4 +1,4 @@
-import '../network/api_endpoints.dart';
+import '../core/network/api_endpoints.dart';
 
 class GetImageUrl {
   static String url(String? url) {

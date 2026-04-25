@@ -7,12 +7,12 @@ import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 import '../../../../gen/assets.gen.dart';
 import '../../../core/extensions/sizedbox_extension.dart';
 import '../../../core/theme/app_colors.dart';
-import '../../../core/widgets/app_input_text_form_field.dart';
-import '../../../core/widgets/app_text_style.dart';
-import '../../../core/widgets/appbar_title.dart';
-import '../../../core/widgets/custom_icon_button.dart';
-import '../../../core/widgets/custom_svg_image.dart';
-import '../../../core/widgets/global_button.dart';
+import '../../../widgets/app_input_text_form_field.dart';
+import '../../../widgets/app_text_style.dart';
+import '../../../widgets/appbar_title.dart';
+import '../../../widgets/custom_icon_button.dart';
+import '../../../widgets/custom_svg_image.dart';
+import '../../../widgets/global_button.dart';
 import '../controllers/license_and_certifications_controller.dart';
 
 class LicenseAndCertificationsView extends GetView<LicenseAndCertificationsController> {

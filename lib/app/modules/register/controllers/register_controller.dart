@@ -5,8 +5,8 @@ import 'package:reedsexpressllc_flutter/app/core/utils/logger.dart';
 import 'package:reedsexpressllc_flutter/app/routes/app_pages.dart';
 
 import '../../../../gen/assets.gen.dart';
-import '../../../core/widgets/custom_dialog.dart';
-import '../../../core/widgets/global_button.dart';
+import '../../../widgets/custom_dialog.dart';
+import '../../../widgets/global_button.dart';
 
 class RegisterController extends GetxController {
   final fullNameController = TextEditingController();

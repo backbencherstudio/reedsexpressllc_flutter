@@ -1,12 +1,12 @@
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:reedsexpressllc_flutter/app/core/widgets/global_button.dart';
+import 'package:reedsexpressllc_flutter/app/widgets/global_button.dart';
 
 import '../../../../gen/assets.gen.dart';
 import '../../../core/constants/enums.dart';
 import '../../../core/utils/logger.dart';
-import '../../../core/widgets/custom_dialog.dart';
+import '../../../widgets/custom_dialog.dart';
 import '../../../data/models/tracking_status_model.dart';
 
 class LoadDetailsController extends GetxController {

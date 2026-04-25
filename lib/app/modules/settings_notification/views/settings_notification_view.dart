@@ -5,9 +5,9 @@ import 'package:get/get.dart';
 
 import '../../../core/extensions/sizedbox_extension.dart';
 import '../../../core/theme/app_colors.dart';
-import '../../../core/widgets/app_text_style.dart';
-import '../../../core/widgets/appbar_title.dart';
-import '../../../core/widgets/custom_icon_button.dart';
+import '../../../widgets/app_text_style.dart';
+import '../../../widgets/appbar_title.dart';
+import '../../../widgets/custom_icon_button.dart';
 import '../controllers/settings_notification_controller.dart';
 
 class SettingsNotificationView extends GetView<SettingsNotificationController> {

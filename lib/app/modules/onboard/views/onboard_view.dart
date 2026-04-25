@@ -3,8 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
 import 'package:reedsexpressllc_flutter/app/core/extensions/sizedbox_extension.dart';
-import 'package:reedsexpressllc_flutter/app/core/widgets/app_text_style.dart';
-import 'package:reedsexpressllc_flutter/app/core/widgets/global_button.dart';
+import 'package:reedsexpressllc_flutter/app/widgets/app_text_style.dart';
+import 'package:reedsexpressllc_flutter/app/widgets/global_button.dart';
 import 'package:reedsexpressllc_flutter/app/routes/app_pages.dart';
 
 import '../../../../gen/assets.gen.dart';

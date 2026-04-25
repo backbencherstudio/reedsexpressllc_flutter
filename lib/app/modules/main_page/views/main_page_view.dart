@@ -7,7 +7,7 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:reedsexpressllc_flutter/app/core/theme/app_colors.dart';
 import '../../../../gen/assets.gen.dart';
 import '../../../core/utils/dialog_utils.dart';
-import '../../../core/widgets/custom_svg_image.dart';
+import '../../../widgets/custom_svg_image.dart';
 import '../controllers/main_page_controller.dart';
 
 class MainPageView extends GetView<MainPageController> {

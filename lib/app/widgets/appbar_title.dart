@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../extensions/sizedbox_extension.dart';
-import '../theme/app_colors.dart';
+import '../core/extensions/sizedbox_extension.dart';
+import '../core/theme/app_colors.dart';
 import 'app_text_style.dart';
 
 Widget appbarTitle({

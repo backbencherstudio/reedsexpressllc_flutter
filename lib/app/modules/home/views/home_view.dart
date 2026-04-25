@@ -4,15 +4,15 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:reedsexpressllc_flutter/app/core/extensions/sizedbox_extension.dart';
 import 'package:reedsexpressllc_flutter/app/core/layouts/load_item_layout.dart';
-import 'package:reedsexpressllc_flutter/app/core/widgets/custom_svg_image.dart';
-import 'package:reedsexpressllc_flutter/app/core/widgets/global_button.dart';
-import 'package:reedsexpressllc_flutter/app/core/widgets/show_empty_result.dart';
+import 'package:reedsexpressllc_flutter/app/widgets/custom_svg_image.dart';
+import 'package:reedsexpressllc_flutter/app/widgets/global_button.dart';
+import 'package:reedsexpressllc_flutter/app/widgets/show_empty_result.dart';
 import 'package:reedsexpressllc_flutter/app/routes/app_pages.dart';
 
 import '../../../../gen/assets.gen.dart';
 import '../../../core/theme/app_colors.dart';
-import '../../../core/widgets/app_text_style.dart';
-import '../../../core/widgets/quick_action_item.dart';
+import '../../../widgets/app_text_style.dart';
+import '../../../widgets/quick_action_item.dart';
 import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {

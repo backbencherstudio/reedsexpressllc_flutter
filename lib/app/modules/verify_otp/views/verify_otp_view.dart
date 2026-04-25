@@ -4,17 +4,17 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pinput/pinput.dart';
-import 'package:reedsexpressllc_flutter/app/core/widgets/custom_svg_image.dart';
+import 'package:reedsexpressllc_flutter/app/widgets/custom_svg_image.dart';
 
 import '../../../../gen/assets.gen.dart';
 import '../../../core/extensions/sizedbox_extension.dart';
 import '../../../core/theme/app_colors.dart';
-import '../../../core/widgets/app_text_style.dart';
-import '../../../core/widgets/appbar_title.dart';
-import '../../../core/widgets/custom_icon_button.dart';
-import '../../../core/widgets/global_button.dart';
-import '../../../core/widgets/global_loading.dart';
-import '../../../core/widgets/global_tost.dart';
+import '../../../widgets/app_text_style.dart';
+import '../../../widgets/appbar_title.dart';
+import '../../../widgets/custom_icon_button.dart';
+import '../../../widgets/global_button.dart';
+import '../../../widgets/global_loading.dart';
+import '../../../widgets/global_tost.dart';
 import '../controllers/verify_otp_controller.dart';
 
 class VerifyOtpView extends GetView<VerifyOtpController> {

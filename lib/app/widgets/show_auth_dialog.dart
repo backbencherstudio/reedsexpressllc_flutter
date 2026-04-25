@@ -1,9 +1,9 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:get/get.dart';
 
-import '../../routes/app_pages.dart';
-import '../utils/dialog_utils.dart';
-import '../utils/helper_utils.dart';
+import '../core/utils/dialog_utils.dart';
+import '../core/utils/helper_utils.dart';
+import '../routes/app_pages.dart';
 
 void showAuthDialog() {
   return DialogUtils.showDialog(

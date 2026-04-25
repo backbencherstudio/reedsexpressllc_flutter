@@ -4,7 +4,7 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
 import 'package:shimmer/shimmer.dart';
 
-import '../theme/app_colors.dart';
+import '../core/theme/app_colors.dart';
 
 Widget shimmerLoadingWidget({
   double? height,

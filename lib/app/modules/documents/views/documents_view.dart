@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:reedsexpressllc_flutter/app/core/theme/app_colors.dart';
-import 'package:reedsexpressllc_flutter/app/core/widgets/app_text_style.dart';
-import 'package:reedsexpressllc_flutter/app/core/widgets/document_upload_field.dart';
+import 'package:reedsexpressllc_flutter/app/widgets/app_text_style.dart';
+import 'package:reedsexpressllc_flutter/app/widgets/document_upload_field.dart';
 import 'package:reedsexpressllc_flutter/app/routes/app_pages.dart';
-import '../../../core/widgets/appbar_title.dart';
-import '../../../core/widgets/custom_icon_button.dart';
+import '../../../widgets/appbar_title.dart';
+import '../../../widgets/custom_icon_button.dart';
 import '../controllers/documents_controller.dart';
 
 class DocumentsView extends GetView<DocumentsController> {

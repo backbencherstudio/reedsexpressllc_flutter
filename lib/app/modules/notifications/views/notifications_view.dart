@@ -4,11 +4,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../../core/theme/app_colors.dart';
-import '../../../core/widgets/app_text_style.dart';
-import '../../../core/widgets/appbar_title.dart';
-import '../../../core/widgets/custom_icon_button.dart';
-import '../../../core/widgets/global_loading.dart';
-import '../../../core/widgets/show_empty_result.dart';
+import '../../../widgets/app_text_style.dart';
+import '../../../widgets/appbar_title.dart';
+import '../../../widgets/custom_icon_button.dart';
+import '../../../widgets/global_loading.dart';
+import '../../../widgets/show_empty_result.dart';
 import '../controllers/notifications_controller.dart';
 
 class NotificationsView extends GetView<NotificationsController> {

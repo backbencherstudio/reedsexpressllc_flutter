@@ -5,14 +5,14 @@ import 'package:get/get.dart';
 import 'package:reedsexpressllc_flutter/app/core/extensions/sizedbox_extension.dart';
 import 'package:reedsexpressllc_flutter/app/core/layouts/load_item_layout.dart';
 import 'package:reedsexpressllc_flutter/app/core/theme/app_colors.dart';
-import 'package:reedsexpressllc_flutter/app/core/widgets/app_text_style.dart';
-import 'package:reedsexpressllc_flutter/app/core/widgets/custom_svg_image.dart';
+import 'package:reedsexpressllc_flutter/app/widgets/app_text_style.dart';
+import 'package:reedsexpressllc_flutter/app/widgets/custom_svg_image.dart';
 
 import '../../../../gen/assets.gen.dart';
-import '../../../core/widgets/appbar_title.dart';
-import '../../../core/widgets/custom_icon_button.dart';
-import '../../../core/widgets/global_loading.dart';
-import '../../../core/widgets/show_empty_result.dart';
+import '../../../widgets/appbar_title.dart';
+import '../../../widgets/custom_icon_button.dart';
+import '../../../widgets/global_loading.dart';
+import '../../../widgets/show_empty_result.dart';
 import '../../../routes/app_pages.dart';
 import '../controllers/load_controller.dart';
 

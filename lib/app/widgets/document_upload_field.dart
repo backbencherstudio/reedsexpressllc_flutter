@@ -8,8 +8,8 @@ import 'package:get/get.dart';
 import 'package:open_filex/open_filex.dart';
 import 'package:path/path.dart' as p;
 import 'package:reedsexpressllc_flutter/app/core/theme/app_colors.dart';
-import 'package:reedsexpressllc_flutter/app/core/widgets/app_text_style.dart';
-import 'package:reedsexpressllc_flutter/app/core/widgets/custom_svg_image.dart';
+import 'package:reedsexpressllc_flutter/app/widgets/app_text_style.dart';
+import 'package:reedsexpressllc_flutter/app/widgets/custom_svg_image.dart';
 import '../../../gen/assets.gen.dart';
 
 class DocumentUploadField extends StatelessWidget {

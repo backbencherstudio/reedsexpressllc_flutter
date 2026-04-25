@@ -5,12 +5,12 @@ import 'package:get/get.dart';
 
 import '../../../core/extensions/sizedbox_extension.dart';
 import '../../../core/theme/app_colors.dart';
-import '../../../core/widgets/app_input_text_form_field.dart';
-import '../../../core/widgets/app_text_style.dart';
-import '../../../core/widgets/auth_header.dart';
-import '../../../core/widgets/global_button.dart';
-import '../../../core/widgets/global_loading.dart';
-import '../../../core/widgets/global_tost.dart';
+import '../../../widgets/app_input_text_form_field.dart';
+import '../../../widgets/app_text_style.dart';
+import '../../../widgets/auth_header.dart';
+import '../../../widgets/global_button.dart';
+import '../../../widgets/global_loading.dart';
+import '../../../widgets/global_tost.dart';
 import '../../../routes/app_pages.dart';
 import '../controllers/login_controller.dart';
 

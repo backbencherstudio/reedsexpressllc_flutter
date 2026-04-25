@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:reedsexpressllc_flutter/app/core/theme/app_colors.dart';
-import 'package:reedsexpressllc_flutter/app/core/widgets/app_text_style.dart';
-import 'package:reedsexpressllc_flutter/app/core/widgets/custom_icon_button.dart';
-import 'package:reedsexpressllc_flutter/app/core/widgets/custom_svg_image.dart';
+import 'package:reedsexpressllc_flutter/app/widgets/app_text_style.dart';
+import 'package:reedsexpressllc_flutter/app/widgets/custom_icon_button.dart';
+import 'package:reedsexpressllc_flutter/app/widgets/custom_svg_image.dart';
 import 'package:reedsexpressllc_flutter/app/data/models/chat_message_model.dart';
 import 'package:reedsexpressllc_flutter/gen/assets.gen.dart';
-import '../../../../core/widgets/appbar_title.dart';
+import '../../../../widgets/appbar_title.dart';
 import '../controllers/chat_controller.dart';
 
 class ChatView extends GetView<ChatController> {

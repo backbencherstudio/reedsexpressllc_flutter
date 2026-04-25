@@ -3,15 +3,15 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:reedsexpressllc_flutter/app/core/extensions/sizedbox_extension.dart';
 import 'package:reedsexpressllc_flutter/app/core/theme/app_colors.dart';
-import 'package:reedsexpressllc_flutter/app/core/widgets/app_input_text_form_field.dart';
-import 'package:reedsexpressllc_flutter/app/core/widgets/app_text_style.dart';
+import 'package:reedsexpressllc_flutter/app/widgets/app_input_text_form_field.dart';
+import 'package:reedsexpressllc_flutter/app/widgets/app_text_style.dart';
 
-import 'package:reedsexpressllc_flutter/app/core/widgets/auth_header.dart';
-import 'package:reedsexpressllc_flutter/app/core/widgets/global_loading.dart';
+import 'package:reedsexpressllc_flutter/app/widgets/auth_header.dart';
+import 'package:reedsexpressllc_flutter/app/widgets/global_loading.dart';
 import 'package:reedsexpressllc_flutter/app/routes/app_pages.dart';
-import 'package:reedsexpressllc_flutter/app/core/widgets/global_button.dart';
+import 'package:reedsexpressllc_flutter/app/widgets/global_button.dart';
 
-import '../../../core/widgets/global_tost.dart';
+import '../../../widgets/global_tost.dart';
 import '../controllers/register_controller.dart';
 
 class RegisterView extends GetView<RegisterController> {
