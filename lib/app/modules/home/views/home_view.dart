@@ -6,7 +6,7 @@ import 'package:reedsexpressllc_flutter/app/core/extensions/sizedbox_extension.d
 import 'package:reedsexpressllc_flutter/app/core/layouts/load_item_layout.dart';
 import 'package:reedsexpressllc_flutter/app/core/widgets/custom_svg_image.dart';
 import 'package:reedsexpressllc_flutter/app/core/widgets/global_button.dart';
-import 'package:reedsexpressllc_flutter/app/modules/main_page/controllers/main_page_controller.dart';
+import 'package:reedsexpressllc_flutter/app/core/widgets/show_empty_result.dart';
 import 'package:reedsexpressllc_flutter/app/routes/app_pages.dart';
 
 import '../../../../gen/assets.gen.dart';
@@ -44,45 +44,49 @@ class HomeView extends GetView<HomeController> {
                     topLeft: Radius.circular(20.r),
                     topRight: Radius.circular(20.r),
                   ),
-                  child: Obx(
-                    () => ListView(
-                      padding: EdgeInsets.fromLTRB(16.w, 20.h, 16.w, 32.h),
-                      children: [
-                        // ── Active Load section ──────────────
-                        _SectionHeader(
-                          title: 'Active Load',
-                          actionLabel: 'All Loads',
-                          onTap: () {
-                            Get.toNamed(Routes.ACTIVE_LOAD_LIST);
-                          },
-                        ),
-                        12.verticalSpace,
+                  child: ListView(
+                    padding: EdgeInsets.fromLTRB(16.w, 20.h, 16.w, 32.h),
+                    children: [
+                      // ── Active Load section ──────────────
+                      _SectionHeader(
+                        title: 'Active Load',
+                        actionLabel: 'All Loads',
+                        onTap: () {
+                          Get.toNamed(Routes.ACTIVE_LOAD_LIST);
+                        },
+                      ),
+                      12.verticalSpace,
 
-                        // ...List.generate(
-                        //   controller.activeLoads.length,
-                        //       (index) => Padding(
-                        //     padding: EdgeInsets.only(bottom: 14.h),
-                        //     child: LoadItemLayout(
-                        //       load: controller.activeLoads[index],
-                        //       onViewDetails: () {},
-                        //     ),
-                        //   ),
-                        // ),
-                        LoadItemLayout(
-                          load: controller.activeLoads[0],
-                          onViewDetails: () {
-                            Get.toNamed(Routes.LOAD_DETAILS);
-                          },
-                        ),
+                      // ...List.generate(
+                      //   controller.activeLoads.length,
+                      //       (index) => Padding(
+                      //     padding: EdgeInsets.only(bottom: 14.h),
+                      //     child: LoadItemLayout(
+                      //       load: controller.activeLoads[index],
+                      //       onViewDetails: () {},
+                      //     ),
+                      //   ),
+                      // ),
+                      Obx(
+                        () => controller.isDocumentSubmit.value
+                            ? LoadItemLayout(
+                                load: controller.activeLoads[0],
+                                onViewDetails: () {
+                                  Get.toNamed(Routes.LOAD_DETAILS);
+                                },
+                              )
+                            : ShowEmptyResult(
+                                subtitle: "No assigned loads yet",
+                              ),
+                      ),
 
-                        20.verticalSpace,
+                      20.verticalSpace,
 
-                        // ── Quick Actions section ────────────
-                        _SectionHeader(title: 'Quick Actions'),
-                        12.verticalSpace,
-                        _QuickActionsGrid(),
-                      ],
-                    ),
+                      // ── Quick Actions section ────────────
+                      _SectionHeader(title: 'Quick Actions'),
+                      12.verticalSpace,
+                      _QuickActionsGrid(),
+                    ],
                   ),
                 ),
               ),
@@ -200,7 +204,7 @@ class _HomeHeader extends StatelessWidget {
           top: 20.h,
           right: 15.w,
           child: GestureDetector(
-            onTap: (){
+            onTap: () {
               Get.toNamed(Routes.NOTIFICATIONS);
             },
             child: Container(

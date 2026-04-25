@@ -76,6 +76,7 @@ class RegisterView extends GetView<RegisterController> {
                         15.height,
                         InputFieldWithLabel(
                           label: "E-mail",
+                          hintText: "Enter your email",
                           controller: controller.emailController,
                           keyboardType: TextInputType.emailAddress,
                           validator: (value) {

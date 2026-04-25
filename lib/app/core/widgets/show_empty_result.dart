@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:reedsexpressllc_flutter/app/core/theme/app_colors.dart';
 
 import '../../../gen/assets.gen.dart';
 import '../extensions/sizedbox_extension.dart';
@@ -12,7 +13,7 @@ class ShowEmptyResult extends StatelessWidget {
     this.height,
     this.width,
     this.title,
-    this.desc,
+    this.subtitle,
     this.widget,
     this.refreshOnTap,
   });
@@ -20,7 +21,7 @@ class ShowEmptyResult extends StatelessWidget {
   final double? width;
 
   final String? title;
-  final String? desc;
+  final String? subtitle;
   final Widget? widget;
   final VoidCallback? refreshOnTap;
 
@@ -37,21 +38,26 @@ class ShowEmptyResult extends StatelessWidget {
               height: 100.h,
               width: 100.w,
             ),
-            20.height,
-            AppTextStyle(
-              text: title ?? 'No restaurant found!',
-              fontSize: 16.sp,
-              fontWeight: FontWeight.w500,
-            ),
+            if (title != null)
+              Padding(
+                padding: EdgeInsets.only(top: 20.h),
+                child: AppTextStyle(
+                  text: title ?? 'No restaurant found!',
+                  fontSize: 16.sp,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
             5.height,
-            AppTextStyle(
-              text:
-                  desc ??
-                  'No restaurants found nearby your location. Try exploring a wider area or check again later!',
-              fontSize: 14,
-              fontWeight: FontWeight.w400,
-              textAlign: TextAlign.center,
-            ),
+            if (subtitle != null)
+              AppTextStyle(
+                text:
+                    subtitle ??
+                    'No restaurants found nearby your location. Try exploring a wider area or check again later!',
+                fontSize: 14,
+                color: AppColors.hintText,
+                fontWeight: FontWeight.w400,
+                textAlign: TextAlign.center,
+              ),
             refreshOnTap != null
                 ? Padding(
                     padding: EdgeInsets.only(top: 10.h),

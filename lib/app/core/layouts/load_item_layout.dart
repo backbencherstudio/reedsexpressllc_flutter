@@ -29,7 +29,9 @@ class LoadItemLayout extends StatelessWidget {
       case LoadStatus.inTransit:
         return AppColors.primary;
       case LoadStatus.delivered:
-        return const Color(0xFF2E7D32);
+        return const Color(0xFF00F259);
+      case LoadStatus.completed:
+        return const Color(0xFF00F259);
     }
   }
 
@@ -41,6 +43,8 @@ class LoadItemLayout extends StatelessWidget {
         return 'In Transit';
       case LoadStatus.delivered:
         return 'Delivered';
+      case LoadStatus.completed:
+        return 'Completed';
     }
   }
 
@@ -53,7 +57,7 @@ class LoadItemLayout extends StatelessWidget {
         borderRadius: BorderRadius.circular(12.r),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.06),
+            color: Colors.black.withAlpha(10),
             blurRadius: 12,
             offset: const Offset(0, 2),
           ),

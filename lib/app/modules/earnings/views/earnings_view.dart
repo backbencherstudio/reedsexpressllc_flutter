@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 
 import '../../../../gen/assets.gen.dart';
-import '../../../core/extensions/sizedbox_extension.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../core/widgets/app_text_style.dart';
 import '../../../core/widgets/appbar_title.dart';
@@ -70,7 +69,7 @@ class EarningsView extends GetView<EarningsController> {
                 ),
               ),
               24.verticalSpace,
-              
+
               // Date Range Header
               AppTextStyle(
                 text: 'Date Range',
@@ -79,7 +78,7 @@ class EarningsView extends GetView<EarningsController> {
                 color: Colors.black,
               ),
               12.verticalSpace,
-              
+
               // Date Range Picker Dropdown Button
               GestureDetector(
                 onTap: () => _showDatePicker(context),
@@ -89,30 +88,35 @@ class EarningsView extends GetView<EarningsController> {
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(8.r),
-                    border: Border.all(color: Colors.grey.withOpacity(0.3)),
+                    border: Border.all(color: Colors.grey.withAlpha(75)),
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Obx(() => AppTextStyle(
-                        text: controller.dateRangeText,
-                        fontSize: 14.sp,
+                      Obx(
+                        () => AppTextStyle(
+                          text: controller.dateRangeText,
+                          fontSize: 14.sp,
+                          color: Colors.black87,
+                        ),
+                      ),
+                      const Icon(
+                        Icons.keyboard_arrow_down,
                         color: Colors.black87,
-                      )),
-                      const Icon(Icons.keyboard_arrow_down, color: Colors.black87),
+                      ),
                     ],
                   ),
                 ),
               ),
               24.verticalSpace,
-              
+
               // Earnings Card
               Container(
                 padding: EdgeInsets.all(16.w),
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(16.r),
-                  border: Border.all(color: Colors.grey.withOpacity(0.2)),
+                  border: Border.all(color: Colors.grey.withAlpha(50)),
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -126,11 +130,13 @@ class EarningsView extends GetView<EarningsController> {
                           fontSize: 14.sp,
                           color: Colors.black54,
                         ),
-                        Obx(() => AppTextStyle(
-                          text: '${controller.loadCompleted.value}',
-                          fontSize: 14.sp,
-                          color: Colors.black87,
-                        )),
+                        Obx(
+                          () => AppTextStyle(
+                            text: '${controller.loadCompleted.value}',
+                            fontSize: 14.sp,
+                            color: Colors.black87,
+                          ),
+                        ),
                       ],
                     ),
                     12.verticalSpace,
@@ -142,17 +148,19 @@ class EarningsView extends GetView<EarningsController> {
                           fontSize: 14.sp,
                           color: Colors.black54,
                         ),
-                        Obx(() => AppTextStyle(
-                          text: '${controller.milesDriven.value}m',
-                          fontSize: 14.sp,
-                          color: Colors.black87,
-                        )),
+                        Obx(
+                          () => AppTextStyle(
+                            text: '${controller.milesDriven.value}m',
+                            fontSize: 14.sp,
+                            color: Colors.black87,
+                          ),
+                        ),
                       ],
                     ),
                     16.verticalSpace,
-                    Divider(height: 1, color: Colors.grey.withOpacity(0.15)),
+                    Divider(height: 1, color: Colors.grey.withAlpha(20)),
                     16.verticalSpace,
-                    
+
                     // Load Breakdown Title
                     AppTextStyle(
                       text: 'Load Breakdown',
@@ -161,57 +169,69 @@ class EarningsView extends GetView<EarningsController> {
                       color: Colors.black,
                     ),
                     16.verticalSpace,
-                    
+
                     // Breakdowns List
-                    Obx(() => Column(
-                      children: controller.loadBreakdowns.map((load) => Container(
-                        margin: EdgeInsets.only(bottom: 8.h),
-                        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
-                        decoration: BoxDecoration(
-                          color: const Color(0xFFF9FAFC),
-                          borderRadius: BorderRadius.circular(12.r),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Expanded(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  AppTextStyle(
-                                    text: load.id,
-                                    fontSize: 14.sp,
-                                    fontWeight: FontWeight.w600,
-                                    color: Colors.black87,
-                                  ),
-                                  6.verticalSpace,
-                                  AppTextStyle(
-                                    text: load.route,
-                                    fontSize: 13.sp,
-                                    color: Colors.black87,
-                                  ),
-                                  6.verticalSpace,
-                                  AppTextStyle(
-                                    text: load.distance,
-                                    fontSize: 13.sp,
-                                    color: Colors.grey.shade500,
-                                  ),
-                                ],
+                    Obx(
+                      () => Column(
+                        children: controller.loadBreakdowns
+                            .map(
+                              (load) => Container(
+                                margin: EdgeInsets.only(bottom: 8.h),
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: 16.w,
+                                  vertical: 12.h,
+                                ),
+                                decoration: BoxDecoration(
+                                  color: const Color(0xFFF9FAFC),
+                                  borderRadius: BorderRadius.circular(12.r),
+                                ),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Expanded(
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          AppTextStyle(
+                                            text: load.id,
+                                            fontSize: 14.sp,
+                                            fontWeight: FontWeight.w600,
+                                            color: Colors.black87,
+                                          ),
+                                          6.verticalSpace,
+                                          AppTextStyle(
+                                            text: load.route,
+                                            fontSize: 13.sp,
+                                            color: Colors.black87,
+                                          ),
+                                          6.verticalSpace,
+                                          AppTextStyle(
+                                            text: load.distance,
+                                            fontSize: 13.sp,
+                                            color: Colors.grey.shade500,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    AppTextStyle(
+                                      text:
+                                          '\$${load.amount.toStringAsFixed(2)}',
+                                      fontSize: 14.sp,
+                                      color: Colors.black87,
+                                    ),
+                                  ],
+                                ),
                               ),
-                            ),
-                            AppTextStyle(
-                              text: '\$${load.amount.toStringAsFixed(2)}',
-                              fontSize: 14.sp,
-                              color: Colors.black87,
-                            ),
-                          ],
-                        ),
-                      )).toList(),
-                    )),
-                    
+                            )
+                            .toList(),
+                      ),
+                    ),
+
                     16.verticalSpace,
-                    
+
                     // Total Earnings
                     AppTextStyle(
                       text: 'Total Earnings',
@@ -219,12 +239,15 @@ class EarningsView extends GetView<EarningsController> {
                       color: Colors.black54,
                     ),
                     8.verticalSpace,
-                    Obx(() => AppTextStyle(
-                      text: '\$${controller.totalEarnings.value.toStringAsFixed(2)}',
-                      fontSize: 22.sp,
-                      fontWeight: FontWeight.w600,
-                      color: AppColors.primary,
-                    )),
+                    Obx(
+                      () => AppTextStyle(
+                        text:
+                            '\$${controller.totalEarnings.value.toStringAsFixed(2)}',
+                        fontSize: 22.sp,
+                        fontWeight: FontWeight.w600,
+                        color: AppColors.primary,
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -258,9 +281,14 @@ class EarningsView extends GetView<EarningsController> {
                 selectionColor: AppColors.primary,
                 startRangeSelectionColor: AppColors.primary,
                 endRangeSelectionColor: AppColors.primary,
-                rangeSelectionColor: AppColors.primary.withOpacity(0.1),
+                rangeSelectionColor: AppColors.primary.withAlpha(25),
                 todayHighlightColor: AppColors.primary,
-                initialSelectedRange: PickerDateRange(controller.startDate.value, controller.endDate.value),
+                backgroundColor: Colors.white,
+                initialSelectedRange: PickerDateRange(
+                  controller.startDate.value,
+                  controller.endDate.value,
+                ),
+
                 onSubmit: (Object? value) {
                   if (value is PickerDateRange) {
                     controller.startDate.value = value.startDate;

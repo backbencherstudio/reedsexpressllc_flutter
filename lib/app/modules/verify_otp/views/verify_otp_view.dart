@@ -4,11 +4,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pinput/pinput.dart';
+import 'package:reedsexpressllc_flutter/app/core/widgets/custom_svg_image.dart';
 
+import '../../../../gen/assets.gen.dart';
 import '../../../core/extensions/sizedbox_extension.dart';
 import '../../../core/theme/app_colors.dart';
+import '../../../core/widgets/app_text_style.dart';
 import '../../../core/widgets/appbar_title.dart';
-import '../../../core/widgets/auth_header.dart';
 import '../../../core/widgets/custom_icon_button.dart';
 import '../../../core/widgets/global_button.dart';
 import '../../../core/widgets/global_loading.dart';
@@ -38,11 +40,7 @@ class VerifyOtpView extends GetView<VerifyOtpController> {
       body: SafeArea(
         child: Column(
           children: [
-            authHeader(
-              title: "Enter Your Email",
-              subTitle:
-                  "Please enter the email address associated with your account. We’ll send you a link to reset your password and regain access.",
-            ),
+            10.height,
 
             Expanded(
               child: Container(
@@ -58,8 +56,24 @@ class VerifyOtpView extends GetView<VerifyOtpController> {
                   child: Form(
                     key: formKey,
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
+                        30.height,
+
+                        customSvgImage(imagePath: Assets.icons.emailSticker),
+                        20.height,
+                        AppTextStyle(
+                          text: "OTP Verification",
+                          fontSize: 22.sp,
+                          fontWeight: FontWeight.w600,
+                        ),
+                        5.height,
+                        AppTextStyle(
+                          text:
+                              "Enter the OTP sent to your email to verify your identity. Once verified, you can proceed to reset your password.",
+                          color: AppColors.hintText,
+                          textAlign: TextAlign.center,
+                        ),
                         25.height,
 
                         Align(
@@ -74,7 +88,7 @@ class VerifyOtpView extends GetView<VerifyOtpController> {
                             return controller.isLoading.value
                                 ? GlobalLoading()
                                 : globalButton(
-                                    text: "Send Code",
+                                    text: "Verify",
                                     onTap: () {
                                       if (formKey.currentState!.validate()) {
                                         controller.verifyOTP();
@@ -91,6 +105,25 @@ class VerifyOtpView extends GetView<VerifyOtpController> {
                           }),
                         ),
                         10.height,
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            AppTextStyle(
+                              text: "Haven't received the code?",
+                              fontWeight: FontWeight.w400,
+                              color: AppColors.hintText,
+                            ),
+                            5.width,
+                            TextButton(
+                              onPressed: () {},
+                              child: AppTextStyle(
+                                text: "Resend",
+                                color: AppColors.primary,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                          ],
+                        ),
                       ],
                     ),
                   ),
@@ -121,7 +154,7 @@ class VerifyOtpView extends GetView<VerifyOtpController> {
     );
 
     final focusedPinTheme = defaultPinTheme.copyDecorationWith(
-      border: Border.all(color: AppColors.primaryDisable),
+      border: Border.all(color: AppColors.primary),
       borderRadius: BorderRadius.circular(10.r),
     );
 
@@ -130,7 +163,6 @@ class VerifyOtpView extends GetView<VerifyOtpController> {
         color: const Color(0xFFe9ecef),
       ),
     );
-
     return Pinput(
       controller: otpTextController,
       length: 6,

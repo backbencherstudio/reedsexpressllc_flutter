@@ -5,6 +5,7 @@ import 'package:reedsexpressllc_flutter/app/core/extensions/sizedbox_extension.d
 import 'package:reedsexpressllc_flutter/app/core/widgets/custom_dialog.dart';
 import 'package:reedsexpressllc_flutter/app/core/widgets/global_button.dart';
 import 'package:reedsexpressllc_flutter/app/modules/documents/controllers/documents_controller.dart';
+import 'package:reedsexpressllc_flutter/app/modules/main_page/controllers/main_page_controller.dart';
 
 import '../../../../gen/assets.gen.dart';
 import '../../../routes/app_pages.dart';
@@ -129,7 +130,7 @@ class ProfileView extends GetView<ProfileController> {
                         ),
                         title: 'Support',
                         onTap: () {
-
+                          Get.find<MainPageController>().changePage(2);
                         },
                       ),
                       12.verticalSpace,

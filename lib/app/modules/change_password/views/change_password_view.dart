@@ -64,6 +64,7 @@ class ChangePasswordView extends GetView<ChangePasswordController> {
                         PasswordInputField(
                               controller: controller.passwordController,
                               label: "Password",
+                              hintText: "Enter your new password",
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return 'This field is required';
@@ -79,8 +80,9 @@ class ChangePasswordView extends GetView<ChangePasswordController> {
                             .slideY(begin: 0.1),
                         15.height,
                         PasswordInputField(
-                              controller: controller.passwordController,
-                              label: "Password",
+                              controller: controller.confirmPasswordController,
+                              label: "Confirm Password",
+                              hintText: "Retype your password",
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return "Please confirm your password";

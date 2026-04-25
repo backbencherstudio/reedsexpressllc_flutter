@@ -1,9 +1,12 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:reedsexpressllc_flutter/app/core/theme/app_colors.dart';
 import '../../../../gen/assets.gen.dart';
+import '../../../core/utils/dialog_utils.dart';
 import '../../../core/widgets/custom_svg_image.dart';
 import '../controllers/main_page_controller.dart';
 
@@ -12,10 +15,37 @@ class MainPageView extends GetView<MainPageController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColors.background,
-      body: Obx(() => controller.pages[controller.selectedIndex.value]),
-      bottomNavigationBar: const _BottomNav(),
+    return SafeArea(
+      top: false,
+      child: PopScope(
+        canPop: false,
+        onPopInvokedWithResult: (didPop, _) {
+          // Defer dialog showing to avoid navigator lock
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            DialogUtils.showDialog(
+              dismissOnTouchOutside: true,
+              dialogType: DialogType.warning,
+              context: context,
+              title: 'Exit App',
+              description: 'Are you sure, you want to exit from the app?',
+              okText: 'Exit',
+              okOnPress: () {
+                Get.back();
+                SystemNavigator.pop(); // exit app safely
+              },
+              cancelText: 'Cancel',
+              cancelOnPress: () {
+                Get.back();
+              },
+            );
+          });
+        },
+        child: Scaffold(
+          backgroundColor: AppColors.background,
+          body: Obx(() => controller.pages[controller.selectedIndex.value]),
+          bottomNavigationBar: const _BottomNav(),
+        ),
+      ),
     );
   }
 }

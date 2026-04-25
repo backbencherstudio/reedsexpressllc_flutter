@@ -202,7 +202,9 @@ class LoadDetailsView extends GetView<LoadDetailsController> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    _CardTitle(title: 'Uploaded Documents'),
+                    _CardTitle(title: 'Uploaded Documents',
+
+                    ),
                     12.verticalSpace,
                     ...load.uploadedDocuments.map(
                       (doc) => Padding(
@@ -228,6 +230,19 @@ class _LoadHeaderCard extends StatelessWidget {
 
   const _LoadHeaderCard({required this.load});
 
+  Color get _statusColor {
+    switch (load.status) {
+      case LoadStatus.pickup:
+        return const Color(0xFFF9C80E);
+      case LoadStatus.inTransit:
+        return AppColors.primary;
+      case LoadStatus.delivered:
+        return const Color(0xFF00F259);
+      case LoadStatus.completed:
+        return const Color(0xFF00F259);
+    }
+  }
+
   String get _statusLabel {
     switch (load.status) {
       case LoadStatus.pickup:
@@ -236,17 +251,8 @@ class _LoadHeaderCard extends StatelessWidget {
         return 'In Transit';
       case LoadStatus.delivered:
         return 'Delivered';
-    }
-  }
-
-  Color get _statusColor {
-    switch (load.status) {
-      case LoadStatus.pickup:
-        return const Color(0xFFF9C80E);
-      case LoadStatus.inTransit:
-        return AppColors.primary;
-      case LoadStatus.delivered:
-        return const Color(0xFF2E7D32);
+      case LoadStatus.completed:
+        return 'Completed';
     }
   }
 

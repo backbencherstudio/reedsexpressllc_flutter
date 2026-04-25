@@ -1,14 +1,16 @@
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:reedsexpressllc_flutter/app/core/widgets/global_button.dart';
 
+import '../../../../gen/assets.gen.dart';
 import '../../../core/constants/enums.dart';
 import '../../../core/utils/logger.dart';
+import '../../../core/widgets/custom_dialog.dart';
 import '../../../data/models/tracking_status_model.dart';
 
 class LoadDetailsController extends GetxController {
   final isLoading = false.obs;
-
 
   // Upload dialog fields
   final podPath = RxnString();
@@ -17,7 +19,6 @@ class LoadDetailsController extends GetxController {
   final scaleTicketPath = RxnString();
   final lumperFeePath = RxnString();
   final inspectionReportPath = RxnString();
-
 
   Future<void> pickFile(RxnString targetObs) async {
     try {
@@ -47,16 +48,30 @@ class LoadDetailsController extends GetxController {
   Future<void> submitDocuments() async {
     try {
       isLoading.value = true;
-      await Future.delayed(const Duration(seconds: 2));
+      await Future.delayed(const Duration(seconds: 1));
       clearAllUploads();
       Get.back();
+
+      Get.dialog(
+        CustomDialog(
+          iconPath: Assets.icons.doneSticker,
+          title: "Done!",
+          subtitle: "Your document has been uploaded successfully!",
+          bottomWidget: globalButton(
+            onTap: () {
+              Get.back();
+              Get.back();
+            },
+            text: "Back",
+          ),
+        ),
+      );
     } catch (e) {
       Log.e(e);
     } finally {
       isLoading.value = false;
     }
   }
-
 
   final loadDetails = Rx<LoadDetailsModel>(
     LoadDetailsModel(

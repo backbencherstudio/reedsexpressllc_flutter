@@ -2,7 +2,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../theme/app_colors.dart';
-import '../theme/app_theme.dart';
 import 'app_text_style.dart';
 
 class CountdownTimerWidget extends StatefulWidget {

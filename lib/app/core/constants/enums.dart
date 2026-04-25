@@ -1,6 +1,6 @@
 
 
-enum LoadStatus { pickup, inTransit, delivered }
+enum LoadStatus { pickup, inTransit, delivered ,completed}
 
 class SortProduct {
   static const newest = 'newest';
