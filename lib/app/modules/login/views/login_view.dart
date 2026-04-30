@@ -97,7 +97,7 @@ class LoginView extends GetView<LoginController> {
                           child: Obx(() {
                             return controller.isLoading.value
                                 ? GlobalLoading()
-                                : globalButton(
+                                : GlobalButton(
                                     text: "Login",
                                     onTap: () {
                                       if (formKey.currentState!.validate()) {

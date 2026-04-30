@@ -123,7 +123,7 @@ class UploadDocumentsView extends GetView<UploadDocumentsController> {
                         child: Obx(
                           () => controller.isLoading.value
                               ? const GlobalLoading()
-                              : globalButton(
+                              : GlobalButton(
                                   text: "Next",
                                   onTap: controller.uploadDocuments,
                                   textColor: Colors.white,
@@ -142,7 +142,7 @@ class UploadDocumentsView extends GetView<UploadDocumentsController> {
                                 Get.find<RegisterController>();
                             return registerController.isLoading.value
                                 ? const GlobalLoading()
-                                : globalButton(
+                                : GlobalButton(
                                     text: "Skip",
                                     color: AppColors.primaryDisable,
                                     onTap: registerController.register,

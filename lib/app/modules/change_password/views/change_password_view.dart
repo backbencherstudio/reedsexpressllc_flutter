@@ -104,7 +104,7 @@ class ChangePasswordView extends GetView<ChangePasswordController> {
                           child: Obx(() {
                             return controller.isLoading.value
                                 ? GlobalLoading()
-                                : globalButton(
+                                : GlobalButton(
                                     text: "Send Code",
                                     onTap: () {
                                       if (formKey.currentState!.validate()) {

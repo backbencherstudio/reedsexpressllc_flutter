@@ -7,6 +7,7 @@ import 'package:reedsexpressllc_flutter/app/widgets/custom_svg_image.dart';
 import 'package:reedsexpressllc_flutter/app/data/models/conversation_model.dart';
 import 'package:reedsexpressllc_flutter/gen/assets.gen.dart';
 import '../../../widgets/appbar_title.dart';
+import '../../../widgets/cached_image_widget.dart';
 import '../controllers/message_controller.dart';
 
 class MessageView extends GetView<MessageController> {
@@ -14,7 +15,7 @@ class MessageView extends GetView<MessageController> {
 
   @override
   Widget build(BuildContext context) {
-    if(!Get.isRegistered<MessageController>()){
+    if (!Get.isRegistered<MessageController>()) {
       Get.put(MessageController());
     }
     return Scaffold(
@@ -116,11 +117,17 @@ class MessageView extends GetView<MessageController> {
             //   height: 40.h,
             //   width: 40.w,
             // ),
-            CircleAvatar(
-              radius: 26.r,
-              backgroundImage: NetworkImage(conv.avatarPath),
-              backgroundColor: const Color(0xFFDDDDDD),
+            CachedImage(
+              imgUrl: conv.avatarPath,
+              height: 45.h,
+              width: 50.w,
+              borderRadius: 50.r,
             ),
+            // CircleAvatar(
+            //   radius: 26.r,
+            //   backgroundImage: NetworkImage(conv.avatarPath),
+            //   backgroundColor: const Color(0xFFDDDDDD),
+            // ),
             12.horizontalSpace,
 
             // Name + last message

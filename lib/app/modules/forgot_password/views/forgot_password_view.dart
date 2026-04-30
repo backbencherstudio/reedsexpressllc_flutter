@@ -81,7 +81,7 @@ class ForgotPasswordView extends GetView<ForgotPasswordController> {
                           child: Obx(() {
                             return controller.isLoading.value
                                 ? GlobalLoading()
-                                : globalButton(
+                                : GlobalButton(
                                     text: "Send Code",
                                     onTap: () {
                                       if (formKey.currentState!.validate()) {

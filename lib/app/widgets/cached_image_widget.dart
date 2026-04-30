@@ -4,47 +4,61 @@ import 'package:flutter_svg/svg.dart';
 import 'package:reedsexpressllc_flutter/app/widgets/shimmer_loading.dart';
 import '../../../gen/assets.gen.dart';
 
-Widget cachedImageWidget({
-  required String imgUrl,
-  double? height,
-  double? width,
-  BoxFit? fit,
-  double? borderRadius,
-  BorderRadiusGeometry? specificBorderRadius,
-}) {
-  final isSvg = imgUrl.toLowerCase().endsWith('.svg');
 
-  return ClipRRect(
-    borderRadius:
-        specificBorderRadius ?? BorderRadius.circular(borderRadius ?? 0),
-    child: isSvg
-        ? SvgPicture.network(
-            imgUrl,
-            height: height,
-            width: width,
-            fit: fit ?? BoxFit.contain,
-            placeholderBuilder: (_) => shimmerLoadingWidget(
-              borderRadius: borderRadius ?? 0,
-              height: height,
-              width: width,
-            ),
-          )
-        : CachedNetworkImage(
-            imageUrl: imgUrl,
-            width: width,
-            height: height,
-            fit: fit ?? BoxFit.cover,
-            placeholder: (context, url) => shimmerLoadingWidget(
-              borderRadius: borderRadius ?? 0,
-              height: height,
-              width: width,
-            ),
-            errorWidget: (context, url, error) => Image.asset(
-              Assets.images.placeholderImage.path,
-              height: height,
-              width: width,
-              fit: BoxFit.cover,
-            ),
-          ),
-  );
+class CachedImage extends StatelessWidget {
+  const CachedImage({
+    super.key,
+    required this.imgUrl,
+    this.height,
+    this.width,
+    this.fit,
+    this.borderRadius,
+    this.specificBorderRadius,
+  });
+
+  final String imgUrl;
+  final double? height;
+  final double? width;
+  final BoxFit? fit;
+  final double? borderRadius;
+  final BorderRadiusGeometry? specificBorderRadius;
+
+  bool get _isSvg => imgUrl.toLowerCase().endsWith('.svg');
+
+  @override
+  Widget build(BuildContext context) {
+    return ClipRRect(
+      borderRadius:
+      specificBorderRadius ?? BorderRadius.circular(borderRadius ?? 0),
+      child: _isSvg ? _svgImage() : _cachedImage(),
+    );
+  }
+
+  Widget _svgImage() {
+    return SvgPicture.network(
+      imgUrl,
+      height: height,
+      width: width,
+      fit: fit ?? BoxFit.contain,
+      placeholderBuilder: (_) =>
+          ShimmerBox(height: height, width: width, borderRadius: borderRadius),
+    );
+  }
+
+  Widget _cachedImage() {
+    return CachedNetworkImage(
+      imageUrl: imgUrl,
+      width: width,
+      height: height,
+      fit: fit ?? BoxFit.cover,
+      placeholder: (_, _) =>
+          ShimmerBox(height: height, width: width, borderRadius: borderRadius),
+      errorWidget: (_, _, _) => Image.asset(
+        Assets.images.placeholderImage.path,
+        height: height,
+        width: width,
+        fit: BoxFit.cover,
+      ),
+    );
+  }
 }

@@ -157,7 +157,7 @@ class ProfileView extends GetView<ProfileController> {
                               bottomWidget: Row(
                                 children: [
                                   Expanded(
-                                    child: globalButton(
+                                    child: GlobalButton(
                                       onTap: () {
                                         Get.back();
                                       },
@@ -169,7 +169,7 @@ class ProfileView extends GetView<ProfileController> {
                                   ),
                                   10.width,
                                   Expanded(
-                                    child: globalButton(
+                                    child: GlobalButton(
                                       onTap: () {
                                         Get.offAllNamed(Routes.ONBOARD);
                                       },

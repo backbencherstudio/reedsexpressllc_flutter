@@ -13,7 +13,9 @@ class GlobalLoading extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: LoadingAnimationWidget.threeArchedCircle(
-          color: AppColors.primary, size: size ?? 35.sp),
+        color: AppColors.primary,
+        size: size ?? 35.sp,
+      ),
     );
   }
 }

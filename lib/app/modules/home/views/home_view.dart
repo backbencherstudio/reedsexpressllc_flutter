@@ -279,7 +279,7 @@ class _UnsubmitDocStatCard extends StatelessWidget {
             color: Colors.white.withAlpha(200),
           ),
           10.height,
-          globalButton(
+          GlobalButton(
             onTap: () {
               Get.toNamed(Routes.UPLOAD_DOCUMENTS);
             },

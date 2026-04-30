@@ -138,7 +138,7 @@ class LicenseAndCertificationsView extends GetView<LicenseAndCertificationsContr
                     40.verticalSpace,
                     
                     Obx(() => controller.isEditing.value 
-                      ? globalButton(
+                      ? GlobalButton(
                           onTap: () {
                             controller.toggleEdit();
                             // Save logic here

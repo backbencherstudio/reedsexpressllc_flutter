@@ -152,7 +152,7 @@ class RegisterView extends GetView<RegisterController> {
                           child: Obx(() {
                             return controller.isLoading.value
                                 ? GlobalLoading()
-                                : globalButton(
+                                : GlobalButton(
                                     text: "Register",
                                     onTap: () {
                                       if (formKey.currentState!.validate()) {

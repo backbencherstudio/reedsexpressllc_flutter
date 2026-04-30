@@ -61,7 +61,7 @@ class OnboardView extends GetView<OnboardController> {
                   ),
                   child: Column(
                     children: [
-                      globalButton(
+                      GlobalButton(
                         onTap: () {
                           Get.offAllNamed(Routes.REGISTER);
                         },
@@ -70,7 +70,7 @@ class OnboardView extends GetView<OnboardController> {
                         textColor: Colors.black,
                       ),
                       10.height,
-                      globalButton(
+                      GlobalButton(
                         onTap: () {
                           Get.offAllNamed(Routes.LOGIN);
                         },

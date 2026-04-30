@@ -151,7 +151,7 @@ class PersonalInfoView extends GetView<PersonalInfoController> {
 
                     Obx(
                       () => controller.isEditing.value
-                          ? globalButton(
+                          ? GlobalButton(
                               onTap: () {
                                 controller.toggleEdit();
                                 // Save logic here

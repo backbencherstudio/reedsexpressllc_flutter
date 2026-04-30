@@ -33,7 +33,7 @@ class RegisterController extends GetxController {
           title: "Registration Successful!",
           subtitle:
               "Thank you for signing up. We're excited to have you with us. You can now start exploring all the features we have to offer.",
-          bottomWidget: globalButton(
+          bottomWidget: GlobalButton(
             onTap: () {
               Get.offAllNamed(Routes.MAIN_PAGE);
             },

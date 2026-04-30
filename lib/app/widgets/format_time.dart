@@ -37,11 +37,7 @@ class FormatTime {
   }
 
   static int groupComparator(String value1, String value2) {
-    final priority = {
-      'Today': 0,
-      'Yesterday': 1,
-      'This Week': 2,
-    };
+    final priority = {'Today': 0, 'Yesterday': 1, 'This Week': 2};
     final p1 =
         priority[value1] ?? 3; // Default to 'Older' if not in the priority list
     final p2 = priority[value2] ?? 3;
@@ -80,8 +76,10 @@ class FormatTime {
         ? 12
         : dateTime.hour % 12; // Convert to 12-hour format
     String period = dateTime.hour >= 12 ? "PM" : "AM";
-    String minute =
-        dateTime.minute.toString().padLeft(2, '0'); // Ensure two-digit minutes
+    String minute = dateTime.minute.toString().padLeft(
+      2,
+      '0',
+    ); // Ensure two-digit minutes
     return "$hour:$minute $period";
   }
 
@@ -96,8 +94,9 @@ class FormatTime {
     } else if (difference.inDays < 3) {
       return '${difference.inDays} days ago';
     } else {
-      return DateFormat('dd MMM yyyy')
-          .format(dateTime); // Example: "05 Feb 2024"
+      return DateFormat(
+        'dd MMM yyyy',
+      ).format(dateTime); // Example: "05 Feb 2024"
     }
   }
 

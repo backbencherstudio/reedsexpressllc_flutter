@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:reedsexpressllc_flutter/app/core/theme/app_colors.dart';
 import 'package:reedsexpressllc_flutter/app/widgets/app_text_style.dart';
+import 'package:reedsexpressllc_flutter/app/widgets/cached_image_widget.dart';
 import 'package:reedsexpressllc_flutter/app/widgets/custom_icon_button.dart';
 import 'package:reedsexpressllc_flutter/app/widgets/custom_svg_image.dart';
 import 'package:reedsexpressllc_flutter/app/data/models/chat_message_model.dart';
@@ -16,7 +17,7 @@ class ChatView extends GetView<ChatController> {
 
   @override
   Widget build(BuildContext context) {
-    if(!Get.isRegistered<ChatController>()){
+    if (!Get.isRegistered<ChatController>()) {
       Get.put(ChatController());
     }
     return Scaffold(
@@ -62,10 +63,11 @@ class ChatView extends GetView<ChatController> {
       padding: EdgeInsets.fromLTRB(16.w, 12.h, 16.w, 16.h),
       child: Column(
         children: [
-          CircleAvatar(
-            radius: 36.r,
-            backgroundImage: AssetImage(conv.avatarPath),
-            backgroundColor: const Color(0xFFDDDDDD),
+          CachedImage(
+            imgUrl: conv.avatarPath,
+            height: 70.h,
+            width: 80.w,
+            borderRadius: 50.r,
           ),
           10.verticalSpace,
           AppTextStyle(
@@ -165,10 +167,10 @@ class ChatView extends GetView<ChatController> {
       padding: EdgeInsets.only(top: 8.h, bottom: 4.h),
       child: Row(
         children: [
-          CircleAvatar(
-            radius: 14.r,
-            backgroundImage: AssetImage(controller.conversation.avatarPath),
-            backgroundColor: const Color(0xFFDDDDDD),
+          CachedImage(imgUrl: controller.conversation.avatarPath,
+            height: 28.h,
+            width: 28.w,
+            borderRadius: 50.r,
           ),
           10.horizontalSpace,
           AppTextStyle(

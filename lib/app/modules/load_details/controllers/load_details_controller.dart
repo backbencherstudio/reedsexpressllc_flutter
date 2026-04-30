@@ -57,7 +57,7 @@ class LoadDetailsController extends GetxController {
           iconPath: Assets.icons.doneSticker,
           title: "Done!",
           subtitle: "Your document has been uploaded successfully!",
-          bottomWidget: globalButton(
+          bottomWidget: GlobalButton(
             onTap: () {
               Get.back();
               Get.back();

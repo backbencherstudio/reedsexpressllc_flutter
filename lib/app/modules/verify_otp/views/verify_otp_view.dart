@@ -87,7 +87,7 @@ class VerifyOtpView extends GetView<VerifyOtpController> {
                           child: Obx(() {
                             return controller.isLoading.value
                                 ? GlobalLoading()
-                                : globalButton(
+                                : GlobalButton(
                                     text: "Verify",
                                     onTap: () {
                                       if (formKey.currentState!.validate()) {

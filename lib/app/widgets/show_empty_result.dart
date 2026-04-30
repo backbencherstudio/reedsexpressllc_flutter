@@ -61,7 +61,7 @@ class ShowEmptyResult extends StatelessWidget {
             refreshOnTap != null
                 ? Padding(
                     padding: EdgeInsets.only(top: 10.h),
-                    child: globalButton(
+                    child: GlobalButton(
                       height: 35.h,
                       width: 150.w,
                       onTap: refreshOnTap ?? () {},
