@@ -38,6 +38,8 @@ import '../modules/register/bindings/register_binding.dart';
 import '../modules/register/views/register_view.dart';
 import '../modules/settings_notification/bindings/settings_notification_binding.dart';
 import '../modules/settings_notification/views/settings_notification_view.dart';
+import '../modules/show_map/bindings/show_map_binding.dart';
+import '../modules/show_map/views/show_map_view.dart';
 import '../modules/splash/bindings/splash_binding.dart';
 import '../modules/splash/views/splash_view.dart';
 import '../modules/upload_documents/bindings/upload_documents_binding.dart';
@@ -171,6 +173,11 @@ class AppPages {
       name: _Paths.SETTINGS_NOTIFICATION,
       page: () => const SettingsNotificationView(),
       binding: SettingsNotificationBinding(),
+    ),
+    GetPage(
+      name: _Paths.SHOW_MAP,
+      page: () => const ShowMapView(),
+      binding: ShowMapBinding(),
     ),
   ];
 }

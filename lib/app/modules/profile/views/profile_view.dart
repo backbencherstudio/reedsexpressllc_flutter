@@ -134,6 +134,20 @@ class ProfileView extends GetView<ProfileController> {
                         },
                       ),
                       12.verticalSpace,
+
+                      _ProfileMenuItem(
+                        iconWidget: customSvgImage(
+                          imagePath: Assets.icons.customerSupportIcon,
+                          width: 24.w,
+                          height: 24.w,
+                          color: Colors.black87,
+                        ),
+                        title: 'Map ',
+                        onTap: () {
+                          Get.toNamed(Routes.SHOW_MAP);
+                        },
+                      ),
+                      12.verticalSpace,
                       _ProfileMenuItem(
                         iconWidget: customSvgImage(
                           imagePath: Assets.icons.logoutIcon,

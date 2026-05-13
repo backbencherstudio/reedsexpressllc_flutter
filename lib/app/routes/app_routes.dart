@@ -26,6 +26,7 @@ abstract class Routes {
   static const NOTIFICATIONS = _Paths.NOTIFICATIONS;
   static const VEHICLE = _Paths.VEHICLE;
   static const SETTINGS_NOTIFICATION = _Paths.SETTINGS_NOTIFICATION;
+  static const SHOW_MAP = _Paths.SHOW_MAP;
 }
 
 abstract class _Paths {
@@ -53,4 +54,5 @@ abstract class _Paths {
   static const NOTIFICATIONS = '/notifications';
   static const VEHICLE = '/vehicle';
   static const SETTINGS_NOTIFICATION = '/settings-notification';
+  static const SHOW_MAP = '/show-map';
 }

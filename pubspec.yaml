@@ -60,6 +60,8 @@ dependencies:
   syncfusion_flutter_datepicker: ^33.1.49
   open_filex: ^4.7.0
   pinput: ^6.0.2
+  flutter_map: ^8.3.0
+  latlong2: ^0.9.1
 
 dev_dependencies:
   flutter_test:
