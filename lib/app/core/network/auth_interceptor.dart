@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:get/get.dart' hide Response;
+import 'package:reedsexpressllc_flutter/app/widgets/global_snackbar.dart';
 import '../../routes/app_pages.dart';
-import '../../widgets/global_snackbar.dart';
 import '../utils/helper_utils.dart';
 
 class AuthInterceptor extends Interceptor {

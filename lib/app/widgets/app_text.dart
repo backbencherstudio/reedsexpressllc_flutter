@@ -4,20 +4,21 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:get/get_utils/src/extensions/internacionalization.dart';
+import 'package:reedsexpressllc_flutter/app/core/extensions/text_style_extension.dart';
 
 class AppText extends StatelessWidget {
   const AppText(
-      this.text, {
-        required this.style,
-        this.maxLines,
-        this.overflow = TextOverflow.ellipsis,  // sensible default
-        this.textAlign,
-        this.softWrap,
-        super.key,
-      });
+    this.text, {
+    this.style,
+    this.maxLines,
+    this.overflow = TextOverflow.ellipsis,
+    this.textAlign,
+    this.softWrap,
+    super.key,
+  });
 
   final String text;
-  final TextStyle style;
+  final TextStyle? style;
   final int? maxLines;
   final TextOverflow overflow;
   final TextAlign? textAlign;
@@ -26,8 +27,8 @@ class AppText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
-      text.tr,                                  // ✅ localization
-      style: style,                             // ✅ caller controls style
+      text.tr,
+      style: style ?? context.bodyMedium,
       maxLines: maxLines,
       overflow: maxLines != null ? overflow : null,
       textAlign: textAlign,
