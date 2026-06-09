@@ -7,7 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:open_filex/open_filex.dart';
 import 'package:path/path.dart' as p;
-import 'package:reedsexpressllc_flutter/app/core/theme/app_colors.dart';
+import 'package:reedsexpressllc_flutter/app/core/theme/app_color.dart';
 import 'package:reedsexpressllc_flutter/app/widgets/app_text_style.dart';
 import 'package:reedsexpressllc_flutter/app/widgets/custom_svg_image.dart';
 import '../../../gen/assets.gen.dart';
@@ -100,10 +100,10 @@ class DocumentUploadField extends StatelessWidget {
                 dashPattern: const [6, 4],
                 strokeWidth: 1,
                 color: isUploaded
-                    ? AppColors.primary
+                    ? AppColor.primary
                     : readOnly
-                    ? AppColors.hintText.withAlpha(80)
-                    : AppColors.hintText,
+                    ? AppColor.hintText.withAlpha(80)
+                    : AppColor.hintText,
                 padding: EdgeInsets.zero,
               ),
               child: Container(
@@ -114,7 +114,7 @@ class DocumentUploadField extends StatelessWidget {
                 ),
                 decoration: BoxDecoration(
                   color: isUploaded
-                      ? AppColors.primary.withAlpha(10)
+                      ? AppColor.primary.withAlpha(10)
                       : fieldColor ?? Colors.white,
                   borderRadius: BorderRadius.circular(10.r),
                 ),
@@ -140,14 +140,14 @@ class DocumentUploadField extends StatelessWidget {
       children: [
         customSvgImage(
           imagePath: Assets.icons.uploadIcon,
-          color: readOnly ? AppColors.hintText.withAlpha(80) : AppColors.hintText,
+          color: readOnly ? AppColor.hintText.withAlpha(80) : AppColor.hintText,
         ),
         6.horizontalSpace,
         AppTextStyle(
           text: readOnly ? 'Not uploaded' : 'Upload file (Image or PDF)',
           fontSize: 14.sp,
           fontWeight: FontWeight.w400,
-          color: readOnly ? AppColors.hintText.withAlpha(80) : AppColors.hintText,
+          color: readOnly ? AppColor.hintText.withAlpha(80) : AppColor.hintText,
         ),
       ],
     );
@@ -177,7 +177,7 @@ class DocumentUploadField extends StatelessWidget {
         else
           customSvgImage(
             imagePath: Assets.icons.docIcon,
-            color: AppColors.primary,
+            color: AppColor.primary,
           ),
         10.horizontalSpace,
 
@@ -199,7 +199,7 @@ class DocumentUploadField extends StatelessWidget {
                   text: fileSize,
                   fontSize: 11.sp,
                   fontWeight: FontWeight.w400,
-                  color: AppColors.hintText,
+                  color: AppColor.hintText,
                 ),
             ],
           ),
@@ -211,7 +211,7 @@ class DocumentUploadField extends StatelessWidget {
             onTap: onRemove,
             child: customSvgImage(
               imagePath: Assets.icons.crossCircleIcon,
-              color: AppColors.hintText,
+              color: AppColor.hintText,
             ),
           )
         else
@@ -221,14 +221,14 @@ class DocumentUploadField extends StatelessWidget {
                 imagePath: Assets.icons.eyeOpenIcon,
                 width: 16.w,
                 height: 16.w,
-                color: AppColors.primary,
+                color: AppColor.primary,
               ),
               4.horizontalSpace,
               AppTextStyle(
                 text: 'View',
                 fontSize: 11.sp,
                 fontWeight: FontWeight.w500,
-                color: AppColors.primary,
+                color: AppColor.primary,
               ),
             ],
           ),

@@ -3,7 +3,7 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../core/extensions/sizedbox_extension.dart';
-import '../core/theme/app_colors.dart';
+import '../core/theme/app_color.dart';
 import 'app_text_style.dart';
 
 class ViewRatingStars extends StatelessWidget {
@@ -57,7 +57,7 @@ class ViewSingleRatingStar extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        Icon(Icons.star, color: AppColors.amber, size: iconSize ?? 14.sp),
+        Icon(Icons.star, color: AppColor.amber, size: iconSize ?? 14.sp),
         2.width,
         AppTextStyle(
           text: rating.toString(),

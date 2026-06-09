@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:reedsexpressllc_flutter/app/core/theme/app_colors.dart';
+import 'package:reedsexpressllc_flutter/app/core/theme/app_color.dart';
 import 'package:reedsexpressllc_flutter/app/widgets/app_text_style.dart';
 import 'package:reedsexpressllc_flutter/app/widgets/custom_svg_image.dart';
 import 'package:reedsexpressllc_flutter/app/data/models/conversation_model.dart';
@@ -40,7 +40,7 @@ class MessageView extends GetView<MessageController> {
                   child: AppTextStyle(
                     text: 'No conversations found.',
                     fontSize: 14.sp,
-                    color: AppColors.hintText,
+                    color: AppColor.hintText,
                   ),
                 );
               }
@@ -78,7 +78,7 @@ class MessageView extends GetView<MessageController> {
               imagePath: Assets.icons.searchIcon,
               width: 18.w,
               height: 18.w,
-              color: AppColors.hintText,
+              color: AppColor.hintText,
             ),
             10.horizontalSpace,
             Expanded(
@@ -89,7 +89,7 @@ class MessageView extends GetView<MessageController> {
                 decoration: InputDecoration(
                   hintText: 'Search',
                   hintStyle: TextStyle(
-                    color: AppColors.hintText,
+                    color: AppColor.hintText,
                     fontSize: 14.sp,
                   ),
                   border: InputBorder.none,
@@ -149,7 +149,7 @@ class MessageView extends GetView<MessageController> {
                           text: '• ${conv.role}',
                           fontSize: 13.sp,
                           fontWeight: FontWeight.w500,
-                          color: AppColors.hintText,
+                          color: AppColor.hintText,
                         ),
                       ],
                       if (conv.isAdmin) ...[
@@ -158,7 +158,7 @@ class MessageView extends GetView<MessageController> {
                           imagePath: Assets.icons.verifyBadgeIcon,
                           width: 16.w,
                           height: 16.w,
-                          color: AppColors.primary,
+                          color: AppColor.primary,
                         ),
                       ],
                     ],
@@ -168,7 +168,7 @@ class MessageView extends GetView<MessageController> {
                     text: conv.lastMessage,
                     fontSize: 13.sp,
                     fontWeight: FontWeight.w400,
-                    color: AppColors.hintText,
+                    color: AppColor.hintText,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   ),
@@ -183,7 +183,7 @@ class MessageView extends GetView<MessageController> {
                 AppTextStyle(
                   text: conv.time,
                   fontSize: 11.sp,
-                  color: AppColors.hintText,
+                  color: AppColor.hintText,
                 ),
                 if (conv.unreadCount > 0) ...[
                   4.verticalSpace,
@@ -191,7 +191,7 @@ class MessageView extends GetView<MessageController> {
                     width: 18.w,
                     height: 18.w,
                     decoration: BoxDecoration(
-                      color: AppColors.primary,
+                      color: AppColor.primary,
                       shape: BoxShape.circle,
                     ),
                     child: Center(

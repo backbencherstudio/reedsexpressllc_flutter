@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
-import '../core/theme/app_colors.dart';
+import '../core/theme/app_color.dart';
 
 class GlobalLoading extends StatelessWidget {
   const GlobalLoading({super.key, this.size});
@@ -13,7 +13,7 @@ class GlobalLoading extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: LoadingAnimationWidget.threeArchedCircle(
-        color: AppColors.primary,
+        color: AppColor.primary,
         size: size ?? 35.sp,
       ),
     );

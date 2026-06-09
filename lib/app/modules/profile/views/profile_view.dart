@@ -9,7 +9,7 @@ import 'package:reedsexpressllc_flutter/app/modules/main_page/controllers/main_p
 
 import '../../../../gen/assets.gen.dart';
 import '../../../routes/app_pages.dart';
-import '../../../core/theme/app_colors.dart';
+import '../../../core/theme/app_color.dart';
 import '../../../widgets/app_text_style.dart';
 import '../../../widgets/custom_svg_image.dart';
 import '../controllers/profile_controller.dart';
@@ -20,7 +20,7 @@ class ProfileView extends GetView<ProfileController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.primary,
+      backgroundColor: AppColor.primary,
       body: SafeArea(
         bottom: false,
         child: Column(
@@ -278,7 +278,7 @@ class _ProfileHeader extends StatelessWidget {
                       height: 28.w,
                       width: 28.w,
                       decoration: BoxDecoration(
-                        color: AppColors.primary,
+                        color: AppColor.primary,
                         shape: BoxShape.circle,
                         border: Border.all(color: Colors.white, width: 2),
                       ),

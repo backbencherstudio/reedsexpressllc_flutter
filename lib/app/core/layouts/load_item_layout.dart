@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:reedsexpressllc_flutter/app/core/theme/app_colors.dart';
+import 'package:reedsexpressllc_flutter/app/core/theme/app_color.dart';
 import 'package:reedsexpressllc_flutter/app/widgets/app_text_style.dart';
 import 'package:reedsexpressllc_flutter/app/widgets/custom_svg_image.dart';
 import 'package:reedsexpressllc_flutter/app/data/models/load_model.dart';
@@ -27,7 +27,7 @@ class LoadItemLayout extends StatelessWidget {
       case LoadStatus.pickup:
         return const Color(0xFFF9C80E);
       case LoadStatus.inTransit:
-        return AppColors.primary;
+        return AppColor.primary;
       case LoadStatus.delivered:
         return const Color(0xFF00F259);
       case LoadStatus.completed:
@@ -118,7 +118,7 @@ class _LoadHeader extends StatelessWidget {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 10.h),
       decoration: BoxDecoration(
-        color: AppColors.primary,
+        color: AppColor.primary,
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(12.r),
           topRight: Radius.circular(12.r),
@@ -187,7 +187,7 @@ class _RouteSection extends StatelessWidget {
                 width: 10.w,
                 height: 10.w,
                 decoration: BoxDecoration(
-                  color: AppColors.primary,
+                  color: AppColor.primary,
                   shape: BoxShape.circle,
                 ),
               ),
@@ -220,7 +220,7 @@ class _RouteSection extends StatelessWidget {
                   text: load.originAddress,
                   fontSize: 11.sp,
                   fontWeight: FontWeight.w400,
-                  color: AppColors.hintText,
+                  color: AppColor.hintText,
                 ),
                 Row(
                   children: [
@@ -228,14 +228,14 @@ class _RouteSection extends StatelessWidget {
                       imagePath: Assets.icons.stopwatchIcon,
                       width: 11.w,
                       height: 11.w,
-                      color: AppColors.hintText,
+                      color: AppColor.hintText,
                     ),
                     4.horizontalSpace,
                     AppTextStyle(
                       text: load.originTime,
                       fontSize: 11.sp,
                       fontWeight: FontWeight.w400,
-                      color: AppColors.hintText,
+                      color: AppColor.hintText,
                     ),
                   ],
                 ),
@@ -252,7 +252,7 @@ class _RouteSection extends StatelessWidget {
                   text: load.destinationAddress,
                   fontSize: 11.sp,
                   fontWeight: FontWeight.w400,
-                  color: AppColors.hintText,
+                  color: AppColor.hintText,
                 ),
               ],
             ),
@@ -313,7 +313,7 @@ class _StatBox extends StatelessWidget {
             text: label,
             fontSize: 11.sp,
             fontWeight: FontWeight.w400,
-            color: AppColors.hintText,
+            color: AppColor.hintText,
           ),
         ],
       ),
@@ -338,13 +338,13 @@ class _ViewDetailsButton extends StatelessWidget {
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(8.r),
-          border: Border.all(color: AppColors.primary, width: 0.8),
+          border: Border.all(color: AppColor.primary, width: 0.8),
         ),
         child: AppTextStyle(
           text: 'View Details',
           fontSize: 13.sp,
           fontWeight: FontWeight.w600,
-          color: AppColors.primary,
+          color: AppColor.primary,
           textAlign: TextAlign.center,
         ),
       ),

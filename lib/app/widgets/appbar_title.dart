@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../core/extensions/sizedbox_extension.dart';
-import '../core/theme/app_colors.dart';
+import '../core/theme/app_color.dart';
 import 'app_text_style.dart';
 
 Widget appbarTitle({
@@ -41,7 +41,7 @@ Widget authAppBar({
         text: subtitle,
         fontSize: 13.sp,
         fontWeight: FontWeight.w400,
-        color: AppColors.hintText,
+        color: AppColor.hintText,
       ),
     ],
   );

@@ -8,7 +8,7 @@ import 'package:reedsexpressllc_flutter/app/widgets/custom_svg_image.dart';
 
 import '../../../../gen/assets.gen.dart';
 import '../../../core/extensions/sizedbox_extension.dart';
-import '../../../core/theme/app_colors.dart';
+import '../../../core/theme/app_color.dart';
 import '../../../widgets/app_text_style.dart';
 import '../../../widgets/appbar_title.dart';
 import '../../../widgets/custom_icon_button.dart';
@@ -24,10 +24,10 @@ class VerifyOtpView extends GetView<VerifyOtpController> {
   Widget build(BuildContext context) {
     final formKey = GlobalKey<FormState>();
     return Scaffold(
-      backgroundColor: AppColors.background,
+      backgroundColor: AppColor.background,
       appBar: AppBar(
-        backgroundColor: AppColors.background,
-        surfaceTintColor: AppColors.background,
+        backgroundColor: AppColor.background,
+        surfaceTintColor: AppColor.background,
         elevation: 0,
         toolbarHeight: 50.h,
         centerTitle: true,
@@ -71,7 +71,7 @@ class VerifyOtpView extends GetView<VerifyOtpController> {
                         AppTextStyle(
                           text:
                               "Enter the OTP sent to your email to verify your identity. Once verified, you can proceed to reset your password.",
-                          color: AppColors.hintText,
+                          color: AppColor.hintText,
                           textAlign: TextAlign.center,
                         ),
                         25.height,
@@ -111,14 +111,14 @@ class VerifyOtpView extends GetView<VerifyOtpController> {
                             AppTextStyle(
                               text: "Haven't received the code?",
                               fontWeight: FontWeight.w400,
-                              color: AppColors.hintText,
+                              color: AppColor.hintText,
                             ),
                             5.width,
                             TextButton(
                               onPressed: () {},
                               child: AppTextStyle(
                                 text: "Resend",
-                                color: AppColors.primary,
+                                color: AppColor.primary,
                                 fontWeight: FontWeight.w400,
                               ),
                             ),
@@ -154,7 +154,7 @@ class VerifyOtpView extends GetView<VerifyOtpController> {
     );
 
     final focusedPinTheme = defaultPinTheme.copyDecorationWith(
-      border: Border.all(color: AppColors.primary),
+      border: Border.all(color: AppColor.primary),
       borderRadius: BorderRadius.circular(10.r),
     );
 

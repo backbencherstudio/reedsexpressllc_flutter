@@ -3,7 +3,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-import '../../../core/theme/app_colors.dart';
+import '../../../core/theme/app_color.dart';
 import '../../../widgets/app_text_style.dart';
 import '../../../widgets/appbar_title.dart';
 import '../../../widgets/custom_icon_button.dart';
@@ -20,10 +20,10 @@ class NotificationsView extends GetView<NotificationsController> {
       Get.put(NotificationsController());
     }
     return Scaffold(
-      backgroundColor: AppColors.background,
+      backgroundColor: AppColor.background,
       appBar: AppBar(
-        backgroundColor: AppColors.background,
-        surfaceTintColor: AppColors.background,
+        backgroundColor: AppColor.background,
+        surfaceTintColor: AppColor.background,
         elevation: 0,
         centerTitle: true,
         leading: Padding(
@@ -45,7 +45,7 @@ class NotificationsView extends GetView<NotificationsController> {
             );
           } else {
             return RefreshIndicator(
-              color: AppColors.primary,
+              color: AppColor.primary,
               onRefresh: () async {
                 controller.getNotifications(isRefresh: true);
               },

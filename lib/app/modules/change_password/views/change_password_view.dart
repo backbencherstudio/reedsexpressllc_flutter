@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../../core/extensions/sizedbox_extension.dart';
-import '../../../core/theme/app_colors.dart';
+import '../../../core/theme/app_color.dart';
 import '../../../widgets/app_input_text_form_field.dart';
 import '../../../widgets/appbar_title.dart';
 import '../../../widgets/auth_header.dart';
@@ -21,10 +21,10 @@ class ChangePasswordView extends GetView<ChangePasswordController> {
   Widget build(BuildContext context) {
     final formKey = GlobalKey<FormState>();
     return Scaffold(
-      backgroundColor: AppColors.background,
+      backgroundColor: AppColor.background,
       appBar: AppBar(
-        backgroundColor: AppColors.background,
-        surfaceTintColor: AppColors.background,
+        backgroundColor: AppColor.background,
+        surfaceTintColor: AppColor.background,
         elevation: 0,
         toolbarHeight: 50.h,
         centerTitle: true,

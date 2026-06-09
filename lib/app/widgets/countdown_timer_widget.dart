@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../core/theme/app_colors.dart';
+import '../core/theme/app_color.dart';
 import 'app_text_style.dart';
 
 class CountdownTimerWidget extends StatefulWidget {
@@ -82,7 +82,7 @@ class _CountdownTimerWidgetState extends State<CountdownTimerWidget> {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 2.h),
       decoration: BoxDecoration(
-        color: AppColors.primary.withValues(alpha: 0.1),
+        color: AppColor.primary.withValues(alpha: 0.1),
         borderRadius: BorderRadius.circular(4.r),
       ),
       child: Row(
@@ -91,7 +91,7 @@ class _CountdownTimerWidgetState extends State<CountdownTimerWidget> {
             text: value,
             fontSize: 12.sp,
             fontWeight: FontWeight.bold,
-            color: AppColors.primary,
+            color: AppColor.primary,
           ),
           2.width,
           AppTextStyle(
@@ -110,7 +110,7 @@ class _CountdownTimerWidgetState extends State<CountdownTimerWidget> {
       child: const AppTextStyle(
         text: ":",
         fontWeight: FontWeight.bold,
-        color: AppColors.primary,
+        color: AppColor.primary,
       ),
     );
   }

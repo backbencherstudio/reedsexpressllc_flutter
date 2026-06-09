@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 
 import '../../../../gen/assets.gen.dart';
 import '../../../core/extensions/sizedbox_extension.dart';
-import '../../../core/theme/app_colors.dart';
+import '../../../core/theme/app_color.dart';
 import '../../../widgets/app_input_text_form_field.dart';
 import '../../../widgets/app_text_style.dart';
 import '../../../widgets/appbar_title.dart';
@@ -19,10 +19,10 @@ class PersonalInfoView extends GetView<PersonalInfoController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.background,
+      backgroundColor: AppColor.background,
       appBar: AppBar(
-        backgroundColor: AppColors.background,
-        surfaceTintColor: AppColors.background,
+        backgroundColor: AppColor.background,
+        surfaceTintColor: AppColor.background,
         elevation: 0,
         centerTitle: true,
         leading: Padding(

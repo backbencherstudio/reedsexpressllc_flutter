@@ -4,6 +4,8 @@ import '../modules/active_load_list/bindings/active_load_list_binding.dart';
 import '../modules/active_load_list/views/active_load_list_view.dart';
 import '../modules/change_password/bindings/change_password_binding.dart';
 import '../modules/change_password/views/change_password_view.dart';
+import '../modules/choose_role/bindings/choose_role_binding.dart';
+import '../modules/choose_role/views/choose_role_view.dart';
 import '../modules/documents/bindings/documents_binding.dart';
 import '../modules/documents/views/documents_view.dart';
 import '../modules/earnings/bindings/earnings_binding.dart';
@@ -178,6 +180,11 @@ class AppPages {
       name: _Paths.SHOW_MAP,
       page: () => const ShowMapView(),
       binding: ShowMapBinding(),
+    ),
+    GetPage(
+      name: _Paths.CHOOSE_ROLE,
+      page: () => const ChooseRoleView(),
+      binding: ChooseRoleBinding(),
     ),
   ];
 }

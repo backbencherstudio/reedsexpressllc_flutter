@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:reedsexpressllc_flutter/app/core/extensions/sizedbox_extension.dart';
-import 'package:reedsexpressllc_flutter/app/core/theme/app_colors.dart';
+import 'package:reedsexpressllc_flutter/app/core/theme/app_color.dart';
 import 'package:reedsexpressllc_flutter/app/widgets/app_input_text_form_field.dart';
 import 'package:reedsexpressllc_flutter/app/widgets/app_text_style.dart';
 
@@ -21,7 +21,7 @@ class RegisterView extends GetView<RegisterController> {
   Widget build(BuildContext context) {
     final formKey = GlobalKey<FormState>();
     return Scaffold(
-      backgroundColor: AppColors.background,
+      backgroundColor: AppColor.background,
       body: SafeArea(
         child: Column(
           children: [
@@ -176,7 +176,7 @@ class RegisterView extends GetView<RegisterController> {
                             AppTextStyle(
                               text: "Already have an account?",
                               fontWeight: FontWeight.w400,
-                              color: AppColors.hintText,
+                              color: AppColor.hintText,
                             ),
                             5.width,
                             TextButton(
@@ -185,7 +185,7 @@ class RegisterView extends GetView<RegisterController> {
                               },
                               child: AppTextStyle(
                                 text: "Login",
-                                color: AppColors.primary,
+                                color: AppColor.primary,
                                 fontWeight: FontWeight.w400,
                               ),
                             ),
@@ -197,7 +197,7 @@ class RegisterView extends GetView<RegisterController> {
                           child: AppTextStyle(
                             text: "By registering you agree to ",
                             fontWeight: FontWeight.w400,
-                            color: AppColors.hintText,
+                            color: AppColor.hintText,
                             textAlign: TextAlign.center,
                           ),
                         ),
@@ -209,20 +209,20 @@ class RegisterView extends GetView<RegisterController> {
                               child: AppTextStyle(
                                 text: "Terms & Privacy ",
                                 fontWeight: FontWeight.w400,
-                                color: AppColors.primary,
+                                color: AppColor.primary,
                               ),
                             ),
                             AppTextStyle(
                               text: "and",
                               fontWeight: FontWeight.w400,
-                              color: AppColors.hintText,
+                              color: AppColor.hintText,
                             ),
                             TextButton(
                               onPressed: () {},
                               child: AppTextStyle(
                                 text: "Policy",
                                 fontWeight: FontWeight.w400,
-                                color: AppColors.primary,
+                                color: AppColor.primary,
                               ),
                             ),
                           ],

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
-import 'package:reedsexpressllc_flutter/app/core/theme/app_colors.dart';
+import 'package:reedsexpressllc_flutter/app/core/theme/app_color.dart';
 import 'package:reedsexpressllc_flutter/app/widgets/app_text_style.dart';
 import 'package:reedsexpressllc_flutter/app/widgets/custom_svg_image.dart';
 
@@ -46,7 +46,7 @@ class QuickActionItem extends StatelessWidget {
               width: 40.w,
               height: 40.w,
               decoration: BoxDecoration(
-                color: AppColors.primary.withAlpha(70),
+                color: AppColor.primary.withAlpha(70),
                 shape: BoxShape.circle,
               ),
               child: Center(
@@ -54,7 +54,7 @@ class QuickActionItem extends StatelessWidget {
                   imagePath: iconPath,
                   width: 20.w,
                   height: 20.w,
-                  color: AppColors.primary,
+                  color: AppColor.primary,
                 ),
               ),
             ),

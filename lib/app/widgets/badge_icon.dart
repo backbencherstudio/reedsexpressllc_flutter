@@ -2,7 +2,7 @@ import 'package:badges/badges.dart' as badges;
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../core/theme/app_colors.dart';
+import '../core/theme/app_color.dart';
 import 'app_text_style.dart';
 
 class BadgeIcon extends StatelessWidget {
@@ -28,7 +28,7 @@ class BadgeIcon extends StatelessWidget {
           ? badges.Badge(
         position: badges.BadgePosition.topEnd(top: -12, end: -10),
         badgeStyle: badges.BadgeStyle(
-          badgeColor: AppColors.primary,
+          badgeColor: AppColor.primary,
           padding: EdgeInsets.all(5.r),
           borderSide: BorderSide(color: Colors.white, width: 1.5.r),
         ),

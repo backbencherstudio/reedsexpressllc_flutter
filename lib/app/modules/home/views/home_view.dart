@@ -10,7 +10,7 @@ import 'package:reedsexpressllc_flutter/app/widgets/show_empty_result.dart';
 import 'package:reedsexpressllc_flutter/app/routes/app_pages.dart';
 
 import '../../../../gen/assets.gen.dart';
-import '../../../core/theme/app_colors.dart';
+import '../../../core/theme/app_color.dart';
 import '../../../widgets/app_text_style.dart';
 import '../../../widgets/quick_action_item.dart';
 import '../controllers/home_controller.dart';
@@ -21,7 +21,7 @@ class HomeView extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.primary,
+      backgroundColor: AppColor.primary,
       body: SafeArea(
         bottom: false,
         child: Column(
@@ -359,7 +359,7 @@ class _SectionHeader extends StatelessWidget {
               text: actionLabel!,
               fontSize: 13.sp,
               fontWeight: FontWeight.w500,
-              color: AppColors.primary,
+              color: AppColor.primary,
             ),
           ),
       ],

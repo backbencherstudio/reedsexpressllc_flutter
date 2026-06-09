@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
 import 'package:get/get.dart';
-import 'package:reedsexpressllc_flutter/app/core/theme/app_colors.dart';
+import 'package:reedsexpressllc_flutter/app/core/theme/app_color.dart';
 import '../../../core/config/app_config.dart';
 import '../controllers/splash_controller.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -13,7 +13,7 @@ class SplashView extends GetView<SplashController> {
   Widget build(BuildContext context) {
     Get.put(SplashController());
     return Scaffold(
-      backgroundColor: AppColors.primary,
+      backgroundColor: AppColor.primary,
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.w),
         child: Center(

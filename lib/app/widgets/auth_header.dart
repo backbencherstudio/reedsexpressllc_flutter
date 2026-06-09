@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:reedsexpressllc_flutter/app/core/extensions/sizedbox_extension.dart';
-import 'package:reedsexpressllc_flutter/app/core/theme/app_colors.dart';
+import 'package:reedsexpressllc_flutter/app/core/theme/app_color.dart';
 import 'package:reedsexpressllc_flutter/app/widgets/app_text_style.dart';
 import 'package:reedsexpressllc_flutter/app/widgets/custom_icon_button.dart';
 
@@ -38,7 +38,7 @@ Widget authHeader({
                 5.height,
                 subTitle == null
                     ? SizedBox.shrink()
-                    : AppTextStyle(text: subTitle, color: AppColors.hintText),
+                    : AppTextStyle(text: subTitle, color: AppColor.hintText),
               ],
             ),
           ),

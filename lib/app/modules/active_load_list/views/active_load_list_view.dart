@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
 import 'package:reedsexpressllc_flutter/app/core/layouts/load_item_layout.dart';
-import 'package:reedsexpressllc_flutter/app/core/theme/app_colors.dart';
+import 'package:reedsexpressllc_flutter/app/core/theme/app_color.dart';
 
 import '../../../widgets/appbar_title.dart';
 import '../../../widgets/custom_icon_button.dart';
@@ -17,10 +17,10 @@ class ActiveLoadListView extends GetView<ActiveLoadListController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.background,
+      backgroundColor: AppColor.background,
       appBar: AppBar(
-        backgroundColor: AppColors.background,
-        surfaceTintColor: AppColors.background,
+        backgroundColor: AppColor.background,
+        surfaceTintColor: AppColor.background,
         elevation: 0,
         centerTitle: true,
         leading: Padding(
@@ -42,7 +42,7 @@ class ActiveLoadListView extends GetView<ActiveLoadListController> {
             );
           } else {
             return RefreshIndicator(
-              color: AppColors.primary,
+              color: AppColor.primary,
               onRefresh: () async {
                 controller.getRestaurant();
               },

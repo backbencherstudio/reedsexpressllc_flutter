@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 
 import '../../../../gen/assets.gen.dart';
-import '../../../core/theme/app_colors.dart';
+import '../../../core/theme/app_color.dart';
 import '../../../widgets/app_text_style.dart';
 import '../../../widgets/appbar_title.dart';
 import '../../../widgets/custom_icon_button.dart';
@@ -17,10 +17,10 @@ class EarningsView extends GetView<EarningsController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.background,
+      backgroundColor: AppColor.background,
       appBar: AppBar(
-        backgroundColor: AppColors.background,
-        surfaceTintColor: AppColors.background,
+        backgroundColor: AppColor.background,
+        surfaceTintColor: AppColor.background,
         elevation: 0,
         centerTitle: true,
         leading: Padding(
@@ -47,7 +47,7 @@ class EarningsView extends GetView<EarningsController> {
                   children: [
                     customSvgImage(
                       imagePath: Assets.icons.searchIcon,
-                      color: AppColors.hintText,
+                      color: AppColor.hintText,
                     ),
                     10.horizontalSpace,
                     Expanded(
@@ -56,7 +56,7 @@ class EarningsView extends GetView<EarningsController> {
                         decoration: InputDecoration(
                           hintText: "Search",
                           hintStyle: TextStyle(
-                            color: AppColors.hintText,
+                            color: AppColor.hintText,
                             fontSize: 14.sp,
                           ),
                           border: InputBorder.none,
@@ -245,7 +245,7 @@ class EarningsView extends GetView<EarningsController> {
                             '\$${controller.totalEarnings.value.toStringAsFixed(2)}',
                         fontSize: 22.sp,
                         fontWeight: FontWeight.w600,
-                        color: AppColors.primary,
+                        color: AppColor.primary,
                       ),
                     ),
                   ],
@@ -278,11 +278,11 @@ class EarningsView extends GetView<EarningsController> {
                 selectionMode: DateRangePickerSelectionMode.range,
                 showNavigationArrow: true,
                 showActionButtons: true,
-                selectionColor: AppColors.primary,
-                startRangeSelectionColor: AppColors.primary,
-                endRangeSelectionColor: AppColors.primary,
-                rangeSelectionColor: AppColors.primary.withAlpha(25),
-                todayHighlightColor: AppColors.primary,
+                selectionColor: AppColor.primary,
+                startRangeSelectionColor: AppColor.primary,
+                endRangeSelectionColor: AppColor.primary,
+                rangeSelectionColor: AppColor.primary.withAlpha(25),
+                todayHighlightColor: AppColor.primary,
                 backgroundColor: Colors.white,
                 initialSelectedRange: PickerDateRange(
                   controller.startDate.value,

@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:reedsexpressllc_flutter/app/core/theme/app_colors.dart';
+import 'package:reedsexpressllc_flutter/app/core/theme/app_color.dart';
 import '../../../../gen/assets.gen.dart';
 import '../../../core/utils/dialog_utils.dart';
 import '../../../widgets/custom_svg_image.dart';
@@ -41,7 +41,7 @@ class MainPageView extends GetView<MainPageController> {
           });
         },
         child: Scaffold(
-          backgroundColor: AppColors.background,
+          backgroundColor: AppColor.background,
           body: Obx(() => controller.pages[controller.selectedIndex.value]),
           bottomNavigationBar: const _BottomNav(),
         ),
@@ -103,8 +103,8 @@ class _BottomNav extends GetView<MainPageController> {
               onTabChange: controller.changePage,
               backgroundColor: Colors.white,
               activeColor: Colors.white,
-              color: AppColors.hintText,
-              tabBackgroundColor: AppColors.primary,
+              color: AppColor.hintText,
+              tabBackgroundColor: AppColor.primary,
               gap: 6.w,
               padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 10.h),
               duration: const Duration(milliseconds: 300),
@@ -115,7 +115,7 @@ class _BottomNav extends GetView<MainPageController> {
                   icon: Icons.circle, // required but overridden by leading
                   leading: customSvgImage(
                     imagePath: isActive ? tab.fillIcon : tab.outlineIcon,
-                    color: isActive ? Colors.white : AppColors.hintText,
+                    color: isActive ? Colors.white : AppColor.hintText,
                     width: 20.w,
                     height: 20.w,
                   ),

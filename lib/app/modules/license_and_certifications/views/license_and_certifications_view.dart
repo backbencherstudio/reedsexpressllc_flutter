@@ -6,7 +6,7 @@ import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 
 import '../../../../gen/assets.gen.dart';
 import '../../../core/extensions/sizedbox_extension.dart';
-import '../../../core/theme/app_colors.dart';
+import '../../../core/theme/app_color.dart';
 import '../../../widgets/app_input_text_form_field.dart';
 import '../../../widgets/app_text_style.dart';
 import '../../../widgets/appbar_title.dart';
@@ -21,10 +21,10 @@ class LicenseAndCertificationsView extends GetView<LicenseAndCertificationsContr
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.background,
+      backgroundColor: AppColor.background,
       appBar: AppBar(
-        backgroundColor: AppColors.background,
-        surfaceTintColor: AppColors.background,
+        backgroundColor: AppColor.background,
+        surfaceTintColor: AppColor.background,
         elevation: 0,
         centerTitle: true,
         leading: Padding(
@@ -92,7 +92,7 @@ class LicenseAndCertificationsView extends GetView<LicenseAndCertificationsContr
                         padding:  EdgeInsets.all(5.r),
                         child: customSvgImage(
                           imagePath: Assets.icons.docIcon,
-                          color: AppColors.hintText,
+                          color: AppColor.hintText,
                           height: 15.h,
                           width: 15.w
                         ),
@@ -110,7 +110,7 @@ class LicenseAndCertificationsView extends GetView<LicenseAndCertificationsContr
                         padding:  EdgeInsets.all(5.r),
                         child: customSvgImage(
                             imagePath: Assets.icons.docIcon,
-                            color: AppColors.hintText,
+                            color: AppColor.hintText,
                             height: 15.h,
                             width: 15.w
                         ),
@@ -128,7 +128,7 @@ class LicenseAndCertificationsView extends GetView<LicenseAndCertificationsContr
                         padding:  EdgeInsets.all(5.r),
                         child: customSvgImage(
                             imagePath: Assets.icons.docIcon,
-                            color: AppColors.hintText,
+                            color: AppColor.hintText,
                             height: 15.h,
                             width: 15.w
                         ),
@@ -207,7 +207,7 @@ class _LicenseStateDropdown extends StatelessWidget {
         8.verticalSpace,
         Obx(() => DropdownButtonFormField<String>(
           value: controller.licenseState.value.isNotEmpty ? controller.licenseState.value : null,
-          icon: Icon(Icons.keyboard_arrow_down, color: AppColors.hintText),
+          icon: Icon(Icons.keyboard_arrow_down, color: AppColor.hintText),
           decoration: InputDecoration(
             hintText: 'Enter License State',
             hintStyle: TextStyle(
@@ -227,14 +227,14 @@ class _LicenseStateDropdown extends StatelessWidget {
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
               borderSide: const BorderSide(
-                color: AppColors.hintText,
+                color: AppColor.hintText,
                 width: 0.5,
               ),
             ),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
               borderSide: const BorderSide(
-                color: AppColors.primary,
+                color: AppColor.primary,
                 width: 0.8,
               ),
             ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:get/get.dart';
+import 'package:reedsexpressllc_flutter/app/core/extensions/text_style_extension.dart';
 
 class AppTextStyle extends StatelessWidget {
   const AppTextStyle({
@@ -74,13 +75,11 @@ class AppTextStyleOverFlow extends StatelessWidget {
       textAlign: textAlign ?? TextAlign.start,
       overflow: TextOverflow.ellipsis,
       maxLines: maxLines ?? 1,
-      style: GoogleFonts.poppins(
-        textStyle: TextStyle(
-          color: color ?? Colors.black,
-          fontSize: fontSize ?? 14.sp,
-          fontWeight: fontWeight ?? FontWeight.w400,
-          height: height,
-        ),
+      style: context.bodyMedium.copyWith(
+        color: color ?? Colors.black,
+        fontSize: fontSize,
+        fontWeight: fontWeight,
+        height: height,
       ),
     );
   }

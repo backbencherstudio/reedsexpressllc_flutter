@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:reedsexpressllc_flutter/app/core/extensions/sizedbox_extension.dart';
 import 'package:reedsexpressllc_flutter/app/core/layouts/load_item_layout.dart';
-import 'package:reedsexpressllc_flutter/app/core/theme/app_colors.dart';
+import 'package:reedsexpressllc_flutter/app/core/theme/app_color.dart';
 import 'package:reedsexpressllc_flutter/app/widgets/app_text_style.dart';
 import 'package:reedsexpressllc_flutter/app/widgets/custom_svg_image.dart';
 
@@ -24,10 +24,10 @@ class LoadView extends GetView<LoadController> {
       Get.put(LoadController());
     }
     return Scaffold(
-      backgroundColor: AppColors.background,
+      backgroundColor: AppColor.background,
       appBar: AppBar(
-        backgroundColor: AppColors.background,
-        surfaceTintColor: AppColors.background,
+        backgroundColor: AppColor.background,
+        surfaceTintColor: AppColor.background,
         elevation: 0,
         centerTitle: true,
         title: appbarTitle(text: 'Loads'),
@@ -56,7 +56,7 @@ class LoadView extends GetView<LoadController> {
                   );
                 } else {
                   return RefreshIndicator(
-                    color: AppColors.primary,
+                    color: AppColor.primary,
                     onRefresh: () async {
                       controller.getRestaurant();
                     },
@@ -120,10 +120,10 @@ class LoadView extends GetView<LoadController> {
                 children: [
                   customSvgImage(
                     imagePath: Assets.icons.searchIcon,
-                    color: AppColors.hintText,
+                    color: AppColor.hintText,
                   ),
                   10.width,
-                  AppTextStyle(text: "Search", color: AppColors.hintText),
+                  AppTextStyle(text: "Search", color: AppColor.hintText),
                 ],
               ),
             ),
@@ -140,7 +140,7 @@ class LoadView extends GetView<LoadController> {
             child: Center(
               child: customSvgImage(
                 imagePath: Assets.icons.filterIcon,
-                color: AppColors.hintText,
+                color: AppColor.hintText,
                 height: 18.h,
                 width: 18.w,
               ),

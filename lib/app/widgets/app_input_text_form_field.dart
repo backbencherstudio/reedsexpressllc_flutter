@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../core/theme/app_colors.dart';
+import '../core/theme/app_color.dart';
 import 'app_text_style.dart';
 
 class InputFieldWithLabel extends StatelessWidget {
@@ -68,7 +68,7 @@ class InputFieldWithLabel extends StatelessWidget {
           readOnly: readOnly,
           onTap: onTap,
           controller: controller,
-          cursorColor: AppColors.primary,
+          cursorColor: AppColor.primary,
           autovalidateMode: AutovalidateMode.onUserInteraction,
           keyboardType: keyboardType ?? TextInputType.text,
           maxLines: maxLines,
@@ -88,7 +88,7 @@ class InputFieldWithLabel extends StatelessWidget {
             suffixIcon: suffixIcon,
             suffixStyle: GoogleFonts.poppins(
               textStyle: TextStyle(
-                color: AppColors.hintText,
+                color: AppColor.hintText,
                 fontSize: 14.sp,
                 fontWeight: FontWeight.w400, // Regular
               ),
@@ -113,14 +113,14 @@ class InputFieldWithLabel extends StatelessWidget {
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
               borderSide: const BorderSide(
-                color: AppColors.hintText,
+                color: AppColor.hintText,
                 width: 0.5,
               ), // Thinner
             ),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
               borderSide: const BorderSide(
-                color: AppColors.primary,
+                color: AppColor.primary,
                 width: 0.8,
               ), // Thinner
             ),
@@ -181,7 +181,7 @@ class _PasswordInputFieldState extends State<PasswordInputField> {
         ),
         TextFormField(
           controller: widget.controller,
-          cursorColor: AppColors.primary,
+          cursorColor: AppColor.primary,
           autovalidateMode: AutovalidateMode.onUserInteraction,
           keyboardType: TextInputType.visiblePassword,
           obscureText: _obscure,
@@ -202,7 +202,7 @@ class _PasswordInputFieldState extends State<PasswordInputField> {
                 _obscure
                     ? Icons.visibility_off_outlined
                     : Icons.visibility_outlined,
-                color: AppColors.hintText,
+                color: AppColor.hintText,
                 size: 20.sp,
               ),
             ),
@@ -226,14 +226,14 @@ class _PasswordInputFieldState extends State<PasswordInputField> {
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
               borderSide: const BorderSide(
-                color: AppColors.hintText,
+                color: AppColor.hintText,
                 width: 0.5,
               ), // Thinner
             ),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
               borderSide: const BorderSide(
-                color: AppColors.primary,
+                color: AppColor.primary,
                 width: 0.8,
               ), // Thinner
             ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../theme/app_colors.dart';
+import '../theme/app_color.dart';
 
 // ✅ STEP 1: Define semantic text styles in your AppTheme
 // lib/core/theme/app_theme.dart

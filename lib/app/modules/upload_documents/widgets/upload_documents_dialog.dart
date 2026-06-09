@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:reedsexpressllc_flutter/app/core/extensions/sizedbox_extension.dart';
-import 'package:reedsexpressllc_flutter/app/core/theme/app_colors.dart';
+import 'package:reedsexpressllc_flutter/app/core/theme/app_color.dart';
 import 'package:reedsexpressllc_flutter/app/widgets/app_text_style.dart';
 import 'package:reedsexpressllc_flutter/app/widgets/document_upload_field.dart';
 import 'package:reedsexpressllc_flutter/app/modules/load_details/controllers/load_details_controller.dart';
@@ -30,13 +30,13 @@ class UploadDocumentsDialog extends GetView<LoadDetailsController> {
 
             AppTextStyle(
               text: "Upload required documents to mark this as completed.",
-              color: AppColors.hintText,
+              color: AppColor.hintText,
             ),
             20.height,
 
             DocumentUploadField(
               label: 'POD - Proof of Delivery',
-              fieldColor: AppColors.background,
+              fieldColor: AppColor.background,
               filePathObs: controller.podPath,
               onTap: () => controller.pickFile(controller.podPath),
               onRemove: () => controller.removeFile(controller.podPath),
@@ -44,7 +44,7 @@ class UploadDocumentsDialog extends GetView<LoadDetailsController> {
             14.verticalSpace,
             DocumentUploadField(
               label: 'BOL - Bill of Lading',
-              fieldColor: AppColors.background,
+              fieldColor: AppColor.background,
               filePathObs: controller.bolPath,
               onTap: () => controller.pickFile(controller.bolPath),
               onRemove: () => controller.removeFile(controller.bolPath),
@@ -52,7 +52,7 @@ class UploadDocumentsDialog extends GetView<LoadDetailsController> {
             14.verticalSpace,
             DocumentUploadField(
               label: 'Rate Confirmation',
-              fieldColor: AppColors.background,
+              fieldColor: AppColor.background,
               filePathObs: controller.rateConfirmationPath,
               onTap: () => controller.pickFile(controller.rateConfirmationPath),
               onRemove: () =>
@@ -61,7 +61,7 @@ class UploadDocumentsDialog extends GetView<LoadDetailsController> {
             14.verticalSpace,
             DocumentUploadField(
               label: 'Scale Ticket',
-              fieldColor: AppColors.background,
+              fieldColor: AppColor.background,
               filePathObs: controller.scaleTicketPath,
               onTap: () => controller.pickFile(controller.scaleTicketPath),
               onRemove: () => controller.removeFile(controller.scaleTicketPath),
@@ -69,7 +69,7 @@ class UploadDocumentsDialog extends GetView<LoadDetailsController> {
             14.verticalSpace,
             DocumentUploadField(
               label: 'Lumper fee',
-              fieldColor: AppColors.background,
+              fieldColor: AppColor.background,
               filePathObs: controller.lumperFeePath,
               onTap: () => controller.pickFile(controller.lumperFeePath),
               onRemove: () => controller.removeFile(controller.lumperFeePath),
@@ -77,7 +77,7 @@ class UploadDocumentsDialog extends GetView<LoadDetailsController> {
             14.verticalSpace,
             DocumentUploadField(
               label: 'Inspection Report',
-              fieldColor: AppColors.background,
+              fieldColor: AppColor.background,
               filePathObs: controller.inspectionReportPath,
               onTap: () => controller.pickFile(controller.inspectionReportPath),
               onRemove: () =>
@@ -102,7 +102,7 @@ class UploadDocumentsDialog extends GetView<LoadDetailsController> {
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(10.r),
                           border: Border.all(
-                            color: AppColors.primary,
+                            color: AppColor.primary,
                             width: 0.8,
                           ),
                         ),
@@ -110,7 +110,7 @@ class UploadDocumentsDialog extends GetView<LoadDetailsController> {
                           text: 'Cancel',
                           fontSize: 14.sp,
                           fontWeight: FontWeight.w600,
-                          color: AppColors.primary,
+                          color: AppColor.primary,
                           textAlign: TextAlign.center,
                         ),
                       ),
@@ -127,7 +127,7 @@ class UploadDocumentsDialog extends GetView<LoadDetailsController> {
                       child: Container(
                         padding: EdgeInsets.symmetric(vertical: 13.h),
                         decoration: BoxDecoration(
-                          color: AppColors.primary,
+                          color: AppColor.primary,
                           borderRadius: BorderRadius.circular(10.r),
                         ),
                         child: controller.isLoading.value

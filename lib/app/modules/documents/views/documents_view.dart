@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:reedsexpressllc_flutter/app/core/theme/app_colors.dart';
+import 'package:reedsexpressllc_flutter/app/core/theme/app_color.dart';
 import 'package:reedsexpressllc_flutter/app/widgets/app_text_style.dart';
 import 'package:reedsexpressllc_flutter/app/widgets/document_upload_field.dart';
 import 'package:reedsexpressllc_flutter/app/routes/app_pages.dart';
@@ -18,10 +18,10 @@ class DocumentsView extends GetView<DocumentsController> {
       Get.put(DocumentsController());
     }
     return Scaffold(
-      backgroundColor: AppColors.background,
+      backgroundColor: AppColor.background,
       appBar: AppBar(
-        backgroundColor: AppColors.background,
-        surfaceTintColor: AppColors.background,
+        backgroundColor: AppColor.background,
+        surfaceTintColor: AppColor.background,
         elevation: 0,
         centerTitle: true,
         title: appbarTitle(text: 'Documents'),
@@ -57,7 +57,7 @@ class DocumentsView extends GetView<DocumentsController> {
         () => Container(
           height: 46.h,
           decoration: BoxDecoration(
-            color: AppColors.primary.withAlpha(40),
+            color: AppColor.primary.withAlpha(40),
             borderRadius: BorderRadius.circular(10.r),
           ),
           child: Row(
@@ -80,7 +80,7 @@ class DocumentsView extends GetView<DocumentsController> {
           duration: const Duration(milliseconds: 200),
           margin: EdgeInsets.all(4.r),
           decoration: BoxDecoration(
-            color: isSelected ? AppColors.primary : Colors.transparent,
+            color: isSelected ? AppColor.primary : Colors.transparent,
             borderRadius: BorderRadius.circular(8.r),
           ),
           child: Center(
@@ -88,7 +88,7 @@ class DocumentsView extends GetView<DocumentsController> {
               text: label,
               fontSize: 13.sp,
               fontWeight: FontWeight.w600,
-              color: isSelected ? Colors.white : AppColors.primary,
+              color: isSelected ? Colors.white : AppColor.primary,
             ),
           ),
         ),
@@ -192,7 +192,7 @@ class DocumentsView extends GetView<DocumentsController> {
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(10.r),
-              border: Border.all(color: AppColors.hintText, width: 0.5),
+              border: Border.all(color: AppColor.hintText, width: 0.5),
             ),
             child: DropdownButtonHideUnderline(
               child: DropdownButton<String>(
@@ -203,7 +203,7 @@ class DocumentsView extends GetView<DocumentsController> {
                     text: 'Choose a load...',
                     fontSize: 14.sp,
                     fontWeight: FontWeight.w400,
-                    color: AppColors.hintText,
+                    color: AppColor.hintText,
                   ),
                 ),
                 isExpanded: true,
@@ -211,7 +211,7 @@ class DocumentsView extends GetView<DocumentsController> {
                   padding: EdgeInsets.only(right: 12.w),
                   child: Icon(
                     Icons.keyboard_arrow_down_rounded,
-                    color: AppColors.hintText,
+                    color: AppColor.hintText,
                     size: 20.sp,
                   ),
                 ),
@@ -255,13 +255,13 @@ class DocumentsView extends GetView<DocumentsController> {
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(10.r),
-                    border: Border.all(color: AppColors.primary, width: 0.8),
+                    border: Border.all(color: AppColor.primary, width: 0.8),
                   ),
                   child: AppTextStyle(
                     text: 'Cancel',
                     fontSize: 14.sp,
                     fontWeight: FontWeight.w600,
-                    color: AppColors.primary,
+                    color: AppColor.primary,
                     textAlign: TextAlign.center,
                   ),
                 ),
@@ -276,7 +276,7 @@ class DocumentsView extends GetView<DocumentsController> {
                 child: Container(
                   padding: EdgeInsets.symmetric(vertical: 14.h),
                   decoration: BoxDecoration(
-                    color: AppColors.primary,
+                    color: AppColor.primary,
                     borderRadius: BorderRadius.circular(10.r),
                   ),
                   child: controller.isLoading.value
@@ -446,7 +446,7 @@ class DocumentsView extends GetView<DocumentsController> {
           text: label,
           fontSize: 12.sp,
           fontWeight: FontWeight.w500,
-          color: AppColors.hintText,
+          color: AppColor.hintText,
         ),
         4.verticalSpace,
         Container(
@@ -455,7 +455,7 @@ class DocumentsView extends GetView<DocumentsController> {
           decoration: BoxDecoration(
             color: const Color(0xFFF5F6FA),
             borderRadius: BorderRadius.circular(8.r),
-            border: Border.all(color: AppColors.hintText, width: 0.5),
+            border: Border.all(color: AppColor.hintText, width: 0.5),
           ),
           child: AppTextStyle(
             text: value,
@@ -503,7 +503,7 @@ class DocumentsView extends GetView<DocumentsController> {
                   text: '$uploaded / $total',
                   fontSize: 13.sp,
                   fontWeight: FontWeight.w600,
-                  color: AppColors.primary,
+                  color: AppColor.primary,
                 ),
               ],
             ),
@@ -513,8 +513,8 @@ class DocumentsView extends GetView<DocumentsController> {
               child: LinearProgressIndicator(
                 value: progress,
                 minHeight: 6.h,
-                backgroundColor: AppColors.primary.withAlpha(30),
-                valueColor: AlwaysStoppedAnimation<Color>(AppColors.primary),
+                backgroundColor: AppColor.primary.withAlpha(30),
+                valueColor: AlwaysStoppedAnimation<Color>(AppColor.primary),
               ),
             ),
           ],

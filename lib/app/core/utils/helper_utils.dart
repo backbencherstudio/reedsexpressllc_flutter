@@ -28,6 +28,7 @@ class HelperUtils {
   static String token = "";
   static String userId = "";
   static String userRole = "";
+  static bool isDriver = false;
 
 
 

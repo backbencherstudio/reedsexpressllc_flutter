@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:reedsexpressllc_flutter/app/core/extensions/sizedbox_extension.dart';
-import 'package:reedsexpressllc_flutter/app/core/theme/app_colors.dart';
+import 'package:reedsexpressllc_flutter/app/core/theme/app_color.dart';
 import 'package:reedsexpressllc_flutter/app/widgets/app_text_style.dart';
 import 'package:reedsexpressllc_flutter/app/widgets/custom_icon_button.dart';
 import 'package:reedsexpressllc_flutter/app/widgets/custom_svg_image.dart';
@@ -20,10 +20,10 @@ class LoadDetailsView extends GetView<LoadDetailsController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.background,
+      backgroundColor: AppColor.background,
       appBar: AppBar(
-        backgroundColor: AppColors.background,
-        surfaceTintColor: AppColors.background,
+        backgroundColor: AppColor.background,
+        surfaceTintColor: AppColor.background,
         elevation: 0,
         centerTitle: true,
         leading: Padding(
@@ -235,7 +235,7 @@ class _LoadHeaderCard extends StatelessWidget {
       case LoadStatus.pickup:
         return const Color(0xFFF9C80E);
       case LoadStatus.inTransit:
-        return AppColors.primary;
+        return AppColor.primary;
       case LoadStatus.delivered:
         return const Color(0xFF00F259);
       case LoadStatus.completed:
@@ -262,7 +262,7 @@ class _LoadHeaderCard extends StatelessWidget {
       width: double.infinity,
       padding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 12.h),
       decoration: BoxDecoration(
-        color: AppColors.primary,
+        color: AppColor.primary,
         borderRadius: BorderRadius.circular(12.r),
       ),
       child: Row(
@@ -320,7 +320,7 @@ class _UploadButton extends StatelessWidget {
         width: double.infinity,
         padding: EdgeInsets.symmetric(vertical: 14.h),
         decoration: BoxDecoration(
-          color: AppColors.primary,
+          color: AppColor.primary,
           borderRadius: BorderRadius.circular(12.r),
         ),
         child: Row(
@@ -406,13 +406,13 @@ class _MilesPayRow extends StatelessWidget {
               imagePath: Assets.icons.milesIcon,
               width: 16.w,
               height: 16.w,
-              color: AppColors.hintText,
+              color: AppColor.hintText,
             ),
             6.horizontalSpace,
             AppTextStyle(
               text: '$miles miles',
               fontSize: 13.sp,
-              color: AppColors.hintText,
+              color: AppColor.hintText,
             ),
           ],
         ),
@@ -454,7 +454,7 @@ class _DetailRow extends StatelessWidget {
         Container(
           padding: EdgeInsets.all(4.r),
           decoration: BoxDecoration(
-            color: AppColors.primary.withAlpha(25),
+            color: AppColor.primary.withAlpha(25),
             borderRadius: BorderRadius.circular(5.r),
           ),
           child: Center(
@@ -462,7 +462,7 @@ class _DetailRow extends StatelessWidget {
               imagePath: iconPath,
               width: 18.w,
               height: 18.w,
-              color: AppColors.primary,
+              color: AppColor.primary,
             ),
           ),
         ),
@@ -481,12 +481,12 @@ class _DetailRow extends StatelessWidget {
               AppTextStyle(
                 text: company,
                 fontSize: 12.sp,
-                color: AppColors.hintText,
+                color: AppColor.hintText,
               ),
               AppTextStyle(
                 text: address,
                 fontSize: 12.sp,
-                color: AppColors.hintText,
+                color: AppColor.hintText,
               ),
               6.verticalSpace,
               Row(
@@ -495,13 +495,13 @@ class _DetailRow extends StatelessWidget {
                     imagePath: Assets.icons.stopwatchIcon,
                     width: 12.w,
                     height: 12.w,
-                    color: AppColors.hintText,
+                    color: AppColor.hintText,
                   ),
                   4.horizontalSpace,
                   AppTextStyle(
                     text: time,
                     fontSize: 11.sp,
-                    color: AppColors.hintText,
+                    color: AppColor.hintText,
                   ),
                   8.horizontalSpace,
                   Container(
@@ -516,7 +516,7 @@ class _DetailRow extends StatelessWidget {
                   AppTextStyle(
                     text: date,
                     fontSize: 11.sp,
-                    color: AppColors.hintText,
+                    color: AppColor.hintText,
                   ),
                 ],
               ),
@@ -551,7 +551,7 @@ class _BrokerRow extends StatelessWidget {
         Container(
           padding: EdgeInsets.all(4.r),
           decoration: BoxDecoration(
-            color: AppColors.primary.withAlpha(25),
+            color: AppColor.primary.withAlpha(25),
             borderRadius: BorderRadius.circular(5.r),
           ),
           child: Center(
@@ -559,7 +559,7 @@ class _BrokerRow extends StatelessWidget {
               imagePath: Assets.icons.personsIcon,
               width: 18.w,
               height: 18.w,
-              color: AppColors.primary,
+              color: AppColor.primary,
             ),
           ),
         ),
@@ -578,12 +578,12 @@ class _BrokerRow extends StatelessWidget {
               AppTextStyle(
                 text: name,
                 fontSize: 12.sp,
-                color: AppColors.hintText,
+                color: AppColor.hintText,
               ),
               AppTextStyle(
                 text: reference,
                 fontSize: 12.sp,
-                color: AppColors.hintText,
+                color: AppColor.hintText,
               ),
               8.verticalSpace,
               Row(
@@ -592,13 +592,13 @@ class _BrokerRow extends StatelessWidget {
                     imagePath: Assets.icons.messageIcon,
                     width: 12.w,
                     height: 12.w,
-                    color: AppColors.hintText,
+                    color: AppColor.hintText,
                   ),
                   4.horizontalSpace,
                   AppTextStyle(
                     text: email,
                     fontSize: 11.sp,
-                    color: AppColors.hintText,
+                    color: AppColor.hintText,
                   ),
                 ],
               ),
@@ -609,13 +609,13 @@ class _BrokerRow extends StatelessWidget {
                     imagePath: Assets.icons.phoneIcon,
                     width: 12.w,
                     height: 12.w,
-                    color: AppColors.hintText,
+                    color: AppColor.hintText,
                   ),
                   4.horizontalSpace,
                   AppTextStyle(
                     text: phone,
                     fontSize: 11.sp,
-                    color: AppColors.hintText,
+                    color: AppColor.hintText,
                   ),
                 ],
               ),
@@ -636,7 +636,7 @@ class _NoticeBox extends StatelessWidget {
       width: double.infinity,
       padding: EdgeInsets.all(12.w),
       decoration: BoxDecoration(
-        color: AppColors.primary.withAlpha(18),
+        color: AppColor.primary.withAlpha(18),
         borderRadius: BorderRadius.circular(8.r),
       ),
       child: Column(
@@ -716,15 +716,15 @@ class _TimelineStep extends StatelessWidget {
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     color: step.isDone
-                        ? AppColors.primary
+                        ? AppColor.primary
                         : step.isActive
                         ? Colors.white
                         : Colors.white,
                     border: Border.all(
                       color: step.isDone
-                          ? AppColors.primary
+                          ? AppColor.primary
                           : step.isActive
-                          ? AppColors.primary
+                          ? AppColor.primary
                           : const Color(0xFFCCCCCC),
                       width: 2,
                     ),
@@ -736,7 +736,7 @@ class _TimelineStep extends StatelessWidget {
                     child: Container(
                       width: 1.5.w,
                       color: step.isDone
-                          ? AppColors.primary
+                          ? AppColor.primary
                           : const Color(0xFFDDDDDD),
                     ),
                   ),
@@ -778,7 +778,7 @@ class _TimelineStep extends StatelessWidget {
                           fontSize: 11.sp,
                           color: isDimmed
                               ? const Color(0xFFBBBBBB)
-                              : AppColors.hintText,
+                              : AppColor.hintText,
                         ),
                       ],
                     ),
@@ -794,7 +794,7 @@ class _TimelineStep extends StatelessWidget {
                           vertical: 6.h,
                         ),
                         decoration: BoxDecoration(
-                          color: AppColors.primary,
+                          color: AppColor.primary,
                           borderRadius: BorderRadius.circular(6.r),
                         ),
                         child: Row(
@@ -820,7 +820,7 @@ class _TimelineStep extends StatelessWidget {
                       ),
                       decoration: BoxDecoration(
                         color: step.isDone
-                            ? AppColors.primary.withAlpha(20)
+                            ? AppColor.primary.withAlpha(20)
                             : const Color(0xFFF0F0F0),
                         borderRadius: BorderRadius.circular(6.r),
                       ),
@@ -831,7 +831,7 @@ class _TimelineStep extends StatelessWidget {
                             Icons.check,
                             size: 11.sp,
                             color: step.isDone
-                                ? AppColors.primary
+                                ? AppColor.primary
                                 : const Color(0xFFAAAAAA),
                           ),
                           3.horizontalSpace,
@@ -840,7 +840,7 @@ class _TimelineStep extends StatelessWidget {
                             fontSize: 11.sp,
                             fontWeight: FontWeight.w500,
                             color: step.isDone
-                                ? AppColors.primary
+                                ? AppColor.primary
                                 : const Color(0xFFAAAAAA),
                           ),
                         ],
@@ -872,7 +872,7 @@ class _DocumentItem extends StatelessWidget {
           imagePath: Assets.icons.docIcon,
           width: 32.w,
           height: 32.w,
-          color: AppColors.hintText,
+          color: AppColor.hintText,
         ),
         10.horizontalSpace,
         Expanded(
@@ -891,17 +891,17 @@ class _DocumentItem extends StatelessWidget {
                   AppTextStyle(
                     text: doc.fileSize,
                     fontSize: 11.sp,
-                    color: AppColors.hintText,
+                    color: AppColor.hintText,
                   ),
                   AppTextStyle(
                     text: '  •  ',
                     fontSize: 11.sp,
-                    color: AppColors.hintText,
+                    color: AppColor.hintText,
                   ),
                   AppTextStyle(
                     text: doc.uploadedAt,
                     fontSize: 11.sp,
-                    color: AppColors.hintText,
+                    color: AppColor.hintText,
                   ),
                 ],
               ),
@@ -928,7 +928,7 @@ class _DocumentItem extends StatelessWidget {
             imagePath: Assets.icons.uploadIcon,
             width: 20.w,
             height: 20.w,
-            color: AppColors.primary,
+            color: AppColor.primary,
           ),
         ),
       ],
@@ -953,7 +953,7 @@ class _CustomRow extends StatelessWidget {
           Container(
             padding: EdgeInsets.all(4.r),
             decoration: BoxDecoration(
-              color: AppColors.primary.withAlpha(25),
+              color: AppColor.primary.withAlpha(25),
               borderRadius: BorderRadius.circular(5.r),
             ),
             child: Center(
@@ -961,7 +961,7 @@ class _CustomRow extends StatelessWidget {
                 imagePath: icon,
                 width: 18.w,
                 height: 18.w,
-                color: AppColors.primary,
+                color: AppColor.primary,
               ),
             ),
           ),
@@ -981,7 +981,7 @@ class _CustomRow extends StatelessWidget {
                   AppTextStyle(
                     text: subTitle!,
                     fontSize: 12.sp,
-                    color: AppColors.hintText,
+                    color: AppColor.hintText,
                   ),
               ],
             ),

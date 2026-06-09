@@ -1,9 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
-import '../core/theme/app_colors.dart';
-import 'app_text_style.dart';
+import 'package:reedsexpressllc_flutter/app/core/extensions/text_style_extension.dart';
+import 'package:reedsexpressllc_flutter/app/widgets/app_text_style.dart';
+import '../core/theme/app_color.dart';
+import 'app_text.dart';
 
 class GlobalButton extends StatelessWidget {
   const GlobalButton({
@@ -23,6 +24,8 @@ class GlobalButton extends StatelessWidget {
     this.suffixWidget,
     this.prefixWidget,
     this.padding,
+    this.isDisabled = false,
+    this.widget,
   });
 
   final VoidCallback onTap;
@@ -39,39 +42,49 @@ class GlobalButton extends StatelessWidget {
   final List<BoxShadow>? boxShadow;
   final Widget? suffixWidget;
   final Widget? prefixWidget;
+  final Widget? widget;
   final EdgeInsetsGeometry? padding;
+  final bool isDisabled;
+
+  Color _resolveColor() {
+    if (isDisabled) return AppColor.primaryDisable;
+    return color ?? AppColor.primary;
+  }
 
   @override
   Widget build(BuildContext context) {
     return CupertinoButton(
-      onPressed: onTap,
+      onPressed: isDisabled ? null : onTap,
       padding: padding ?? EdgeInsets.zero,
       child: Container(
         height: height ?? 45.h,
-        width: width ?? Get.width,
+        width: width ?? double.infinity,
         decoration: BoxDecoration(
-          color: gradient == null ? (color ?? AppColors.primary) : null,
-          gradient: gradient,
+          color: gradient == null ? _resolveColor() : null,
+          gradient: isDisabled ? null : gradient,
           borderRadius: borderRadius ?? BorderRadius.circular(12.r),
           border: Border.all(color: borderColor ?? Colors.transparent),
-          boxShadow: boxShadow,
+          boxShadow: isDisabled ? null : boxShadow,
         ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            ?prefixWidget,
-            Expanded(
-              child: AppTextStyle(
-                text: text,
-                color: textColor ?? Colors.white,
-                fontSize: fontSize ?? 15.sp,
-                fontWeight: fontWeight ?? FontWeight.w500,
-              ),
+        child:
+            widget ??
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                ?prefixWidget,
+                Expanded(
+                  child: AppTextStyle(
+                    text: text,
+                    color: textColor ?? Colors.white,
+                    fontSize: fontSize,
+                    fontWeight: fontWeight,
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                ?suffixWidget,
+              ],
             ),
-            ?suffixWidget,
-          ],
-        ),
       ),
     );
   }

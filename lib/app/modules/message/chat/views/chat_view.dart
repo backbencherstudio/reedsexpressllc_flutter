@@ -2,7 +2,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:reedsexpressllc_flutter/app/core/theme/app_colors.dart';
+import 'package:reedsexpressllc_flutter/app/core/theme/app_color.dart';
 import 'package:reedsexpressllc_flutter/app/widgets/app_text_style.dart';
 import 'package:reedsexpressllc_flutter/app/widgets/cached_image_widget.dart';
 import 'package:reedsexpressllc_flutter/app/widgets/custom_icon_button.dart';
@@ -84,20 +84,20 @@ class ChatView extends GetView<ChatController> {
                 AppTextStyle(
                   text: 'Roadside LTD',
                   fontSize: 12.sp,
-                  color: AppColors.hintText,
+                  color: AppColor.hintText,
                 ),
                 _dot(),
                 AppTextStyle(
                   text: conv.role!,
                   fontSize: 12.sp,
-                  color: AppColors.hintText,
+                  color: AppColor.hintText,
                 ),
                 _dot(),
               ],
               AppTextStyle(
                 text: 'burger@gmail.com',
                 fontSize: 12.sp,
-                color: AppColors.hintText,
+                color: AppColor.hintText,
               ),
             ],
           ),
@@ -156,7 +156,7 @@ class ChatView extends GetView<ChatController> {
       child: AppTextStyle(
         text: time,
         fontSize: 11.sp,
-        color: AppColors.hintText,
+        color: AppColor.hintText,
         textAlign: TextAlign.center,
       ),
     );
@@ -176,7 +176,7 @@ class ChatView extends GetView<ChatController> {
           AppTextStyle(
             text: 'Typing...',
             fontSize: 13.sp,
-            color: AppColors.hintText,
+            color: AppColor.hintText,
             fontWeight: FontWeight.w400,
           ),
         ],
@@ -215,7 +215,7 @@ class ChatView extends GetView<ChatController> {
                     : EdgeInsets.symmetric(horizontal: 14.w, vertical: 10.h),
                 constraints: BoxConstraints(maxWidth: 0.65.sw),
                 decoration: BoxDecoration(
-                  color: isMe ? AppColors.primary : Colors.white,
+                  color: isMe ? AppColor.primary : Colors.white,
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(16.r),
                     topRight: Radius.circular(16.r),
@@ -270,7 +270,7 @@ class ChatView extends GetView<ChatController> {
               imagePath: Assets.icons.docIcon,
               width: 28.w,
               height: 28.w,
-              color: isMe ? Colors.white : AppColors.primary,
+              color: isMe ? Colors.white : AppColor.primary,
             ),
             10.horizontalSpace,
             Flexible(
@@ -292,7 +292,7 @@ class ChatView extends GetView<ChatController> {
                       fontSize: 10.sp,
                       color: isMe
                           ? Colors.white.withAlpha(180)
-                          : AppColors.hintText,
+                          : AppColor.hintText,
                     ),
                   ],
                 ],
@@ -327,7 +327,7 @@ class ChatView extends GetView<ChatController> {
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(12.r),
-          border: Border.all(color: AppColors.primary, width: 0.8),
+          border: Border.all(color: AppColor.primary, width: 0.8),
         ),
         child: Row(
           children: [
@@ -347,7 +347,7 @@ class ChatView extends GetView<ChatController> {
                 imagePath: Assets.icons.docIcon,
                 width: 36.w,
                 height: 36.w,
-                color: AppColors.primary,
+                color: AppColor.primary,
               ),
             10.horizontalSpace,
 
@@ -367,7 +367,7 @@ class ChatView extends GetView<ChatController> {
                     AppTextStyle(
                       text: docType,
                       fontSize: 11.sp,
-                      color: AppColors.hintText,
+                      color: AppColor.hintText,
                     ),
                 ],
               ),
@@ -380,7 +380,7 @@ class ChatView extends GetView<ChatController> {
                 imagePath: Assets.icons.crossCircleIcon,
                 width: 20.w,
                 height: 20.w,
-                color: AppColors.hintText,
+                color: AppColor.hintText,
               ),
             ),
           ],
@@ -404,7 +404,7 @@ class ChatView extends GetView<ChatController> {
               imagePath: Assets.icons.attachFileIcon,
               width: 24.w,
               height: 24.w,
-              color: AppColors.hintText,
+              color: AppColor.hintText,
             ),
           ),
           10.horizontalSpace,
@@ -424,7 +424,7 @@ class ChatView extends GetView<ChatController> {
                 decoration: InputDecoration(
                   hintText: 'Type your message',
                   hintStyle: TextStyle(
-                    color: AppColors.hintText,
+                    color: AppColor.hintText,
                     fontSize: 14.sp,
                   ),
                   border: InputBorder.none,
@@ -453,7 +453,7 @@ class ChatView extends GetView<ChatController> {
                   imagePath: Assets.icons.shareIcon,
                   width: 20.w,
                   height: 20.w,
-                  color: AppColors.hintText,
+                  color: AppColor.hintText,
                 ),
               ),
             ),
@@ -600,8 +600,8 @@ class ChatView extends GetView<ChatController> {
                             width: 20.w,
                             height: 20.w,
                             color: isGeneral
-                                ? AppColors.hintText
-                                : AppColors.primary,
+                                ? AppColor.hintText
+                                : AppColor.primary,
                           ),
                           12.horizontalSpace,
                           AppTextStyle(
@@ -639,7 +639,7 @@ class ChatView extends GetView<ChatController> {
             width: 56.w,
             height: 56.w,
             decoration: BoxDecoration(
-              color: AppColors.primary.withAlpha(18),
+              color: AppColor.primary.withAlpha(18),
               shape: BoxShape.circle,
             ),
             child: Center(
@@ -647,7 +647,7 @@ class ChatView extends GetView<ChatController> {
                 imagePath: iconPath,
                 width: 24.w,
                 height: 24.w,
-                color: AppColors.primary,
+                color: AppColor.primary,
               ),
             ),
           ),

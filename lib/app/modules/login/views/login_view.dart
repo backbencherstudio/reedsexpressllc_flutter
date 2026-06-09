@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
+import 'package:reedsexpressllc_flutter/gen/assets.gen.dart';
 
 import '../../../core/extensions/sizedbox_extension.dart';
-import '../../../core/theme/app_colors.dart';
+import '../../../core/theme/app_color.dart';
 import '../../../widgets/app_input_text_form_field.dart';
 import '../../../widgets/app_text_style.dart';
 import '../../../widgets/auth_header.dart';
@@ -20,7 +21,7 @@ class LoginView extends GetView<LoginController> {
   Widget build(BuildContext context) {
     final formKey = GlobalKey<FormState>();
     return Scaffold(
-      backgroundColor: AppColors.background,
+      backgroundColor: AppColor.background,
       body: SafeArea(
         child: Column(
           children: [
@@ -85,7 +86,7 @@ class LoginView extends GetView<LoginController> {
                               },
                               child: AppTextStyle(
                                 text: "Forgot Password",
-                                color: AppColors.primary,
+                                color: AppColor.primary,
                                 fontWeight: FontWeight.w400,
                               ),
                             ),
@@ -121,7 +122,7 @@ class LoginView extends GetView<LoginController> {
                             AppTextStyle(
                               text: "Don’t have an account?",
                               fontWeight: FontWeight.w400,
-                              color: AppColors.hintText,
+                              color: AppColor.hintText,
                             ),
                             5.width,
                             TextButton(
@@ -130,7 +131,7 @@ class LoginView extends GetView<LoginController> {
                               },
                               child: AppTextStyle(
                                 text: "Register",
-                                color: AppColors.primary,
+                                color: AppColor.primary,
                                 fontWeight: FontWeight.w400,
                               ),
                             ),

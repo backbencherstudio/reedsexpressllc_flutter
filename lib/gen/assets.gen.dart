@@ -198,6 +198,10 @@ class $AssetsIconsGen {
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  /// File path: assets/images/choose_role_image.png
+  AssetGenImage get chooseRoleImage =>
+      const AssetGenImage('assets/images/choose_role_image.png');
+
   /// File path: assets/images/empty_box.png
   AssetGenImage get emptyBox =>
       const AssetGenImage('assets/images/empty_box.png');
@@ -211,7 +215,12 @@ class $AssetsImagesGen {
       const AssetGenImage('assets/images/placeholder_image.jpg');
 
   /// List of all assets
-  List<AssetGenImage> get values => [emptyBox, mapImage, placeholderImage];
+  List<AssetGenImage> get values => [
+    chooseRoleImage,
+    emptyBox,
+    mapImage,
+    placeholderImage,
+  ];
 }
 
 class $AssetsLogosGen {

@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:reedsexpressllc_flutter/app/modules/register/controllers/register_controller.dart';
 import 'package:reedsexpressllc_flutter/app/routes/app_pages.dart';
 
-import '../../../core/theme/app_colors.dart';
+import '../../../core/theme/app_color.dart';
 import '../../../widgets/auth_header.dart';
 import '../../../widgets/document_upload_field.dart';
 import '../../../widgets/global_button.dart';
@@ -19,7 +19,7 @@ class UploadDocumentsView extends GetView<UploadDocumentsController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.background,
+      backgroundColor: AppColor.background,
       body: SafeArea(
         child: Column(
           children: [
@@ -144,7 +144,7 @@ class UploadDocumentsView extends GetView<UploadDocumentsController> {
                                 ? const GlobalLoading()
                                 : GlobalButton(
                                     text: "Skip",
-                                    color: AppColors.primaryDisable,
+                                    color: AppColor.primaryDisable,
                                     onTap: registerController.register,
                                     textColor: Colors.white,
                                     fontWeight: FontWeight.w600,
