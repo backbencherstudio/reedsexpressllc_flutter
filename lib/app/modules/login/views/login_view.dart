@@ -115,28 +115,28 @@ class LoginView extends GetView<LoginController> {
                                   );
                           }),
                         ),
-                        10.height,
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            AppTextStyle(
-                              text: "Don’t have an account?",
-                              fontWeight: FontWeight.w400,
-                              color: AppColor.hintText,
-                            ),
-                            5.width,
-                            TextButton(
-                              onPressed: () {
-                                Get.toNamed(Routes.REGISTER);
-                              },
-                              child: AppTextStyle(
-                                text: "Register",
-                                color: AppColor.primary,
-                                fontWeight: FontWeight.w400,
-                              ),
-                            ),
-                          ],
-                        ),
+                        // 10.height,
+                        // Row(
+                        //   mainAxisAlignment: MainAxisAlignment.center,
+                        //   children: [
+                        //     AppTextStyle(
+                        //       text: "Don’t have an account?",
+                        //       fontWeight: FontWeight.w400,
+                        //       color: AppColor.hintText,
+                        //     ),
+                        //     5.width,
+                        //     TextButton(
+                        //       onPressed: () {
+                        //         Get.toNamed(Routes.REGISTER);
+                        //       },
+                        //       child: AppTextStyle(
+                        //         text: "Register",
+                        //         color: AppColor.primary,
+                        //         fontWeight: FontWeight.w400,
+                        //       ),
+                        //     ),
+                        //   ],
+                        // ),
 
                         100.height,
                       ],

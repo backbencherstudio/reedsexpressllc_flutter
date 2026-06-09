@@ -20,6 +20,7 @@ class DocumentUploadField extends StatelessWidget {
   final bool isRequired;
   final bool readOnly;
   final Color? fieldColor;
+  final Color? uploadAccentColor;
 
   const DocumentUploadField({
     super.key,
@@ -30,6 +31,7 @@ class DocumentUploadField extends StatelessWidget {
     this.isRequired = true,
     this.readOnly = false,
     this.fieldColor,
+    this.uploadAccentColor,
   });
 
   String _formatFileSize(String filePath) {
@@ -125,7 +127,10 @@ class DocumentUploadField extends StatelessWidget {
                   isImage: _isImage(filePath),
                   onRemove: readOnly ? null : onRemove,
                 )
-                    : _emptyState(readOnly: readOnly),
+                    : _emptyState(
+                        readOnly: readOnly,
+                        accentColor: uploadAccentColor,
+                      ),
               ),
             ),
           );
@@ -134,20 +139,24 @@ class DocumentUploadField extends StatelessWidget {
     );
   }
 
-  Widget _emptyState({required bool readOnly}) {
+  Widget _emptyState({required bool readOnly, Color? accentColor}) {
+    final color = readOnly
+        ? AppColor.hintText.withAlpha(80)
+        : accentColor ?? AppColor.hintText;
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         customSvgImage(
           imagePath: Assets.icons.uploadIcon,
-          color: readOnly ? AppColor.hintText.withAlpha(80) : AppColor.hintText,
+          color: color,
         ),
         6.horizontalSpace,
         AppTextStyle(
           text: readOnly ? 'Not uploaded' : 'Upload file (Image or PDF)',
           fontSize: 14.sp,
           fontWeight: FontWeight.w400,
-          color: readOnly ? AppColor.hintText.withAlpha(80) : AppColor.hintText,
+          color: color,
         ),
       ],
     );

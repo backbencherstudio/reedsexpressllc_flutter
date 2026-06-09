@@ -16,9 +16,9 @@ class LoginController extends GetxController {
   Future<void> login() async {
     try {
       isLoading.value = true;
-      await Future.delayed(Duration(seconds: 2));
+      await Future.delayed(Duration(seconds: 1));
 
-      Get.offAllNamed(Routes.MAIN_PAGE);
+      Get.toNamed(Routes.UPLOAD_DOCUMENTS);
     } catch (e) {
       Log.e(e);
     } finally {
