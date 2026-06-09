@@ -13,15 +13,14 @@ class SplashController extends GetxController {
   }
 
   Future<void> navigateToScreen() async {
-    bool isLoggedIn = await HelperUtils.checkLoginStatus().timeout(
+    final isLoggedIn = await HelperUtils.checkLoginStatus().timeout(
       const Duration(seconds: 5),
     );
 
     if (isLoggedIn) {
-      await HelperUtils.initMainControllers();
       Get.offAllNamed(Routes.MAIN_PAGE);
     } else {
-      Get.offAllNamed(Routes.MAIN_PAGE);
+      Get.offAllNamed(Routes.ONBOARD);
     }
   }
 

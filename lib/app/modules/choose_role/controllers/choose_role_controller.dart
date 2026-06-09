@@ -1,5 +1,4 @@
 import 'package:get/get.dart';
-import 'package:reedsexpressllc_flutter/app/core/utils/logger.dart';
 
 import '../../../core/constants/enums.dart';
 import '../../../core/utils/helper_utils.dart';
@@ -13,7 +12,6 @@ class ChooseRoleController extends GetxController {
   }
 
   void saveRole() {
-    HelperUtils.isDriver = selectedRole.value == UserRole.driver;
     HelperUtils.userRole = selectedRole.value.name;
   }
 

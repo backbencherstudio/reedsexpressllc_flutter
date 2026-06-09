@@ -1,6 +1,13 @@
-enum LoadStatus { pickup, inTransit, delivered, completed }
+enum LoadStatus { pickup, inTransit, delivered, completed, assigned }
 
-enum UserRole { driver, carrier }
+enum UserRole {
+  driver,
+  carrier;
+
+  static bool isDriverRole(String role) => role == UserRole.driver.name;
+
+  static bool isCarrierRole(String role) => role == UserRole.carrier.name;
+}
 
 class SortProduct {
   static const newest = 'newest';

@@ -48,38 +48,47 @@ class HomeView extends GetView<HomeController> {
                     padding: EdgeInsets.fromLTRB(16.w, 20.h, 16.w, 32.h),
                     children: [
                       // ── Active Load section ──────────────
+                      const _SectionHeader(title: 'Active Load'),
+                      12.verticalSpace,
+
+                      Obx(
+                        () => controller.isDocumentSubmit.value
+                            ? LoadItemLayout(
+                                load: controller.activeLoad,
+                                onViewDetails: () {
+                                  Get.toNamed(Routes.LOAD_DETAILS);
+                                },
+                              )
+                            : const ShowEmptyResult(
+                                subtitle: 'No assigned loads yet',
+                              ),
+                      ),
+
+                      20.verticalSpace,
+
+                      // ── Next Load section ────────────────
                       _SectionHeader(
-                        title: 'Active Load',
+                        title: 'Next Load',
                         actionLabel: 'All Loads',
                         onTap: () {
                           Get.toNamed(Routes.ACTIVE_LOAD_LIST);
                         },
                       ),
                       12.verticalSpace,
-
-                      // ...List.generate(
-                      //   controller.activeLoads.length,
-                      //       (index) => Padding(
-                      //     padding: EdgeInsets.only(bottom: 14.h),
-                      //     child: LoadItemLayout(
-                      //       load: controller.activeLoads[index],
-                      //       onViewDetails: () {},
-                      //     ),
-                      //   ),
-                      // ),
                       Obx(
                         () => controller.isDocumentSubmit.value
                             ? LoadItemLayout(
-                                load: controller.activeLoads[0],
-                                onViewDetails: () {
-                                  Get.toNamed(Routes.LOAD_DETAILS);
-                                },
+                                load: controller.nextLoad,
+                                actionLabel: controller.nextLoadActionLabel,
+                                actionStyle: LoadItemActionStyle.filled,
+                                onAction: controller.isCarrierUser
+                                    ? controller.assignMember
+                                    : controller.acceptLoad,
                               )
-                            : ShowEmptyResult(
-                                subtitle: "No assigned loads yet",
+                            : const ShowEmptyResult(
+                                subtitle: 'No next loads yet',
                               ),
                       ),
-
                       20.verticalSpace,
 
                       // ── Quick Actions section ────────────
@@ -163,8 +172,8 @@ class _HomeHeader extends StatelessWidget {
                       ),
                       8.horizontalSpace,
                       _StatCard(
-                        value: controller.miles.toString(),
-                        label: 'Miles',
+                        value: controller.nextLoads.toString(),
+                        label: 'Next Loads',
                       ),
                     ],
                   );
@@ -372,47 +381,86 @@ class _SectionHeader extends StatelessWidget {
 class _QuickActionsGrid extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
-    final actions = [
-      (Assets.icons.earningBagFillIcon, 'My Earnings'),
-      (Assets.icons.docFillIcon, 'Documents'),
-      (Assets.icons.blockPackageIcon, 'Load History'),
-    ];
+    if (controller.isCarrierUser) {
+      return _buildCarrierActions();
+    }
 
+    return _buildDriverActions();
+  }
+
+  Widget _buildDriverActions() {
     return Column(
       children: [
-        // First row — 2 items
         Row(
           children: [
             Expanded(
               child: QuickActionItem(
-                iconPath: actions[0].$1,
-                label: actions[0].$2,
-                onTap: () {
-                  Get.toNamed(Routes.EARNINGS);
-                },
+                iconPath: Assets.icons.earningBagFillIcon,
+                label: 'My Earnings',
+                onTap: () => Get.toNamed(Routes.EARNINGS),
               ),
             ),
             12.horizontalSpace,
             Expanded(
               child: QuickActionItem(
-                iconPath: actions[1].$1,
-                label: actions[1].$2,
-                onTap: () {
-                  Get.toNamed(Routes.DOCUMENTS);
-                },
+                iconPath: Assets.icons.docFillIcon,
+                label: 'Documents',
+                onTap: () => Get.toNamed(Routes.DOCUMENTS),
               ),
             ),
           ],
         ),
         12.verticalSpace,
-
-        // Second row — full width
         QuickActionItem(
-          iconPath: actions[2].$1,
-          label: actions[2].$2,
-          onTap: () {
-            Get.toNamed(Routes.LOAD);
-          },
+          iconPath: Assets.icons.blockPackageIcon,
+          label: 'Load History',
+          onTap: () => Get.toNamed(Routes.LOAD),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildCarrierActions() {
+    return Column(
+      children: [
+        Row(
+          children: [
+            Expanded(
+              child: QuickActionItem(
+                iconPath: Assets.icons.earningBagFillIcon,
+                label: 'My Earnings',
+                onTap: () => Get.toNamed(Routes.EARNINGS),
+              ),
+            ),
+            12.horizontalSpace,
+            Expanded(
+              child: QuickActionItem(
+                iconPath: Assets.icons.docFillIcon,
+                label: 'Documents',
+                onTap: () => Get.toNamed(Routes.DOCUMENTS),
+              ),
+            ),
+          ],
+        ),
+        12.verticalSpace,
+        Row(
+          children: [
+            Expanded(
+              child: QuickActionItem(
+                iconPath: Assets.icons.blockPackageIcon,
+                label: 'Load History',
+                onTap: () => Get.toNamed(Routes.LOAD),
+              ),
+            ),
+            12.horizontalSpace,
+            Expanded(
+              child: QuickActionItem(
+                iconPath: Assets.icons.personsIcon,
+                label: 'Add Drivers',
+                onTap: controller.assignMember,
+              ),
+            ),
+          ],
         ),
       ],
     );

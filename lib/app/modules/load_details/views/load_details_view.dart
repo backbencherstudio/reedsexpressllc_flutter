@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:reedsexpressllc_flutter/app/core/extensions/sizedbox_extension.dart';
 import 'package:reedsexpressllc_flutter/app/core/theme/app_color.dart';
 import 'package:reedsexpressllc_flutter/app/widgets/app_text_style.dart';
 import 'package:reedsexpressllc_flutter/app/widgets/custom_icon_button.dart';
@@ -11,7 +10,7 @@ import 'package:reedsexpressllc_flutter/gen/assets.gen.dart';
 import '../../../core/constants/enums.dart';
 import '../../../widgets/appbar_title.dart';
 import '../../../data/models/tracking_status_model.dart';
-import '../../upload_documents/widgets/upload_documents_dialog.dart';
+import '../widgets/upload_documents_dialog.dart';
 import '../controllers/load_details_controller.dart';
 
 class LoadDetailsView extends GetView<LoadDetailsController> {
@@ -117,66 +116,66 @@ class LoadDetailsView extends GetView<LoadDetailsController> {
               14.verticalSpace,
 
               // ── APickup Details ─────────────────────────────
-              _SectionCard(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    _CardTitle(title: 'Pickup Details'),
-                    10.verticalSpace,
-                    AppTextStyle(
-                      text: load.additionalNotes,
-                      fontSize: 13.sp,
-                      fontWeight: FontWeight.w400,
-                      color: const Color(0xFF555555),
-                      height: 1.6,
-                    ),
-                    20.height,
-                    _CustomRow(
-                      icon: Assets.icons.companyIcon,
-                      title: "Company",
-                      subTitle: "Delta LTD",
-                    ),
-                    _CustomRow(
-                      icon: Assets.icons.locationIcon,
-                      title: "Address",
-                      subTitle: "Houston USA, 12 A Lane",
-                    ),
-                    _CustomRow(
-                      icon: Assets.icons.stopwatchIcon,
-                      title: "Company",
-                      subTitle: "27 March, 2026 at 3:20 PM",
-                    ),
-                  ],
-                ),
-              ),
-
-              14.verticalSpace,
-              // ── Delivery Details ─────────────────────────────
-              _SectionCard(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    _CardTitle(title: 'Delivery Details'),
-
-                    20.height,
-                    _CustomRow(
-                      icon: Assets.icons.companyIcon,
-                      title: "Company",
-                      subTitle: "Not specified",
-                    ),
-                    _CustomRow(
-                      icon: Assets.icons.locationIcon,
-                      title: "Address",
-                      subTitle: "Houston USA, 12 A Lane",
-                    ),
-                    _CustomRow(
-                      icon: Assets.icons.stopwatchIcon,
-                      title: "Appointment",
-                      subTitle: "27 March, 2026 at 3:20 PM",
-                    ),
-                  ],
-                ),
-              ),
+              // _SectionCard(
+              //   child: Column(
+              //     crossAxisAlignment: CrossAxisAlignment.start,
+              //     children: [
+              //       _CardTitle(title: 'Pickup Details'),
+              //       10.verticalSpace,
+              //       AppTextStyle(
+              //         text: load.additionalNotes,
+              //         fontSize: 13.sp,
+              //         fontWeight: FontWeight.w400,
+              //         color: const Color(0xFF555555),
+              //         height: 1.6,
+              //       ),
+              //       20.height,
+              //       _CustomRow(
+              //         icon: Assets.icons.companyIcon,
+              //         title: "Company",
+              //         subTitle: "Delta LTD",
+              //       ),
+              //       _CustomRow(
+              //         icon: Assets.icons.locationIcon,
+              //         title: "Address",
+              //         subTitle: "Houston USA, 12 A Lane",
+              //       ),
+              //       _CustomRow(
+              //         icon: Assets.icons.stopwatchIcon,
+              //         title: "Company",
+              //         subTitle: "27 March, 2026 at 3:20 PM",
+              //       ),
+              //     ],
+              //   ),
+              // ),
+              //
+              // 14.verticalSpace,
+              // // ── Delivery Details ─────────────────────────────
+              // _SectionCard(
+              //   child: Column(
+              //     crossAxisAlignment: CrossAxisAlignment.start,
+              //     children: [
+              //       _CardTitle(title: 'Delivery Details'),
+              //
+              //       20.height,
+              //       _CustomRow(
+              //         icon: Assets.icons.companyIcon,
+              //         title: "Company",
+              //         subTitle: "Not specified",
+              //       ),
+              //       _CustomRow(
+              //         icon: Assets.icons.locationIcon,
+              //         title: "Address",
+              //         subTitle: "Houston USA, 12 A Lane",
+              //       ),
+              //       _CustomRow(
+              //         icon: Assets.icons.stopwatchIcon,
+              //         title: "Appointment",
+              //         subTitle: "27 March, 2026 at 3:20 PM",
+              //       ),
+              //     ],
+              //   ),
+              // ),
               14.verticalSpace,
               // ── Additional Notes ─────────────────────────────
               _SectionCard(
@@ -202,9 +201,7 @@ class LoadDetailsView extends GetView<LoadDetailsController> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    _CardTitle(title: 'Uploaded Documents',
-
-                    ),
+                    _CardTitle(title: 'Uploaded Documents'),
                     12.verticalSpace,
                     ...load.uploadedDocuments.map(
                       (doc) => Padding(
@@ -233,11 +230,11 @@ class _LoadHeaderCard extends StatelessWidget {
   Color get _statusColor {
     switch (load.status) {
       case LoadStatus.pickup:
+      case LoadStatus.assigned:
         return const Color(0xFFF9C80E);
       case LoadStatus.inTransit:
         return AppColor.primary;
       case LoadStatus.delivered:
-        return const Color(0xFF00F259);
       case LoadStatus.completed:
         return const Color(0xFF00F259);
     }
@@ -247,6 +244,8 @@ class _LoadHeaderCard extends StatelessWidget {
     switch (load.status) {
       case LoadStatus.pickup:
         return 'Pickup';
+      case LoadStatus.assigned:
+        return 'Assigned';
       case LoadStatus.inTransit:
         return 'In Transit';
       case LoadStatus.delivered:

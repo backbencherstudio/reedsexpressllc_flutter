@@ -1,17 +1,50 @@
 import 'package:get/get.dart';
 
 import '../../../core/constants/enums.dart';
+import '../../../core/utils/helper_utils.dart';
 import '../../../data/models/load_model.dart';
 
 class HomeController extends GetxController {
-
   final isDocumentSubmit = true.obs;
 
   final isLoading = false.obs;
   final String userName = 'Marcus J.';
   final int totalLoads = 3;
   final int delivered = 2;
-  final int miles = 247;
+  final int nextLoads = 1;
+
+  bool get isCarrierUser => UserRole.isCarrierRole(HelperUtils.userRole);
+
+  bool get isDriverUser => UserRole.isDriverRole(HelperUtils.userRole);
+
+  String get nextLoadActionLabel =>
+      isCarrierUser ? 'Assign a Member' : 'Accept Load';
+
+  final activeLoad = const LoadModel(
+    loadId: 'RX-2847',
+    date: '24 Aug, 2026',
+    originCity: 'Memphis, TN',
+    originAddress: '2200 Airways Blvd, TN 33116',
+    originTime: '10:00 AM',
+    destinationCity: 'Atlanta, GA',
+    destinationAddress: '3900 Rd, Atlanta, GA 30380',
+    miles: 247,
+    pay: 860,
+    status: LoadStatus.pickup,
+  );
+
+  final nextLoad = const LoadModel(
+    loadId: 'RX-2847',
+    date: '24 Aug, 2026',
+    originCity: 'Memphis, TN',
+    originAddress: '2200 Airways Blvd, TN 33116',
+    originTime: '10:00 AM',
+    destinationCity: 'Atlanta, GA',
+    destinationAddress: '3900 Rd, Atlanta, GA 30380',
+    miles: 247,
+    pay: 860,
+    status: LoadStatus.assigned,
+  );
 
   final activeLoads = <LoadModel>[
     const LoadModel(
@@ -51,4 +84,12 @@ class HomeController extends GetxController {
       status: LoadStatus.delivered,
     ),
   ].obs;
+
+  void acceptLoad() {
+    // UI phase stub — API integration will accept the assigned load.
+  }
+
+  void assignMember() {
+    // UI phase stub — API integration will assign a driver to the load.
+  }
 }

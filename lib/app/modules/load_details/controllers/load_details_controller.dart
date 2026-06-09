@@ -13,12 +13,7 @@ class LoadDetailsController extends GetxController {
   final isLoading = false.obs;
 
   // Upload dialog fields
-  final podPath = RxnString();
   final bolPath = RxnString();
-  final rateConfirmationPath = RxnString();
-  final scaleTicketPath = RxnString();
-  final lumperFeePath = RxnString();
-  final inspectionReportPath = RxnString();
 
   Future<void> pickFile(RxnString targetObs) async {
     try {
@@ -37,12 +32,7 @@ class LoadDetailsController extends GetxController {
   void removeFile(RxnString targetObs) => targetObs.value = null;
 
   void clearAllUploads() {
-    podPath.value = null;
     bolPath.value = null;
-    rateConfirmationPath.value = null;
-    scaleTicketPath.value = null;
-    lumperFeePath.value = null;
-    inspectionReportPath.value = null;
   }
 
   Future<void> submitDocuments() async {

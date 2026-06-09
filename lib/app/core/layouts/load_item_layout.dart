@@ -10,26 +10,34 @@ import 'package:reedsexpressllc_flutter/gen/assets.gen.dart';
 
 import '../constants/enums.dart';
 
+enum LoadItemActionStyle { outlined, filled }
+
 class LoadItemLayout extends StatelessWidget {
   final LoadModel load;
   final VoidCallback? onViewDetails;
+  final VoidCallback? onAction;
+  final String actionLabel;
+  final LoadItemActionStyle actionStyle;
   final EdgeInsets? padding;
 
   const LoadItemLayout({
     super.key,
     required this.load,
     this.onViewDetails,
+    this.onAction,
+    this.actionLabel = 'View Details',
+    this.actionStyle = LoadItemActionStyle.outlined,
     this.padding,
   });
 
   Color get _statusColor {
     switch (load.status) {
       case LoadStatus.pickup:
+      case LoadStatus.assigned:
         return const Color(0xFFF9C80E);
       case LoadStatus.inTransit:
         return AppColor.primary;
       case LoadStatus.delivered:
-        return const Color(0xFF00F259);
       case LoadStatus.completed:
         return const Color(0xFF00F259);
     }
@@ -39,6 +47,8 @@ class LoadItemLayout extends StatelessWidget {
     switch (load.status) {
       case LoadStatus.pickup:
         return 'Pickup';
+      case LoadStatus.assigned:
+        return 'Assigned';
       case LoadStatus.inTransit:
         return 'In Transit';
       case LoadStatus.delivered:
@@ -65,30 +75,27 @@ class LoadItemLayout extends StatelessWidget {
       ),
       child: Column(
         children: [
-          // ── Header ──────────────────────────────────────────
           _LoadHeader(
             loadId: load.loadId,
             date: load.date,
             statusLabel: _statusLabel,
             statusColor: _statusColor,
           ),
-
           Padding(
             padding: EdgeInsets.all(14.w),
             child: Column(
               children: [
-                // ── Route ───────────────────────────────────
                 _RouteSection(load: load),
                 12.verticalSpace,
                 const Divider(height: 1, color: Color(0xFFEEEEEE)),
                 12.verticalSpace,
-
-                // ── Stats ────────────────────────────────────
                 _StatsRow(miles: load.miles, pay: load.pay),
                 12.verticalSpace,
-
-                // ── View Details button ──────────────────────
-                _ViewDetailsButton(onTap: onViewDetails),
+                _ActionButton(
+                  onTap: onAction ?? onViewDetails,
+                  label: actionLabel,
+                  style: actionStyle,
+                ),
               ],
             ),
           ),
@@ -97,8 +104,6 @@ class LoadItemLayout extends StatelessWidget {
     );
   }
 }
-
-// ── Header ────────────────────────────────────────────────────────────────────
 
 class _LoadHeader extends StatelessWidget {
   final String loadId;
@@ -137,14 +142,13 @@ class _LoadHeader extends StatelessWidget {
                 color: Colors.white,
               ),
               2.verticalSpace,
-              date == null
-                  ? SizedBox.shrink()
-                  : AppTextStyle(
-                      text: date!,
-                      fontSize: 12.sp,
-                      fontWeight: FontWeight.w400,
-                      color: Colors.white.withAlpha(200),
-                    ),
+              if (date != null)
+                AppTextStyle(
+                  text: date!,
+                  fontSize: 12.sp,
+                  fontWeight: FontWeight.w400,
+                  color: Colors.white.withAlpha(200),
+                ),
             ],
           ),
           Container(
@@ -167,8 +171,6 @@ class _LoadHeader extends StatelessWidget {
   }
 }
 
-// ── Route Section ─────────────────────────────────────────────────────────────
-
 class _RouteSection extends StatelessWidget {
   final LoadModel load;
 
@@ -180,13 +182,12 @@ class _RouteSection extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          // Dot + line + pin column
           Column(
             children: [
               Container(
                 width: 10.w,
                 height: 10.w,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: AppColor.primary,
                   shape: BoxShape.circle,
                 ),
@@ -203,13 +204,10 @@ class _RouteSection extends StatelessWidget {
             ],
           ),
           12.horizontalSpace,
-
-          // Origin + Destination
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Origin
                 AppTextStyle(
                   text: load.originCity,
                   fontSize: 13.sp,
@@ -240,8 +238,6 @@ class _RouteSection extends StatelessWidget {
                   ],
                 ),
                 12.verticalSpace,
-
-                // Destination
                 AppTextStyle(
                   text: load.destinationCity,
                   fontSize: 13.sp,
@@ -263,8 +259,6 @@ class _RouteSection extends StatelessWidget {
   }
 }
 
-// ── Stats Row ─────────────────────────────────────────────────────────────────
-
 class _StatsRow extends StatelessWidget {
   final int miles;
   final double pay;
@@ -275,9 +269,7 @@ class _StatsRow extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Expanded(
-          child: _StatBox(value: '$miles', label: 'Miles'),
-        ),
+        Expanded(child: _StatBox(value: '$miles', label: 'Miles')),
         12.horizontalSpace,
         Expanded(
           child: _StatBox(value: '\$${pay.toStringAsFixed(0)}', label: 'Pay'),
@@ -321,30 +313,39 @@ class _StatBox extends StatelessWidget {
   }
 }
 
-// ── View Details Button ───────────────────────────────────────────────────────
-
-class _ViewDetailsButton extends StatelessWidget {
+class _ActionButton extends StatelessWidget {
   final VoidCallback? onTap;
+  final String label;
+  final LoadItemActionStyle style;
 
-  const _ViewDetailsButton({this.onTap});
+  const _ActionButton({
+    this.onTap,
+    required this.label,
+    required this.style,
+  });
 
   @override
   Widget build(BuildContext context) {
+    final isFilled = style == LoadItemActionStyle.filled;
+
     return GestureDetector(
       onTap: onTap,
       child: Container(
         width: double.infinity,
         padding: EdgeInsets.symmetric(vertical: 12.h),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: isFilled ? AppColor.primary : Colors.white,
           borderRadius: BorderRadius.circular(8.r),
-          border: Border.all(color: AppColor.primary, width: 0.8),
+          border: Border.all(
+            color: AppColor.primary,
+            width: isFilled ? 0 : 0.8,
+          ),
         ),
         child: AppTextStyle(
-          text: 'View Details',
+          text: label,
           fontSize: 13.sp,
           fontWeight: FontWeight.w600,
-          color: AppColor.primary,
+          color: isFilled ? Colors.white : AppColor.primary,
           textAlign: TextAlign.center,
         ),
       ),

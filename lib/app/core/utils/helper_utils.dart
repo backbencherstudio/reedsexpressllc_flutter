@@ -28,9 +28,6 @@ class HelperUtils {
   static String token = "";
   static String userId = "";
   static String userRole = "";
-  static bool isDriver = false;
-
-
 
   //
   // Save / login user (updates storage + runtime)
@@ -66,14 +63,19 @@ class HelperUtils {
 
     final storedId = await storage.getUserID();
     final storedToken = await storage.getToken();
+    final storedRole = await storage.getUserRole();
 
     if (storedId != null && storedToken != null) {
       userId = storedId;
       token = storedToken;
+      userRole = storedRole ?? '';
       isLogin = true;
-      Log.i("UserId: $userId\nToken: $token");
+      Log.i("UserId: $userId\nToken: $token\nRole: $userRole");
       return true;
     } else {
+      userId = '';
+      token = '';
+      userRole = '';
       isLogin = false;
       Log.w("Guest User! \nUserId: $storedId \nToken: $storedToken");
       return false;

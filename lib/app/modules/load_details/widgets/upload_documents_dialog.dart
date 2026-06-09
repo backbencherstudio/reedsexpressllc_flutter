@@ -4,8 +4,10 @@ import 'package:get/get.dart';
 import 'package:reedsexpressllc_flutter/app/core/extensions/sizedbox_extension.dart';
 import 'package:reedsexpressllc_flutter/app/core/theme/app_color.dart';
 import 'package:reedsexpressllc_flutter/app/widgets/app_text_style.dart';
+import 'package:reedsexpressllc_flutter/app/widgets/custom_svg_image.dart';
 import 'package:reedsexpressllc_flutter/app/widgets/document_upload_field.dart';
 import 'package:reedsexpressllc_flutter/app/modules/load_details/controllers/load_details_controller.dart';
+import 'package:reedsexpressllc_flutter/gen/assets.gen.dart';
 
 class UploadDocumentsDialog extends GetView<LoadDetailsController> {
   const UploadDocumentsDialog({super.key});
@@ -34,13 +36,41 @@ class UploadDocumentsDialog extends GetView<LoadDetailsController> {
             ),
             20.height,
 
-            DocumentUploadField(
-              label: 'POD - Proof of Delivery',
-              fieldColor: AppColor.background,
-              filePathObs: controller.podPath,
-              onTap: () => controller.pickFile(controller.podPath),
-              onRemove: () => controller.removeFile(controller.podPath),
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(12.r),
+                border: Border.all(color: Colors.grey.shade300),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      customSvgImage(
+                        imagePath: Assets.icons.packageIcon,
+                        color: Colors.grey,
+                      ),
+                      10.width,
+                      AppTextStyle(text: "LD-2024-001", fontSize: 15.sp),
+                    ],
+                  ),
+                  10.height,
+                  Row(
+                    children: [
+                      customSvgImage(
+                        imagePath: Assets.icons.calendarIcon,
+                        color: Colors.grey,
+                      ),
+                      10.width,
+                      AppTextStyle(text: "24 Aug, 2026", fontSize: 15.sp),
+                    ],
+                  ),
+                ],
+              ),
             ),
+
             14.verticalSpace,
             DocumentUploadField(
               label: 'BOL - Bill of Lading',
@@ -49,40 +79,7 @@ class UploadDocumentsDialog extends GetView<LoadDetailsController> {
               onTap: () => controller.pickFile(controller.bolPath),
               onRemove: () => controller.removeFile(controller.bolPath),
             ),
-            14.verticalSpace,
-            DocumentUploadField(
-              label: 'Rate Confirmation',
-              fieldColor: AppColor.background,
-              filePathObs: controller.rateConfirmationPath,
-              onTap: () => controller.pickFile(controller.rateConfirmationPath),
-              onRemove: () =>
-                  controller.removeFile(controller.rateConfirmationPath),
-            ),
-            14.verticalSpace,
-            DocumentUploadField(
-              label: 'Scale Ticket',
-              fieldColor: AppColor.background,
-              filePathObs: controller.scaleTicketPath,
-              onTap: () => controller.pickFile(controller.scaleTicketPath),
-              onRemove: () => controller.removeFile(controller.scaleTicketPath),
-            ),
-            14.verticalSpace,
-            DocumentUploadField(
-              label: 'Lumper fee',
-              fieldColor: AppColor.background,
-              filePathObs: controller.lumperFeePath,
-              onTap: () => controller.pickFile(controller.lumperFeePath),
-              onRemove: () => controller.removeFile(controller.lumperFeePath),
-            ),
-            14.verticalSpace,
-            DocumentUploadField(
-              label: 'Inspection Report',
-              fieldColor: AppColor.background,
-              filePathObs: controller.inspectionReportPath,
-              onTap: () => controller.pickFile(controller.inspectionReportPath),
-              onRemove: () =>
-                  controller.removeFile(controller.inspectionReportPath),
-            ),
+
             20.verticalSpace,
 
             // ── Action buttons ─────────────────────────

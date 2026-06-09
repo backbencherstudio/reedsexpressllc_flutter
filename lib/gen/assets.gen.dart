@@ -113,6 +113,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/notification_icon.svg
   String get notificationIcon => 'assets/icons/notification_icon.svg';
 
+  /// File path: assets/icons/package_icon.svg
+  String get packageIcon => 'assets/icons/package_icon.svg';
+
   /// File path: assets/icons/persons_icon.svg
   String get personsIcon => 'assets/icons/persons_icon.svg';
 
@@ -181,6 +184,7 @@ class $AssetsIconsGen {
     messageIcon,
     milesIcon,
     notificationIcon,
+    packageIcon,
     personsIcon,
     phoneIcon,
     profileFillIcon,

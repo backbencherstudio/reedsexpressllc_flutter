@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:reedsexpressllc_flutter/app/core/constants/enums.dart';
 import 'package:reedsexpressllc_flutter/app/core/extensions/sizedbox_extension.dart';
 import 'package:reedsexpressllc_flutter/app/core/theme/app_color.dart';
 import 'package:reedsexpressllc_flutter/app/core/utils/helper_utils.dart';
@@ -25,7 +26,7 @@ class UploadDocumentsView extends GetView<UploadDocumentsController> {
   @override
   Widget build(BuildContext context) {
     final formKey = GlobalKey<FormState>();
-    final isDriver = HelperUtils.isDriver;
+    final isDriver = UserRole.isDriverRole(HelperUtils.userRole);
 
     return Scaffold(
       backgroundColor: AppColor.background,
