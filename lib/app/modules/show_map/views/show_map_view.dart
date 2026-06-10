@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:latlong2/latlong.dart';
+import 'package:reedsexpressllc_flutter/app/core/theme/app_color.dart';
 import 'package:reedsexpressllc_flutter/app/data/models/driver_location_model.dart';
+import 'package:reedsexpressllc_flutter/app/widgets/appbar_title.dart';
+import 'package:reedsexpressllc_flutter/app/widgets/custom_icon_button.dart';
 import '../controllers/show_map_controller.dart';
 
 class ShowMapView extends GetView<ShowMapController> {
@@ -11,9 +15,16 @@ class ShowMapView extends GetView<ShowMapController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColor.background,
       appBar: AppBar(
-        title: const Text('Driver Locations'),
+        backgroundColor: AppColor.background,
+        surfaceTintColor: AppColor.background,
+        title: appbarTitle(text: "Driver Locations"),
         centerTitle: true,
+        leading: Padding(
+          padding: EdgeInsets.only(left: 8.w),
+          child: CustomIconButton(),
+        ),
       ),
       body: Column(
         children: [
@@ -30,7 +41,7 @@ class ShowMapView extends GetView<ShowMapController> {
                   // OpenStreetMap tile layer — completely free, no key needed
                   TileLayer(
                     urlTemplate:
-                    'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+                        'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
                     userAgentPackageName: 'com.reedsexpressllc.app',
                   ),
                   // Driver markers
@@ -55,7 +66,9 @@ class ShowMapView extends GetView<ShowMapController> {
             child: Obx(() {
               return ListView.separated(
                 padding: const EdgeInsets.symmetric(
-                    horizontal: 12, vertical: 8),
+                  horizontal: 12,
+                  vertical: 8,
+                ),
                 itemCount: controller.drivers.length,
                 separatorBuilder: (_, __) => const SizedBox(height: 8),
                 itemBuilder: (context, index) {
@@ -129,7 +142,7 @@ class _DriverCard extends StatelessWidget {
               color: Colors.black.withAlpha(10),
               blurRadius: 6,
               offset: const Offset(0, 2),
-            )
+            ),
           ],
         ),
         child: Row(
@@ -160,14 +173,19 @@ class _DriverCard extends StatelessWidget {
                   const SizedBox(height: 2),
                   Row(
                     children: [
-                      const Icon(Icons.location_on,
-                          size: 12, color: Colors.grey),
+                      const Icon(
+                        Icons.location_on,
+                        size: 12,
+                        color: Colors.grey,
+                      ),
                       const SizedBox(width: 4),
                       Expanded(
                         child: Text(
                           driver.address,
                           style: const TextStyle(
-                              fontSize: 12, color: Colors.grey),
+                            fontSize: 12,
+                            color: Colors.grey,
+                          ),
                           overflow: TextOverflow.ellipsis,
                         ),
                       ),
@@ -176,9 +194,11 @@ class _DriverCard extends StatelessWidget {
                   const SizedBox(height: 2),
                   Text(
                     'Lat: ${driver.lat.toStringAsFixed(4)}, '
-                        'Lng: ${driver.lng.toStringAsFixed(4)}',
+                    'Lng: ${driver.lng.toStringAsFixed(4)}',
                     style: const TextStyle(
-                        fontSize: 11, color: Colors.blueGrey),
+                      fontSize: 11,
+                      color: Colors.blueGrey,
+                    ),
                   ),
                 ],
               ),

@@ -98,6 +98,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/home_icon.svg
   String get homeIcon => 'assets/icons/home_icon.svg';
 
+  /// File path: assets/icons/location_fill_icon.svg
+  String get locationFillIcon => 'assets/icons/location_fill_icon.svg';
+
   /// File path: assets/icons/location_icon.svg
   String get locationIcon => 'assets/icons/location_icon.svg';
 
@@ -191,6 +194,7 @@ class $AssetsIconsGen {
     galaryIcon,
     homeFillIcon,
     homeIcon,
+    locationFillIcon,
     locationIcon,
     logoutIcon,
     logoutWithBgIcon,

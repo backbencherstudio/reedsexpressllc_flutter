@@ -4,10 +4,12 @@ import 'package:get/get.dart';
 import 'package:reedsexpressllc_flutter/app/core/extensions/sizedbox_extension.dart';
 import 'package:reedsexpressllc_flutter/app/core/theme/app_color.dart';
 import 'package:reedsexpressllc_flutter/app/core/utils/helper_utils.dart';
+import 'package:reedsexpressllc_flutter/app/routes/app_pages.dart';
 import 'package:reedsexpressllc_flutter/app/widgets/app_text_style.dart';
 import 'package:reedsexpressllc_flutter/app/widgets/cached_image_widget.dart';
 import 'package:reedsexpressllc_flutter/app/widgets/custom_icon_button.dart';
 import 'package:reedsexpressllc_flutter/app/widgets/custom_svg_image.dart';
+import 'package:reedsexpressllc_flutter/app/widgets/global_button.dart';
 
 import 'package:reedsexpressllc_flutter/gen/assets.gen.dart';
 import '../../../core/constants/enums.dart';
@@ -130,6 +132,19 @@ class LoadDetailsView extends GetView<LoadDetailsController> {
                       email: load.brokerEmail,
                       phone: load.brokerPhone,
                     ),
+
+                    HelperUtils.isCarrierUser
+                        ? GlobalButton(
+                            padding: EdgeInsets.only(top: 16.h),
+                            onTap: () {
+                              Get.toNamed(
+                                Routes.TRACK_LOAD,
+                                arguments: load,
+                              );
+                            },
+                            text: "Track Load",
+                          )
+                        : SizedBox.shrink(),
                   ],
                 ),
               ),

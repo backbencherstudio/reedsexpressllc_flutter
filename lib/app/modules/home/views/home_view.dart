@@ -464,6 +464,18 @@ class _QuickActionsGrid extends GetView<HomeController> {
             ),
           ],
         ),
+        HelperUtils.isCarrierUser
+            ? Padding(
+                padding: EdgeInsets.only(top: 12.h),
+                child: QuickActionItem(
+                  iconPath: Assets.icons.truckFillIcon,
+                  label: 'Track Loads',
+                  onTap: () {
+                    Get.toNamed(Routes.SHOW_MAP);
+                  },
+                ),
+              )
+            : SizedBox.shrink(),
       ],
     );
   }

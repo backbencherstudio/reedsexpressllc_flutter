@@ -46,6 +46,8 @@ import '../modules/show_map/bindings/show_map_binding.dart';
 import '../modules/show_map/views/show_map_view.dart';
 import '../modules/splash/bindings/splash_binding.dart';
 import '../modules/splash/views/splash_view.dart';
+import '../modules/track_load/bindings/track_load_binding.dart';
+import '../modules/track_load/views/track_load_view.dart';
 import '../modules/upload_documents/bindings/upload_documents_binding.dart';
 import '../modules/upload_documents/views/upload_documents_view.dart';
 import '../modules/vehicle/bindings/vehicle_binding.dart';
@@ -192,6 +194,11 @@ class AppPages {
       name: _Paths.CARRIER_INFO_DOCS,
       page: () => const CarrierInfoDocsView(),
       binding: CarrierInfoDocsBinding(),
+    ),
+    GetPage(
+      name: _Paths.TRACK_LOAD,
+      page: () => const TrackLoadView(),
+      binding: TrackLoadBinding(),
     ),
   ];
 }
