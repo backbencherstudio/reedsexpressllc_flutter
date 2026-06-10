@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import '../../../core/constants/enums.dart';
 import '../../../core/utils/helper_utils.dart';
 import '../../../data/models/load_model.dart';
+import '../../../widgets/global_tost.dart';
+import '../widgets/assign_team_member_dialog.dart';
 
 class HomeController extends GetxController {
   final isDocumentSubmit = true.obs;
@@ -85,11 +87,32 @@ class HomeController extends GetxController {
     ),
   ].obs;
 
+  final teamMembers = <String>[
+    'Alan Walk',
+    'John Ryan',
+    'Jigsaw Kenny',
+    'Michael Dustalyev',
+  ];
+
+  final selectedTeamMemberIndex = 0.obs;
+
   void acceptLoad() {
     // UI phase stub — API integration will accept the assigned load.
   }
 
   void assignMember() {
-    // UI phase stub — API integration will assign a driver to the load.
+    selectedTeamMemberIndex.value = 0;
+    Get.dialog(
+      const AssignTeamMemberDialog(),
+      barrierDismissible: true,
+    );
+  }
+
+  void selectTeamMember(int index) {
+    selectedTeamMemberIndex.value = index;
+    Get.back();
+    globalToast(
+      message: '${teamMembers[index]} assigned to load successfully',
+    );
   }
 }

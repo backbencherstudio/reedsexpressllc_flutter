@@ -1,19 +1,43 @@
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:reedsexpressllc_flutter/app/widgets/global_button.dart';
 
 import '../../../../gen/assets.gen.dart';
 import '../../../core/constants/enums.dart';
+import '../../../core/utils/image_picker_helper.dart';
 import '../../../core/utils/logger.dart';
 import '../../../widgets/custom_dialog.dart';
 import '../../../data/models/tracking_status_model.dart';
+import '../../../widgets/upload_source_bottom_sheet.dart';
 
 class LoadDetailsController extends GetxController {
   final isLoading = false.obs;
 
-  // Upload dialog fields
-  final bolPath = RxnString();
+  final scaleTicketPath = RxnString();
+  final lumperFeePath = RxnString();
+  final inspectionReportPath = RxnString();
+
+  void showUploadSourceSheet(RxnString targetObs) {
+    UploadSourceBottomSheet.show(
+      onCameraTap: () => pickFromCamera(targetObs),
+      onUploadFilesTap: () => pickFile(targetObs),
+    );
+  }
+
+  Future<void> pickFromCamera(RxnString targetObs) async {
+    try {
+      final picked = await ImagePickerHelper.pickSingleFile(
+        imageSource: ImageSource.camera,
+      );
+      if (picked != null) {
+        targetObs.value = picked.path;
+      }
+    } catch (e) {
+      Log.e(e);
+    }
+  }
 
   Future<void> pickFile(RxnString targetObs) async {
     try {
@@ -32,7 +56,9 @@ class LoadDetailsController extends GetxController {
   void removeFile(RxnString targetObs) => targetObs.value = null;
 
   void clearAllUploads() {
-    bolPath.value = null;
+    scaleTicketPath.value = null;
+    lumperFeePath.value = null;
+    inspectionReportPath.value = null;
   }
 
   Future<void> submitDocuments() async {
@@ -45,14 +71,11 @@ class LoadDetailsController extends GetxController {
       Get.dialog(
         CustomDialog(
           iconPath: Assets.icons.doneSticker,
-          title: "Done!",
-          subtitle: "Your document has been uploaded successfully!",
+          title: 'Done!',
+          subtitle: 'Your document has been uploaded successfully!',
           bottomWidget: GlobalButton(
-            onTap: () {
-              Get.back();
-              Get.back();
-            },
-            text: "Back",
+            onTap: Get.back,
+            text: 'Back',
           ),
         ),
       );
@@ -67,7 +90,7 @@ class LoadDetailsController extends GetxController {
     LoadDetailsModel(
       loadId: 'LD-2024-001',
       date: '24 Aug, 2026',
-      status: LoadStatus.pickup,
+      status: LoadStatus.delivered,
       miles: 247,
       pay: 860.00,
       pickupCompany: 'Delta Housing LTD',
@@ -101,12 +124,13 @@ class LoadDetailsController extends GetxController {
           title: 'Delivered',
           dateTime: '12 Feb 2025 — 09:00',
           status: TrackingStatus.delivered,
-          isActive: true,
+          isDone: true,
         ),
         TrackingStepModel(
           title: 'Completed',
           dateTime: '12 Feb 2025 — 09:00',
           status: TrackingStatus.completed,
+          isActive: true,
           subNote: 'Upload documents to mark completed',
         ),
       ],

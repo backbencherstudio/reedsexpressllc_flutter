@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import 'package:reedsexpressllc_flutter/app/core/extensions/sizedbox_extension.dart';
 import 'package:reedsexpressllc_flutter/app/widgets/custom_dialog.dart';
 import 'package:reedsexpressllc_flutter/app/widgets/global_button.dart';
-import 'package:reedsexpressllc_flutter/app/modules/documents/controllers/documents_controller.dart';
 import 'package:reedsexpressllc_flutter/app/modules/main_page/controllers/main_page_controller.dart';
 
 import '../../../../gen/assets.gen.dart';
@@ -96,15 +95,7 @@ class ProfileView extends GetView<ProfileController> {
                         ),
                         title: 'Carrier Info and Docs',
                         onTap: () {
-                          if (Get.isRegistered<DocumentsController>()) {
-                            Get.put(DocumentsController());
-                          }
-
-                          Get.find<DocumentsController>()
-                                  .selectedTabIndex
-                                  .value =
-                              1;
-                          Get.toNamed(Routes.DOCUMENTS);
+                          Get.toNamed(Routes.CARRIER_INFO_DOCS);
                         },
                       ),
                       12.verticalSpace,

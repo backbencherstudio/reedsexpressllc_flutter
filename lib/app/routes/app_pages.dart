@@ -2,6 +2,8 @@ import 'package:get/get.dart';
 
 import '../modules/active_load_list/bindings/active_load_list_binding.dart';
 import '../modules/active_load_list/views/active_load_list_view.dart';
+import '../modules/carrier_info_docs/bindings/carrier_info_docs_binding.dart';
+import '../modules/carrier_info_docs/views/carrier_info_docs_view.dart';
 import '../modules/change_password/bindings/change_password_binding.dart';
 import '../modules/change_password/views/change_password_view.dart';
 import '../modules/choose_role/bindings/choose_role_binding.dart';
@@ -185,6 +187,11 @@ class AppPages {
       name: _Paths.CHOOSE_ROLE,
       page: () => const ChooseRoleView(),
       binding: ChooseRoleBinding(),
+    ),
+    GetPage(
+      name: _Paths.CARRIER_INFO_DOCS,
+      page: () => const CarrierInfoDocsView(),
+      binding: CarrierInfoDocsBinding(),
     ),
   ];
 }

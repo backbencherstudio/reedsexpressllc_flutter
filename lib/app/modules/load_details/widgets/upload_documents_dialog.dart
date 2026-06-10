@@ -14,6 +14,8 @@ class UploadDocumentsDialog extends GetView<LoadDetailsController> {
 
   @override
   Widget build(BuildContext context) {
+    final load = controller.loadDetails.value;
+
     return Dialog(
       backgroundColor: Colors.white,
       insetPadding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 24.h),
@@ -23,19 +25,6 @@ class UploadDocumentsDialog extends GetView<LoadDetailsController> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            AppTextStyle(
-              text: "Upload Required Documents",
-              fontSize: 18.sp,
-              fontWeight: FontWeight.w500,
-            ),
-            5.height,
-
-            AppTextStyle(
-              text: "Upload required documents to mark this as completed.",
-              color: AppColor.hintText,
-            ),
-            20.height,
-
             Container(
               padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
               decoration: BoxDecoration(
@@ -50,10 +39,14 @@ class UploadDocumentsDialog extends GetView<LoadDetailsController> {
                     children: [
                       customSvgImage(
                         imagePath: Assets.icons.packageIcon,
-                        color: Colors.grey,
+                        color: AppColor.hintText,
                       ),
                       10.width,
-                      AppTextStyle(text: "LD-2024-001", fontSize: 15.sp),
+                      AppTextStyle(
+                        text: load.loadId,
+                        fontSize: 15.sp,
+                        fontWeight: FontWeight.w500,
+                      ),
                     ],
                   ),
                   10.height,
@@ -61,32 +54,53 @@ class UploadDocumentsDialog extends GetView<LoadDetailsController> {
                     children: [
                       customSvgImage(
                         imagePath: Assets.icons.calendarIcon,
-                        color: Colors.grey,
+                        color: AppColor.hintText,
                       ),
                       10.width,
-                      AppTextStyle(text: "24 Aug, 2026", fontSize: 15.sp),
+                      AppTextStyle(
+                        text: load.date,
+                        fontSize: 15.sp,
+                        fontWeight: FontWeight.w500,
+                      ),
                     ],
                   ),
                 ],
               ),
             ),
-
             14.verticalSpace,
             DocumentUploadField(
-              label: 'BOL - Bill of Lading',
+              label: 'Scale Ticket',
               fieldColor: AppColor.background,
-              filePathObs: controller.bolPath,
-              onTap: () => controller.pickFile(controller.bolPath),
-              onRemove: () => controller.removeFile(controller.bolPath),
+              filePathObs: controller.scaleTicketPath,
+              onTap: () =>
+                  controller.showUploadSourceSheet(controller.scaleTicketPath),
+              onRemove: () =>
+                  controller.removeFile(controller.scaleTicketPath),
             ),
-
+            14.verticalSpace,
+            DocumentUploadField(
+              label: 'Lumper fee',
+              fieldColor: AppColor.background,
+              filePathObs: controller.lumperFeePath,
+              onTap: () =>
+                  controller.showUploadSourceSheet(controller.lumperFeePath),
+              onRemove: () => controller.removeFile(controller.lumperFeePath),
+            ),
+            14.verticalSpace,
+            DocumentUploadField(
+              label: 'Inspection Report',
+              fieldColor: AppColor.background,
+              filePathObs: controller.inspectionReportPath,
+              onTap: () => controller.showUploadSourceSheet(
+                controller.inspectionReportPath,
+              ),
+              onRemove: () =>
+                  controller.removeFile(controller.inspectionReportPath),
+            ),
             20.verticalSpace,
-
-            // ── Action buttons ─────────────────────────
             Obx(
               () => Row(
                 children: [
-                  // Cancel
                   Expanded(
                     child: GestureDetector(
                       onTap: () {
@@ -99,23 +113,19 @@ class UploadDocumentsDialog extends GetView<LoadDetailsController> {
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(10.r),
                           border: Border.all(
-                            color: AppColor.primary,
-                            width: 0.8,
+                            color: AppColor.hintText.withValues(alpha: 0.35),
                           ),
                         ),
                         child: AppTextStyle(
                           text: 'Cancel',
                           fontSize: 14.sp,
                           fontWeight: FontWeight.w600,
-                          color: AppColor.primary,
                           textAlign: TextAlign.center,
                         ),
                       ),
                     ),
                   ),
                   12.horizontalSpace,
-
-                  // Submit
                   Expanded(
                     child: GestureDetector(
                       onTap: controller.isLoading.value

@@ -35,6 +35,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/calendar_icon.svg
   String get calendarIcon => 'assets/icons/calendar_icon.svg';
 
+  /// File path: assets/icons/call_icon.svg
+  String get callIcon => 'assets/icons/call_icon.svg';
+
   /// File path: assets/icons/camera_icon.svg
   String get cameraIcon => 'assets/icons/camera_icon.svg';
 
@@ -61,6 +64,9 @@ class $AssetsIconsGen {
 
   /// File path: assets/icons/done_sticker.svg
   String get doneSticker => 'assets/icons/done_sticker.svg';
+
+  /// File path: assets/icons/download_icon.svg
+  String get downloadIcon => 'assets/icons/download_icon.svg';
 
   /// File path: assets/icons/earning_bag_fill_icon.svg
   String get earningBagFillIcon => 'assets/icons/earning_bag_fill_icon.svg';
@@ -140,11 +146,17 @@ class $AssetsIconsGen {
   /// File path: assets/icons/student_card_icon.svg
   String get studentCardIcon => 'assets/icons/student_card_icon.svg';
 
+  /// File path: assets/icons/truck_fill_icon.svg
+  String get truckFillIcon => 'assets/icons/truck_fill_icon.svg';
+
   /// File path: assets/icons/truck_icon.svg
   String get truckIcon => 'assets/icons/truck_icon.svg';
 
   /// File path: assets/icons/upload_icon.svg
   String get uploadIcon => 'assets/icons/upload_icon.svg';
+
+  /// File path: assets/icons/user_plus_icon.svg
+  String get userPlusIcon => 'assets/icons/user_plus_icon.svg';
 
   /// File path: assets/icons/verify_badge_icon.svg
   String get verifyBadgeIcon => 'assets/icons/verify_badge_icon.svg';
@@ -158,6 +170,7 @@ class $AssetsIconsGen {
     blockIcon,
     blockPackageIcon,
     calendarIcon,
+    callIcon,
     cameraIcon,
     companyIcon,
     crossCircleIcon,
@@ -167,6 +180,7 @@ class $AssetsIconsGen {
     docIcon,
     doneDoubleSticker,
     doneSticker,
+    downloadIcon,
     earningBagFillIcon,
     editIcon,
     emailIcon,
@@ -193,8 +207,10 @@ class $AssetsIconsGen {
     shareIcon,
     stopwatchIcon,
     studentCardIcon,
+    truckFillIcon,
     truckIcon,
     uploadIcon,
+    userPlusIcon,
     verifyBadgeIcon,
   ];
 }

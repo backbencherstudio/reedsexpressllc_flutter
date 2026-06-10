@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:reedsexpressllc_flutter/app/core/extensions/sizedbox_extension.dart';
 import 'package:reedsexpressllc_flutter/app/core/theme/app_color.dart';
+import 'package:reedsexpressllc_flutter/app/core/utils/helper_utils.dart';
 import 'package:reedsexpressllc_flutter/app/widgets/app_text_style.dart';
+import 'package:reedsexpressllc_flutter/app/widgets/cached_image_widget.dart';
 import 'package:reedsexpressllc_flutter/app/widgets/custom_icon_button.dart';
 import 'package:reedsexpressllc_flutter/app/widgets/custom_svg_image.dart';
 
@@ -42,17 +45,52 @@ class LoadDetailsView extends GetView<LoadDetailsController> {
               _LoadHeaderCard(load: load),
               14.verticalSpace,
 
-              // ── Upload Documents button ──────────────────────
-              _UploadButton(
-                onTap: () {
-                  Get.dialog(
-                    const UploadDocumentsDialog(),
-                    barrierDismissible: false,
-                  );
-                },
-              ),
-              14.verticalSpace,
+              // ── Upload Documents button (Delivered status only) ──
+              if (HelperUtils.isDriverUser == true &&
+                  load.status == LoadStatus.delivered) ...[
+                _UploadButton(
+                  onTap: () {
+                    Get.dialog(
+                      const UploadDocumentsDialog(),
+                      barrierDismissible: false,
+                    );
+                  },
+                ),
+                14.verticalSpace,
+              ],
 
+              // ── Assigned Driver ─────────────────────────────
+              HelperUtils.isCarrierUser
+                  ? _SectionCard(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          _CardTitle(title: 'Assigned Driver'),
+                          10.verticalSpace,
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              CachedImage(
+                                imgUrl: HelperUtils.defaultProfileImage,
+                                height: 30.h,
+                                width: 30.h,
+                                borderRadius: 50.r,
+                              ),
+                              10.width,
+                              Expanded(
+                                child: AppTextStyle(
+                                  text: "David Johnson",
+                                  fontSize: 15.sp,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    )
+                  : SizedBox.shrink(),
+              14.verticalSpace,
               // ── Load Summary ─────────────────────────────────
               _SectionCard(
                 child: Column(
@@ -95,6 +133,64 @@ class LoadDetailsView extends GetView<LoadDetailsController> {
                   ],
                 ),
               ),
+
+              14.verticalSpace,
+              // ── Dispatcher ─────────────────────────────
+              _SectionCard(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    _CardTitle(title: 'Dispatcher'),
+                    10.verticalSpace,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        CachedImage(
+                          imgUrl: HelperUtils.defaultProfileImage,
+                          height: 30.h,
+                          width: 30.h,
+                          borderRadius: 50.r,
+                        ),
+                        10.width,
+                        Expanded(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              AppTextStyle(
+                                text: "David Johnson",
+                                fontSize: 15.sp,
+                                fontWeight: FontWeight.w500,
+                              ),
+                              AppTextStyle(
+                                text: 'burger@gmail.com',
+                                fontSize: 13.sp,
+                                fontWeight: FontWeight.w400,
+                                color: const Color(0xFF555555),
+                                height: 1.6,
+                              ),
+                            ],
+                          ),
+                        ),
+                        GestureDetector(
+                          onTap: () {},
+                          child: customSvgImage(
+                            imagePath: Assets.icons.messageIcon,
+                          ),
+                        ),
+                        15.width,
+                        GestureDetector(
+                          onTap: () {},
+                          child: customSvgImage(
+                            imagePath: Assets.icons.callIcon,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+
               14.verticalSpace,
 
               // ── Tracking Timeline ────────────────────────────

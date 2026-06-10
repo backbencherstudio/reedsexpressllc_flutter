@@ -28,6 +28,7 @@ abstract class Routes {
   static const SETTINGS_NOTIFICATION = _Paths.SETTINGS_NOTIFICATION;
   static const SHOW_MAP = _Paths.SHOW_MAP;
   static const CHOOSE_ROLE = _Paths.CHOOSE_ROLE;
+  static const CARRIER_INFO_DOCS = _Paths.CARRIER_INFO_DOCS;
 }
 
 abstract class _Paths {
@@ -57,4 +58,5 @@ abstract class _Paths {
   static const SETTINGS_NOTIFICATION = '/settings-notification';
   static const SHOW_MAP = '/show-map';
   static const CHOOSE_ROLE = '/choose-role';
+  static const CARRIER_INFO_DOCS = '/carrier-info-docs';
 }

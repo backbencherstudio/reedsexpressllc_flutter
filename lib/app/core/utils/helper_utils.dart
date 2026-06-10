@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:reedsexpressllc_flutter/app/core/constants/enums.dart';
 
 import '../../modules/main_page/controllers/main_page_controller.dart';
 import '../../routes/app_pages.dart';
@@ -28,6 +29,10 @@ class HelperUtils {
   static String token = "";
   static String userId = "";
   static String userRole = "";
+
+ static bool get isCarrierUser => UserRole.isCarrierRole(userRole);
+
+ static bool get isDriverUser => UserRole.isDriverRole(userRole);
 
   //
   // Save / login user (updates storage + runtime)
