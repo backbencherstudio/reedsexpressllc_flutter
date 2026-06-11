@@ -97,8 +97,8 @@ class LicenseAndCertificationsView
                         child: customSvgImage(
                           imagePath: Assets.icons.calendarIcon,
                           color: AppColor.hintText,
-                          height: 15.h,
-                          width: 15.w,
+                          height: 12.h,
+                          width: 12.w,
                         ),
                       ),
                     ),
@@ -118,8 +118,8 @@ class LicenseAndCertificationsView
                         child: customSvgImage(
                           imagePath: Assets.icons.calendarIcon,
                           color: AppColor.hintText,
-                          height: 15.h,
-                          width: 15.w,
+                          height: 12.h,
+                          width: 12.w,
                         ),
                       ),
                     ),
@@ -139,8 +139,8 @@ class LicenseAndCertificationsView
                         child: customSvgImage(
                           imagePath: Assets.icons.calendarIcon,
                           color: AppColor.hintText,
-                          height: 15.h,
-                          width: 15.w,
+                          height: 12.h,
+                          width: 12.w,
                         ),
                       ),
                     ),
