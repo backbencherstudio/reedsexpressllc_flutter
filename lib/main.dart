@@ -17,11 +17,6 @@ void main() async {
   //   options: DefaultFirebaseOptions.currentPlatform,
   // );
   //
-  ///    Initialize Supabase
-  // await Supabase.initialize(
-  //   url: AppConfig.SUPABASE_URL,
-  //   anonKey: AppConfig.SUPABASE_ANON_KEY,
-  // );
 
   await HiveService.initHive();
 
