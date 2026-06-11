@@ -137,6 +137,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/profile_icon.svg
   String get profileIcon => 'assets/icons/profile_icon.svg';
 
+  /// File path: assets/icons/register_driver_icon.svg
+  String get registerDriverIcon => 'assets/icons/register_driver_icon.svg';
+
   /// File path: assets/icons/search_icon.svg
   String get searchIcon => 'assets/icons/search_icon.svg';
 
@@ -207,6 +210,7 @@ class $AssetsIconsGen {
     phoneIcon,
     profileFillIcon,
     profileIcon,
+    registerDriverIcon,
     searchIcon,
     shareIcon,
     stopwatchIcon,

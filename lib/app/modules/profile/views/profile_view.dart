@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:reedsexpressllc_flutter/app/core/extensions/sizedbox_extension.dart';
+import 'package:reedsexpressllc_flutter/app/core/utils/helper_utils.dart';
 import 'package:reedsexpressllc_flutter/app/widgets/custom_dialog.dart';
 import 'package:reedsexpressllc_flutter/app/widgets/global_button.dart';
 import 'package:reedsexpressllc_flutter/app/modules/main_page/controllers/main_page_controller.dart';
@@ -59,6 +60,24 @@ class ProfileView extends GetView<ProfileController> {
                           Get.toNamed(Routes.PERSONAL_INFO);
                         },
                       ),
+
+                      HelperUtils.isCarrierUser
+                          ? Padding(
+                              padding: EdgeInsets.only(top: 12.h),
+                              child: _ProfileMenuItem(
+                                iconWidget: customSvgImage(
+                                  imagePath: Assets.icons.registerDriverIcon,
+                                  width: 24.w,
+                                  height: 24.w,
+                                  color: Colors.black87,
+                                ),
+                                title: 'Register as a Driver',
+                                onTap: () {
+                                  Get.toNamed(Routes.REGISTER_AS_DRIVER);
+                                },
+                              ),
+                            )
+                          : SizedBox.shrink(),
                       12.verticalSpace,
                       _ProfileMenuItem(
                         iconWidget: customSvgImage(
@@ -122,20 +141,6 @@ class ProfileView extends GetView<ProfileController> {
                         title: 'Support',
                         onTap: () {
                           Get.find<MainPageController>().changePage(2);
-                        },
-                      ),
-                      12.verticalSpace,
-
-                      _ProfileMenuItem(
-                        iconWidget: customSvgImage(
-                          imagePath: Assets.icons.customerSupportIcon,
-                          width: 24.w,
-                          height: 24.w,
-                          color: Colors.black87,
-                        ),
-                        title: 'Map ',
-                        onTap: () {
-                          Get.toNamed(Routes.SHOW_MAP);
                         },
                       ),
                       12.verticalSpace,

@@ -30,6 +30,13 @@ abstract class Routes {
   static const CHOOSE_ROLE = _Paths.CHOOSE_ROLE;
   static const CARRIER_INFO_DOCS = _Paths.CARRIER_INFO_DOCS;
   static const TRACK_LOAD = _Paths.TRACK_LOAD;
+  static const TEAM_MEMBERS = _Paths.TEAM_MEMBERS;
+  static const ADD_TEAM_MEMBER = _Paths.TEAM_MEMBERS + _Paths.ADD_TEAM_MEMBER;
+  static const TEMA_MEMBER_DETAILS =
+      _Paths.TEAM_MEMBERS + _Paths.TEMA_MEMBER_DETAILS;
+  static const REGISTER_AS_DRIVER = _Paths.REGISTER_AS_DRIVER;
+  static const ASSIGN_VEHICLE = _Paths.VEHICLE + _Paths.ASSIGN_VEHICLE;
+  static const ADD_TRUCK = _Paths.ADD_TRUCK;
 }
 
 abstract class _Paths {
@@ -61,4 +68,10 @@ abstract class _Paths {
   static const CHOOSE_ROLE = '/choose-role';
   static const CARRIER_INFO_DOCS = '/carrier-info-docs';
   static const TRACK_LOAD = '/track-load';
+  static const TEAM_MEMBERS = '/team-members';
+  static const ADD_TEAM_MEMBER = '/add-team-member';
+  static const TEMA_MEMBER_DETAILS = '/tema-member-details';
+  static const REGISTER_AS_DRIVER = '/register-as-driver';
+  static const ASSIGN_VEHICLE = '/assign-vehicle';
+  static const ADD_TRUCK = '/add-truck';
 }

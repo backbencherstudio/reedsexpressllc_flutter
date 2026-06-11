@@ -15,7 +15,8 @@ import '../../../widgets/custom_svg_image.dart';
 import '../../../widgets/global_button.dart';
 import '../controllers/license_and_certifications_controller.dart';
 
-class LicenseAndCertificationsView extends GetView<LicenseAndCertificationsController> {
+class LicenseAndCertificationsView
+    extends GetView<LicenseAndCertificationsController> {
   const LicenseAndCertificationsView({super.key});
 
   @override
@@ -70,83 +71,93 @@ class LicenseAndCertificationsView extends GetView<LicenseAndCertificationsContr
                       ),
                     ),
                     16.verticalSpace,
-                    
+
                     InputFieldWithLabel(
                       label: 'License Number',
                       hintText: 'Enter License Number',
                       controller: controller.licenseNumberController,
                     ),
                     16.verticalSpace,
-                    
+
                     _LicenseStateDropdown(controller: controller),
-                    
+
                     16.verticalSpace,
-                    
+
                     InputFieldWithLabel(
                       label: 'License Expiration',
                       hintText: 'Enter License Expiration',
                       controller: controller.licenseExpirationController,
                       readOnly: true,
-                      onTap: () => _showDatePicker(context, controller.licenseExpirationController),
+                      onTap: () => _showDatePicker(
+                        context,
+                        controller.licenseExpirationController,
+                      ),
                       suffixIcon: Padding(
-                        padding:  EdgeInsets.all(5.r),
+                        padding: EdgeInsets.all(5.r),
                         child: customSvgImage(
-                          imagePath: Assets.icons.docIcon,
+                          imagePath: Assets.icons.calendarIcon,
                           color: AppColor.hintText,
                           height: 15.h,
-                          width: 15.w
+                          width: 15.w,
                         ),
                       ),
                     ),
                     16.verticalSpace,
-                    
+
                     InputFieldWithLabel(
                       label: 'Medical Card Expiration',
                       hintText: 'Enter Medical Card Expiration',
                       controller: controller.medicalCardExpirationController,
                       readOnly: true,
-                      onTap: () => _showDatePicker(context, controller.medicalCardExpirationController),
+                      onTap: () => _showDatePicker(
+                        context,
+                        controller.medicalCardExpirationController,
+                      ),
                       suffixIcon: Padding(
-                        padding:  EdgeInsets.all(5.r),
+                        padding: EdgeInsets.all(5.r),
                         child: customSvgImage(
-                            imagePath: Assets.icons.docIcon,
-                            color: AppColor.hintText,
-                            height: 15.h,
-                            width: 15.w
+                          imagePath: Assets.icons.calendarIcon,
+                          color: AppColor.hintText,
+                          height: 15.h,
+                          width: 15.w,
                         ),
                       ),
                     ),
                     16.verticalSpace,
-                    
+
                     InputFieldWithLabel(
                       label: 'Registration Expiration',
                       hintText: 'Enter Registration Expiration',
                       controller: controller.registrationExpirationController,
                       readOnly: true,
-                      onTap: () => _showDatePicker(context, controller.registrationExpirationController),
+                      onTap: () => _showDatePicker(
+                        context,
+                        controller.registrationExpirationController,
+                      ),
                       suffixIcon: Padding(
-                        padding:  EdgeInsets.all(5.r),
+                        padding: EdgeInsets.all(5.r),
                         child: customSvgImage(
-                            imagePath: Assets.icons.docIcon,
-                            color: AppColor.hintText,
-                            height: 15.h,
-                            width: 15.w
+                          imagePath: Assets.icons.calendarIcon,
+                          color: AppColor.hintText,
+                          height: 15.h,
+                          width: 15.w,
                         ),
                       ),
                     ),
-                    
+
                     40.verticalSpace,
-                    
-                    Obx(() => controller.isEditing.value 
-                      ? GlobalButton(
-                          onTap: () {
-                            controller.toggleEdit();
-                            // Save logic here
-                          },
-                          text: "Save Changes",
-                          textColor: Colors.white,
-                        )
-                      : const SizedBox.shrink()
+
+                    Obx(
+                      () => controller.isEditing.value
+                          ? GlobalButton(
+                              onTap: () {
+                                controller.toggleEdit();
+                                // Save logic here
+                              },
+                              text: "Save Changes",
+                              textColor: Colors.white,
+                            )
+                          : const SizedBox.shrink(),
                     ),
                     40.verticalSpace,
                   ],
@@ -159,7 +170,10 @@ class LicenseAndCertificationsView extends GetView<LicenseAndCertificationsContr
     );
   }
 
-  void _showDatePicker(BuildContext context, TextEditingController textController) {
+  void _showDatePicker(
+    BuildContext context,
+    TextEditingController textController,
+  ) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -205,50 +219,56 @@ class _LicenseStateDropdown extends StatelessWidget {
           fontWeight: FontWeight.w500,
         ),
         8.verticalSpace,
-        Obx(() => DropdownButtonFormField<String>(
-          value: controller.licenseState.value.isNotEmpty ? controller.licenseState.value : null,
-          icon: Icon(Icons.keyboard_arrow_down, color: AppColor.hintText),
-          decoration: InputDecoration(
-            hintText: 'Enter License State',
-            hintStyle: TextStyle(
-              color: Colors.grey,
-              fontSize: 14.sp,
-            ),
-            filled: true,
-            fillColor: Colors.white,
-            contentPadding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 14.h),
-             border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
-              borderSide: const BorderSide(
-                color: Colors.black,
-                width: 0.5,
+        Obx(
+          () => DropdownButtonFormField<String>(
+            value: controller.licenseState.value.isNotEmpty
+                ? controller.licenseState.value
+                : null,
+            icon: Icon(Icons.keyboard_arrow_down, color: AppColor.hintText),
+            decoration: InputDecoration(
+              hintText: 'Enter License State',
+              hintStyle: TextStyle(color: Colors.grey, fontSize: 14.sp),
+              filled: true,
+              fillColor: Colors.white,
+              contentPadding: EdgeInsets.symmetric(
+                horizontal: 12.w,
+                vertical: 14.h,
+              ),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+                borderSide: const BorderSide(color: Colors.black, width: 0.5),
+              ),
+              enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+                borderSide: const BorderSide(
+                  color: AppColor.hintText,
+                  width: 0.5,
+                ),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+                borderSide: const BorderSide(
+                  color: AppColor.primary,
+                  width: 0.8,
+                ),
               ),
             ),
-            enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
-              borderSide: const BorderSide(
-                color: AppColor.hintText,
-                width: 0.5,
-              ),
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
-              borderSide: const BorderSide(
-                color: AppColor.primary,
-                width: 0.8,
-              ),
-            ),
-          ),
-          items: ['Arizona', 'California', 'Texas', 'New York', 'Florida']
-              .map((state) => DropdownMenuItem(
+            items: ['Arizona', 'California', 'Texas', 'New York', 'Florida']
+                .map(
+                  (state) => DropdownMenuItem(
                     value: state,
-                    child: Text(state, style: TextStyle(fontSize: 14.sp, color: Colors.black)),
-                  ))
-              .toList(),
-          onChanged: (value) {
-            if (value != null) controller.licenseState.value = value;
-          },
-        )),
+                    child: Text(
+                      state,
+                      style: TextStyle(fontSize: 14.sp, color: Colors.black),
+                    ),
+                  ),
+                )
+                .toList(),
+            onChanged: (value) {
+              if (value != null) controller.licenseState.value = value;
+            },
+          ),
+        ),
       ],
     );
   }

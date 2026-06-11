@@ -2,6 +2,8 @@ import 'package:get/get.dart';
 
 import '../modules/active_load_list/bindings/active_load_list_binding.dart';
 import '../modules/active_load_list/views/active_load_list_view.dart';
+import '../modules/add_truck/bindings/add_truck_binding.dart';
+import '../modules/add_truck/views/add_truck_view.dart';
 import '../modules/carrier_info_docs/bindings/carrier_info_docs_binding.dart';
 import '../modules/carrier_info_docs/views/carrier_info_docs_view.dart';
 import '../modules/change_password/bindings/change_password_binding.dart';
@@ -40,16 +42,26 @@ import '../modules/profile/bindings/profile_binding.dart';
 import '../modules/profile/views/profile_view.dart';
 import '../modules/register/bindings/register_binding.dart';
 import '../modules/register/views/register_view.dart';
+import '../modules/register_as_driver/bindings/register_as_driver_binding.dart';
+import '../modules/register_as_driver/views/register_as_driver_view.dart';
 import '../modules/settings_notification/bindings/settings_notification_binding.dart';
 import '../modules/settings_notification/views/settings_notification_view.dart';
 import '../modules/show_map/bindings/show_map_binding.dart';
 import '../modules/show_map/views/show_map_view.dart';
 import '../modules/splash/bindings/splash_binding.dart';
 import '../modules/splash/views/splash_view.dart';
+import '../modules/team_members/add_team_member/bindings/add_team_member_binding.dart';
+import '../modules/team_members/add_team_member/views/add_team_member_view.dart';
+import '../modules/team_members/bindings/team_members_binding.dart';
+import '../modules/team_members/tema_member_details/bindings/tema_member_details_binding.dart';
+import '../modules/team_members/tema_member_details/views/tema_member_details_view.dart';
+import '../modules/team_members/views/team_members_view.dart';
 import '../modules/track_load/bindings/track_load_binding.dart';
 import '../modules/track_load/views/track_load_view.dart';
 import '../modules/upload_documents/bindings/upload_documents_binding.dart';
 import '../modules/upload_documents/views/upload_documents_view.dart';
+import '../modules/vehicle/assign_vehicle/bindings/assign_vehicle_binding.dart';
+import '../modules/vehicle/assign_vehicle/views/assign_vehicle_view.dart';
 import '../modules/vehicle/bindings/vehicle_binding.dart';
 import '../modules/vehicle/views/vehicle_view.dart';
 import '../modules/verify_otp/bindings/verify_otp_binding.dart';
@@ -174,6 +186,13 @@ class AppPages {
       name: _Paths.VEHICLE,
       page: () => const VehicleView(),
       binding: VehicleBinding(),
+      children: [
+        GetPage(
+          name: _Paths.ASSIGN_VEHICLE,
+          page: () => const AssignVehicleView(),
+          binding: AssignVehicleBinding(),
+        ),
+      ],
     ),
     GetPage(
       name: _Paths.SETTINGS_NOTIFICATION,
@@ -199,6 +218,33 @@ class AppPages {
       name: _Paths.TRACK_LOAD,
       page: () => const TrackLoadView(),
       binding: TrackLoadBinding(),
+    ),
+    GetPage(
+      name: _Paths.TEAM_MEMBERS,
+      page: () => const TeamMembersView(),
+      binding: TeamMembersBinding(),
+      children: [
+        GetPage(
+          name: _Paths.ADD_TEAM_MEMBER,
+          page: () => const AddTeamMemberView(),
+          binding: AddTeamMemberBinding(),
+        ),
+        GetPage(
+          name: _Paths.TEMA_MEMBER_DETAILS,
+          page: () => const TemaMemberDetailsView(),
+          binding: TemaMemberDetailsBinding(),
+        ),
+      ],
+    ),
+    GetPage(
+      name: _Paths.REGISTER_AS_DRIVER,
+      page: () => const RegisterAsDriverView(),
+      binding: RegisterAsDriverBinding(),
+    ),
+    GetPage(
+      name: _Paths.ADD_TRUCK,
+      page: () => const AddTruckView(),
+      binding: AddTruckBinding(),
     ),
   ];
 }

@@ -5,7 +5,6 @@ import 'package:get/get.dart';
 import 'package:reedsexpressllc_flutter/app/core/extensions/sizedbox_extension.dart';
 import 'package:reedsexpressllc_flutter/app/core/layouts/load_item_layout.dart';
 import 'package:reedsexpressllc_flutter/app/core/utils/helper_utils.dart';
-import 'package:reedsexpressllc_flutter/app/core/utils/logger.dart';
 import 'package:reedsexpressllc_flutter/app/widgets/custom_svg_image.dart';
 import 'package:reedsexpressllc_flutter/app/widgets/global_button.dart';
 import 'package:reedsexpressllc_flutter/app/widgets/show_empty_result.dart';
@@ -459,7 +458,9 @@ class _QuickActionsGrid extends GetView<HomeController> {
               child: QuickActionItem(
                 iconPath: Assets.icons.userPlusIcon,
                 label: 'Add Drivers',
-                onTap: controller.assignMember,
+                onTap: (){
+                  Get.toNamed(Routes.TEAM_MEMBERS);
+                },
               ),
             ),
           ],
